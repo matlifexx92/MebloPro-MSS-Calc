@@ -1,0 +1,1294 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>MebloPro – MSS WOOD DESIGN</title>
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:'Segoe UI',sans-serif;background:#f0f2f5;color:#222;font-size:14px}
+.app{max-width:1040px;margin:0 auto;padding:12px}
+h1{font-size:19px;font-weight:700;color:#1a1a2e;margin-bottom:2px}
+.subtitle{color:#666;font-size:11px;margin-bottom:12px}
+.tabs{display:flex;gap:3px;margin-bottom:12px;background:#fff;padding:5px;border-radius:10px;box-shadow:0 1px 4px rgba(0,0,0,.08);flex-wrap:wrap}
+.tab{flex:1;min-width:65px;padding:7px 4px;border:none;border-radius:7px;font-size:11px;font-weight:600;cursor:pointer;background:transparent;color:#888;transition:all .15s}
+.tab.active{background:#e8601a;color:#fff}
+.card{background:#fff;border-radius:10px;padding:16px;margin-bottom:10px;box-shadow:0 1px 4px rgba(0,0,0,.08)}
+.card>h2{font-size:12px;font-weight:700;color:#444;margin-bottom:11px;text-transform:uppercase;letter-spacing:.5px;border-bottom:2px solid #f0f2f5;padding-bottom:6px}
+.row{display:flex;gap:9px;flex-wrap:wrap;margin-bottom:9px}
+.field{display:flex;flex-direction:column;gap:3px;flex:1;min-width:100px}
+.field label{font-size:11px;font-weight:600;color:#888;text-transform:uppercase}
+.field input,.field select,.field textarea{border:1.5px solid #e0e0e0;border-radius:6px;padding:6px 9px;font-size:13px;color:#222;background:#fafafa;transition:border .15s;font-family:inherit}
+.field input:focus,.field select:focus,.field textarea:focus{outline:none;border-color:#e8601a;background:#fff}
+.field textarea{resize:vertical;min-height:50px}
+.btn{padding:7px 14px;border:none;border-radius:7px;font-size:12px;font-weight:600;cursor:pointer;transition:all .15s}
+.btn-primary{background:#e8601a;color:#fff}.btn-primary:hover{background:#c94e0e}
+.btn-secondary{background:#f0f2f5;color:#444}.btn-secondary:hover{background:#e0e3e8}
+.btn-danger{background:#fee;color:#c00}.btn-danger:hover{background:#fdd}
+.btn-success{background:#e8f5e9;color:#2e7d32}.btn-success:hover{background:#c8e6c9}
+.btn-dark{background:#1a1a2e;color:#fff}.btn-dark:hover{background:#2a2a4e}
+.btn-sm{padding:3px 9px;font-size:11px}
+.front-section{background:#fff8f5;border:1.5px solid #ffd4bb;border-radius:8px;padding:11px;margin-top:9px}
+.front-section h3{font-size:11px;font-weight:700;color:#e8601a;margin-bottom:9px;text-transform:uppercase}
+.etable{width:100%;border-collapse:collapse;margin-top:5px}
+.etable th{background:#f0f2f5;font-size:11px;font-weight:700;color:#888;text-transform:uppercase;padding:6px 7px;text-align:left}
+.etable td{padding:5px 7px;border-bottom:1px solid #f0f2f5;font-size:12px;vertical-align:middle}
+.etable tr:last-child td{border-bottom:none}
+.grp-hdr td{background:#fff3ee;font-size:10px;font-weight:700;color:#e8601a;text-transform:uppercase;padding:3px 7px}
+.kw{display:inline-grid;grid-template-columns:repeat(3,19px);grid-template-rows:repeat(3,19px);gap:1px}
+.kb{width:19px;height:19px;display:flex;align-items:center;justify-content:center;border-radius:3px;font-size:9px;font-weight:700;cursor:pointer;border:1.5px solid #ddd;background:#fff;color:#bbb;transition:all .1s;user-select:none}
+.kb.on{background:#e8601a;border-color:#e8601a;color:#fff}
+.kb.mid{background:transparent;border:none;cursor:default;color:#ddd;font-size:8px}
+.acc-item{background:#fff3ee;border:1px solid #ffd4bb;border-radius:5px;padding:3px 8px;font-size:11px;color:#c94e0e;display:inline-block;margin:2px}
+.chip{display:inline-block;padding:2px 6px;border-radius:10px;font-size:11px;background:#f0f2f5;color:#555;margin:1px}
+.tag{display:inline-block;padding:2px 6px;border-radius:4px;font-size:11px;font-weight:600}
+.tag-wisząca{background:#e8f0fe;color:#1565c0}.tag-stojąca{background:#e8f5e9;color:#2e7d32}
+.tag-slupek{background:#fff3ee;color:#e8601a}
+.info-box{background:#fff8f5;border:1px solid #ffd4bb;border-radius:5px;padding:5px 9px;font-size:11px;color:#c94e0e;margin-top:5px}
+.zestawy-grid{display:flex;flex-wrap:wrap;gap:6px;margin-top:7px}
+.zb{border:2px solid #e0e0e0;border-radius:7px;padding:5px 11px;font-size:12px;font-weight:600;cursor:pointer;background:#fff;color:#444;transition:all .15s}
+.zb:hover{border-color:#e8601a;color:#e8601a}.zb.sel{border-color:#e8601a;background:#e8601a;color:#fff}
+.sc{background:#fff;border-radius:10px;margin-bottom:8px;box-shadow:0 1px 4px rgba(0,0,0,.08);overflow:hidden}
+.sh{display:flex;align-items:center;padding:9px 13px;cursor:pointer;gap:7px;user-select:none}
+.sh:hover{background:#fff8f5}
+.sarr{font-size:11px;color:#aaa;transition:transform .2s;width:14px}.sarr.op{transform:rotate(90deg)}
+.sidx{font-size:11px;font-weight:700;color:#fff;background:#e8601a;border-radius:5px;padding:2px 7px;min-width:24px;text-align:center}
+.sinfo{flex:1;display:flex;flex-wrap:wrap;gap:4px;align-items:center}
+.sname{font-weight:700;font-size:13px}
+.sbody{padding:0 13px 13px;border-top:1px solid #f0f2f5}
+.sumbox{background:#1a1a2e;color:#fff;border-radius:10px;padding:13px 16px;margin-bottom:10px}
+.sumbox h2{color:#ffd4bb;font-size:11px;text-transform:uppercase;margin-bottom:9px;border-bottom:1px solid #333;padding-bottom:6px}
+.sumrow{display:flex;justify-content:space-between;padding:3px 0;font-size:12px}
+.sumrow.total{font-weight:700;font-size:15px;color:#e8601a;border-top:1px solid #444;margin-top:6px;padding-top:6px}
+.empty{text-align:center;padding:30px;color:#aaa}
+.empty .ic{font-size:32px;margin-bottom:6px}
+.mbg{display:none;position:fixed;inset:0;background:rgba(0,0,0,.5);z-index:100;align-items:center;justify-content:center}
+.mbg.open{display:flex}
+.mdl{background:#fff;border-radius:12px;padding:20px;width:94%;max-width:520px;max-height:90vh;overflow-y:auto;box-shadow:0 8px 32px rgba(0,0,0,.2)}
+.mdl h3{font-size:14px;font-weight:700;margin-bottom:13px;color:#1a1a2e}
+.kt{width:100%;border-collapse:collapse;font-size:12px}
+.kt th{background:#f0f2f5;padding:6px 9px;text-align:left;font-size:11px;font-weight:700;color:#888;text-transform:uppercase}
+.kt td{padding:5px 9px;border-bottom:1px solid #f0f2f5;vertical-align:middle}
+.kt tr:last-child td{border-bottom:none}
+.kt input{border:1.5px solid #e0e0e0;border-radius:5px;padding:3px 6px;font-size:12px;width:85px;background:#fafafa}
+.kt input:focus{outline:none;border-color:#e8601a}
+.cat-sec{margin-bottom:16px}
+.cat-sec h3{font-size:11px;font-weight:700;color:#e8601a;text-transform:uppercase;margin-bottom:7px;padding-bottom:5px;border-bottom:2px solid #ffd4bb}
+.list-card{background:#fff;border-radius:10px;margin-bottom:8px;box-shadow:0 1px 4px rgba(0,0,0,.08);overflow:hidden}
+.list-hdr{display:flex;align-items:center;padding:10px 14px;gap:8px;cursor:pointer;user-select:none}
+.list-hdr:hover{background:#fff8f5}
+.list-body{padding:0 14px 14px;border-top:1px solid #f0f2f5;display:none}
+.stat-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(110px,1fr));gap:7px;margin:10px 0}
+.stat-box{background:#f8f9ff;border-radius:8px;padding:9px;text-align:center}
+.stat-val{font-size:16px;font-weight:700;color:#e8601a}
+.stat-lbl{font-size:10px;color:#888;margin-top:2px}
+.badge{display:inline-block;padding:2px 8px;border-radius:10px;font-size:11px;font-weight:600}
+.badge-green{background:#e8f5e9;color:#2e7d32}.badge-orange{background:#fff3e0;color:#e65100}
+.badge-red{background:#ffebee;color:#c62828}.badge-blue{background:#e8f0fe;color:#1565c0}
+.prog-bar{background:#f0f2f5;border-radius:4px;height:6px;margin-top:4px}
+.prog-fill{background:#e8601a;border-radius:4px;height:6px}
+.marza-btns{display:flex;gap:6px;flex-wrap:wrap;margin-top:6px}
+.marza-btn{padding:6px 14px;border:2px solid #e0e0e0;border-radius:7px;font-size:13px;font-weight:700;cursor:pointer;background:#fff;color:#444;transition:all .15s}
+.marza-btn:hover{border-color:#e8601a;color:#e8601a}
+.marza-btn.sel{border-color:#e8601a;background:#e8601a;color:#fff}
+
+/* Słupek wizualizacja */
+.slupek-diagram{display:flex;gap:16px;margin-top:10px;align-items:flex-start}
+.slupek-col{flex:1}
+.slupek-strefa{border:2px solid #e0e0e0;border-radius:6px;padding:8px;margin-bottom:4px;font-size:11px;text-align:center;position:relative}
+.slupek-strefa.szuflady{border-color:#e8601a;background:#fff8f5;color:#e8601a}
+.slupek-strefa.sprzet{border-color:#666;background:#f5f5f5;color:#444;font-style:italic}
+.slupek-strefa.drzwi{border-color:#1565c0;background:#e8f0fe;color:#1565c0}
+.slupek-strefa.wieniec{border-color:#aaa;background:#f9f9f9;color:#888;padding:4px;font-size:10px}
+
+/* Kalendarz pracowników */
+.kal-grid{display:grid;grid-template-columns:repeat(7,1fr);gap:3px;margin-top:10px}
+.kal-hdr{font-size:10px;font-weight:700;color:#888;text-align:center;padding:4px}
+.kal-day{border-radius:6px;padding:4px;min-height:48px;background:#fafafa;border:1px solid #f0f2f5;font-size:10px;cursor:pointer;transition:background .1s}
+.kal-day:hover{background:#fff3ee}
+.kal-day.today{border-color:#e8601a;background:#fff8f5}
+.kal-day.has-work{background:#e8f5e9}
+.kal-day .kal-num{font-weight:700;color:#444;font-size:11px}
+.kal-day .kal-godz{color:#2e7d32;font-size:10px;font-weight:700}
+.kal-day .kal-proj{color:#888;font-size:9px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.kal-day.other-month .kal-num{color:#ccc}
+.kal-nav{display:flex;justify-content:space-between;align-items:center;margin-bottom:8px}
+.kal-nav span{font-weight:700;font-size:14px}
+
+/* Historia wycen */
+.hist-item{display:flex;align-items:center;gap:10px;padding:9px 0;border-bottom:1px solid #f0f2f5}
+.hist-nr{font-size:11px;font-weight:700;color:#e8601a;min-width:80px}
+.hist-info{flex:1}
+.hist-cena{font-weight:700;color:#2e7d32;white-space:nowrap}
+
+/* Słupek konfiguracja */
+.slupek-config{background:#f0f4ff;border:1.5px solid #d0d8ff;border-radius:8px;padding:12px;margin-top:10px}
+.slupek-config h3{font-size:11px;font-weight:700;color:#3a5acc;margin-bottom:10px;text-transform:uppercase}
+
+#preview_overlay{display:none;position:fixed;inset:0;background:rgba(0,0,0,.6);z-index:200;overflow-y:auto;padding:20px}
+#preview_overlay.open{display:block}
+.preview-wrap{max-width:800px;margin:0 auto;background:#fff;border-radius:12px;overflow:hidden;box-shadow:0 8px 40px rgba(0,0,0,.3)}
+@media print{
+  body{background:#fff!important}
+  #preview_overlay{position:static!important;background:none!important;padding:0!important;display:block!important}
+  .preview-wrap{box-shadow:none!important;border-radius:0!important;margin:0!important}
+  .no-print{display:none!important}
+}
+</style>
+</head>
+<body>
+<div class="app">
+<div style="display:flex;align-items:center;gap:12px;margin-bottom:12px">
+  <div><h1>🪑 MebloPro</h1><p class="subtitle">MSS WOOD DESIGN – System wycen i zarządzania</p></div>
+</div>
+<div class="tabs">
+  <button class="tab active" onclick="showTab('wycena')">📋 Wycena</button>
+  <button class="tab" onclick="showTab('historia')">📜 Historia</button>
+  <button class="tab" onclick="showTab('katalog')">🗂️ Katalog</button>
+  <button class="tab" onclick="showTab('baza')">💾 Baza</button>
+  <button class="tab" onclick="showTab('klienci')">👥 Klienci</button>
+  <button class="tab" onclick="showTab('projekty')">📁 Projekty</button>
+  <button class="tab" onclick="showTab('pracownicy')">👷 Pracownicy</button>
+  <button class="tab" onclick="showTab('ustawienia')">⚙️ Ustaw.</button>
+</div>
+
+<!-- WYCENA -->
+<div id="tab_wycena">
+  <div class="card">
+    <h2>📋 Projekt</h2>
+    <div class="row">
+      <div class="field"><label>Klient</label><select id="w_klient" onchange="onKlientChange()"><option value="">– wybierz –</option></select></div>
+      <div class="field"><label>Projekt</label><select id="w_projekt"><option value="">– wybierz –</option></select></div>
+      <div class="field" style="max-width:145px"><label>Data</label><input type="date" id="data"></div>
+    </div>
+  </div>
+
+  <div class="card" id="kcard">
+    <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:11px">
+      <h2 style="margin:0;border:none;padding:0" id="ktitle">🔧 Dodaj mebel</h2>
+      <div style="display:flex;gap:5px">
+        <button class="btn btn-secondary btn-sm" onclick="openModalBaza()">📂 Z bazy</button>
+        <button class="btn btn-secondary btn-sm" id="btn_anuluj" style="display:none" onclick="anulujEdycje()">✕ Anuluj</button>
+      </div>
+    </div>
+    <div class="row">
+      <div class="field"><label>Nazwa</label><input id="sz_nazwa" placeholder="np. Szafka wisząca 60cm, Słupek piekarnik"></div>
+      <div class="field" style="max-width:200px"><label>Uwagi</label><input id="sz_uwagi" placeholder="opcjonalne"></div>
+    </div>
+    <div class="row">
+      <div class="field"><label>Materiał korpusu</label><select id="mat_korpus"></select></div>
+      <div class="field"><label>Materiał frontu</label><select id="mat_front"></select></div>
+    </div>
+    <div class="row">
+      <div class="field" style="max-width:100px"><label>Wys. mm</label><input type="number" id="wys" value="720" onchange="onDimChange()"></div>
+      <div class="field" style="max-width:100px"><label>Szer. mm</label><input type="number" id="szer" value="600" onchange="onDimChange()"></div>
+      <div class="field" style="max-width:100px"><label>Gł. mm</label><input type="number" id="gl" value="560" onchange="onDimChange()"></div>
+      <div class="field"><label>Typ mebla</label>
+        <select id="typ" onchange="onTypChange()">
+          <option value="wisząca">Wisząca</option>
+          <option value="stojąca">Stojąca</option>
+          <option value="slupek_piek">Słupek – piekarnik</option>
+          <option value="slupek_piek_mikro">Słupek – piek+mikro</option>
+          <option value="slupek_lodowka">Słupek – lodówka</option>
+        </select>
+      </div>
+    </div>
+    <div class="row" id="row_plecy_uchwyt">
+      <div class="field"><label>Plecy HDF 4mm</label>
+        <select id="plecy" onchange="onDimChange()">
+          <option value="brak">Brak</option><option value="pelne">Pełne</option>
+          <option value="proste">Proste</option><option value="felc">Felc</option><option value="nut" selected>Nut</option>
+        </select>
+      </div>
+      <div class="field"><label>Uchwyt</label>
+        <select id="uchwyt">
+          <option value="tipon">Tipon (push-to-open)</option>
+          <option value="krawędziowy">Uchwyt krawędziowy</option>
+          <option value="nabijany">Uchwyt nabijany</option>
+          <option value="velo">Listwa Velo</option>
+          <option value="brak">Brak</option>
+        </select>
+      </div>
+      <div class="field" style="max-width:90px" id="polki_field"><label>Półki szt</label><input type="number" id="polki" value="1" min="0" max="10"></div>
+    </div>
+
+    <!-- FRONT (zwykłe szafki) -->
+    <div class="front-section" id="front_section_normal">
+      <h3>⬛ Front</h3>
+      <div class="row">
+        <div class="field"><label>Typ frontu</label>
+          <select id="front_typ" onchange="toggleFront()">
+            <option value="otwarta">Otwarta (brak)</option><option value="drzwi">Drzwi</option><option value="szuflady">Szuflady</option>
+          </select>
+        </div>
+        <div class="field" id="f_il_field" style="display:none;max-width:100px"><label>Ilość drzwi</label><input type="number" id="front_ilosc" value="2" min="1" max="6"></div>
+      </div>
+      <div id="sz_section" style="display:none">
+        <div class="zestawy-grid" id="zestawy_grid"></div>
+        <div id="sz_preview" style="margin-top:9px"></div>
+        <div id="prow_info" class="info-box" style="display:none"></div>
+      </div>
+    </div>
+
+    <!-- KONFIGURACJA SŁUPKA -->
+    <div class="slupek-config" id="slupek_section" style="display:none">
+      <h3>🏗️ Konfiguracja słupka</h3>
+      <div id="slupek_content"></div>
+    </div>
+
+    <div style="margin-top:11px;display:flex;gap:7px;flex-wrap:wrap">
+      <button class="btn btn-primary" id="btn_dodaj" onclick="dodajSzafke()">➕ Dodaj do wyceny</button>
+      <button class="btn btn-success" onclick="zapiszBaza()">💾 Zapisz w bazie</button>
+    </div>
+  </div>
+
+  <div id="lista"></div>
+
+  <div id="panel_wyceny" style="display:none">
+    <div class="card" style="border:2px solid #e8601a">
+      <h2>💰 Zatwierdź i generuj ofertę</h2>
+      <div class="row">
+        <div class="field"><label>Marża (mnożnik)</label>
+          <div class="marza-btns">
+            <button class="marza-btn sel" onclick="setMarza(2,this)">×2</button>
+            <button class="marza-btn" onclick="setMarza(2.4,this)">×2.4</button>
+            <button class="marza-btn" onclick="setMarza(3,this)">×3</button>
+            <button class="marza-btn" onclick="setMarza('custom',this)">własna</button>
+          </div>
+        </div>
+        <div class="field" style="max-width:130px" id="marza_custom_field" style="display:none">
+          <label>Własny mnożnik</label>
+          <input type="number" id="marza_custom" value="2" step="0.1" min="1" onchange="updatePodsumowanie()">
+        </div>
+      </div>
+      <div id="podsumowanie_wyceny" style="margin-top:10px"></div>
+      <div style="margin-top:12px;display:flex;gap:8px;flex-wrap:wrap">
+        <button class="btn btn-dark" onclick="pokazPodglad()">👁️ Podgląd oferty</button>
+        <button class="btn btn-primary" onclick="drukujOferte()">🖨️ Drukuj / PDF</button>
+        <button class="btn btn-success" onclick="zatwierdzWycene()">✅ Zatwierdź wycenę</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- HISTORIA -->
+<div id="tab_historia" style="display:none">
+  <div class="card">
+    <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:11px">
+      <h2 style="margin:0;border:none;padding:0">📜 Historia wycen</h2>
+    </div>
+    <div id="historia_lista"></div>
+  </div>
+</div>
+
+<!-- KATALOG -->
+<div id="tab_katalog" style="display:none">
+  <div class="card">
+    <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:11px">
+      <h2 style="margin:0;border:none;padding:0">🗂️ Katalog materiałów i cen</h2>
+      <button class="btn btn-primary btn-sm" onclick="openModalKat()">+ Dodaj</button>
+    </div>
+    <div class="cat-sec"><h3>⚙️ Stawki podstawowe</h3><table class="kt"><tbody id="kat_stawki"></tbody></table></div>
+    <div class="cat-sec"><h3>🪵 Płyty 18mm</h3>
+      <table class="kt" id="kat_plyty"><thead><tr><th>Nazwa</th><th>zł/m²</th><th>zł/ark.</th><th></th></tr></thead><tbody></tbody></table>
+    </div>
+    <div class="cat-sec"><h3>🛠️ Usługi</h3>
+      <table class="kt" id="kat_uslugi"><thead><tr><th>Usługa</th><th>Jed.</th><th>zł</th><th></th></tr></thead><tbody></tbody></table>
+    </div>
+    <div class="cat-sec"><h3>🔩 Akcesoria</h3>
+      <table class="kt" id="kat_akc"><thead><tr><th>Nazwa</th><th>Jed.</th><th>zł/szt</th><th></th></tr></thead><tbody></tbody></table>
+    </div>
+  </div>
+</div>
+
+<!-- BAZA -->
+<div id="tab_baza" style="display:none"><div class="card"><h2>💾 Baza mebli</h2><div id="baza_lista"></div></div></div>
+
+<!-- KLIENCI -->
+<div id="tab_klienci" style="display:none">
+  <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:10px">
+    <h2 style="font-size:15px;font-weight:700">👥 Klienci</h2>
+    <button class="btn btn-primary btn-sm" onclick="openModal('m_klient')">+ Dodaj klienta</button>
+  </div>
+  <div id="klienci_lista"></div>
+</div>
+
+<!-- PROJEKTY -->
+<div id="tab_projekty" style="display:none">
+  <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:10px">
+    <h2 style="font-size:15px;font-weight:700">📁 Projekty</h2>
+    <button class="btn btn-primary btn-sm" onclick="openModal('m_projekt')">+ Nowy projekt</button>
+  </div>
+  <div id="projekty_lista"></div>
+</div>
+
+<!-- PRACOWNICY -->
+<div id="tab_pracownicy" style="display:none">
+  <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:10px">
+    <h2 style="font-size:15px;font-weight:700">👷 Pracownicy</h2>
+    <button class="btn btn-primary btn-sm" onclick="openModal('m_pracownik')">+ Dodaj pracownika</button>
+  </div>
+  <!-- Kalendarz -->
+  <div class="card">
+    <div class="kal-nav">
+      <button class="btn btn-secondary btn-sm" onclick="kalPrev()">◀</button>
+      <span id="kal_title"></span>
+      <button class="btn btn-secondary btn-sm" onclick="kalNext()">▶</button>
+    </div>
+    <div class="row" style="margin-bottom:8px">
+      <div class="field" style="max-width:200px"><label>Pracownik</label>
+        <select id="kal_prac_filter" onchange="renderKalendarz()"><option value="">Wszyscy</option></select>
+      </div>
+    </div>
+    <div class="kal-grid" id="kal_grid"></div>
+    <div style="margin-top:10px;display:flex;gap:8px">
+      <button class="btn btn-primary btn-sm" onclick="openModal('m_godziny')">+ Dodaj godziny</button>
+    </div>
+  </div>
+  <div id="pracownicy_lista"></div>
+</div>
+
+<!-- USTAWIENIA -->
+<div id="tab_ustawienia" style="display:none">
+  <div class="card">
+    <h2>⚙️ Dane firmy</h2>
+    <div class="row">
+      <div class="field"><label>Nazwa firmy</label><input id="firma_nazwa" value="MSS WOOD DESIGN Sp. z o.o."></div>
+      <div class="field"><label>Slogan</label><input id="firma_slogan" value="Meble na wymiar"></div>
+    </div>
+    <div class="row">
+      <div class="field"><label>Adres</label><input id="firma_adres" value="Wersalska 47/75, 90-212 Łódź"></div>
+      <div class="field"><label>Telefon</label><input id="firma_tel" value="605 386 847"></div>
+    </div>
+    <div class="row">
+      <div class="field"><label>Email</label><input id="firma_email" value="kontakt@wnetrzazpasja.pl"></div>
+      <div class="field"><label>WWW</label><input id="firma_www" value="wnetrzazpasja.pl"></div>
+    </div>
+    <div class="row">
+      <div class="field" style="max-width:150px"><label>NIP</label><input id="firma_nip" value="9472007600"></div>
+      <div class="field" style="max-width:150px"><label>KRS</label><input id="firma_krs" value=""></div>
+      <div class="field" style="max-width:150px"><label>REGON</label><input id="firma_regon" value=""></div>
+    </div>
+    <div class="row"><div class="field"><label>Stopka oferty</label><textarea id="firma_stopka">Oferta ważna 30 dni od daty wystawienia.</textarea></div></div>
+    <button class="btn btn-primary" onclick="zapiszUstawienia()">💾 Zapisz</button>
+  </div>
+  <div class="card">
+    <h2>💾 Eksport / Import</h2>
+    <div style="display:flex;gap:8px;flex-wrap:wrap">
+      <button class="btn btn-secondary" onclick="eksportDanych()">📤 Eksport JSON</button>
+      <label class="btn btn-secondary" style="cursor:pointer">📥 Import JSON<input type="file" accept=".json" onchange="importDanych(this)" style="display:none"></label>
+    </div>
+  </div>
+</div>
+
+<!-- MODALS -->
+<div class="mbg" id="mkat"><div class="mdl">
+  <h3>Dodaj do katalogu</h3>
+  <div class="row"><div class="field"><label>Kategoria</label>
+    <select id="mk_kat" onchange="renderMKatPola()"><option value="plyta">Płyta</option><option value="usluga">Usługa</option><option value="akc">Akcesorium</option></select>
+  </div></div>
+  <div id="mk_pola"></div>
+  <div style="display:flex;gap:7px;margin-top:13px">
+    <button class="btn btn-primary" onclick="zapiszKat()">Zapisz</button>
+    <button class="btn btn-secondary" onclick="closeModal('mkat')">Anuluj</button>
+  </div>
+</div></div>
+
+<div class="mbg" id="mbaza"><div class="mdl">
+  <h3>📂 Z bazy mebli</h3><div id="mbaza_lista"></div>
+  <div style="margin-top:11px"><button class="btn btn-secondary" onclick="closeModal('mbaza')">Zamknij</button></div>
+</div></div>
+
+<div class="mbg" id="m_akc_szafka"><div class="mdl">
+  <h3>➕ Dodaj akcesorium</h3>
+  <div class="row"><div class="field"><label>Nazwa</label><input id="ma_nazwa" placeholder="np. Blendy, dodatkowe zawiasy..."></div></div>
+  <div class="row">
+    <div class="field" style="max-width:110px"><label>Ilość</label><input type="number" id="ma_ilosc" value="1" min="1"></div>
+    <div class="field" style="max-width:130px"><label>Cena/szt (zł)</label><input type="number" id="ma_cena" value="0" step="0.01"></div>
+  </div>
+  <div style="display:flex;gap:7px;margin-top:13px">
+    <button class="btn btn-primary" onclick="zapiszAkcSzafka()">Dodaj</button>
+    <button class="btn btn-secondary" onclick="closeModal('m_akc_szafka')">Anuluj</button>
+  </div>
+</div></div>
+
+<div class="mbg" id="m_fmt_szafka"><div class="mdl">
+  <h3>📐 Dodaj formatkę</h3>
+  <div class="row"><div class="field"><label>Nazwa elementu</label><input id="mf_nazwa" placeholder="np. Blenda górna..."></div></div>
+  <div class="row">
+    <div class="field" style="max-width:110px"><label>Wym1 mm</label><input type="number" id="mf_w1"></div>
+    <div class="field" style="max-width:110px"><label>Wym2 mm</label><input type="number" id="mf_w2"></div>
+    <div class="field" style="max-width:80px"><label>Szt</label><input type="number" id="mf_szt" value="1" min="1"></div>
+  </div>
+  <div class="row"><div class="field"><label>Materiał</label>
+    <select id="mf_mat"><option value="korpus">Płyta korpus</option><option value="front">Płyta front</option><option value="hdf">HDF 4mm</option><option value="szuflada">Płyta 16mm</option></select>
+  </div></div>
+  <div style="display:flex;gap:7px;margin-top:13px">
+    <button class="btn btn-primary" onclick="zapiszFmtSzafka()">Dodaj</button>
+    <button class="btn btn-secondary" onclick="closeModal('m_fmt_szafka')">Anuluj</button>
+  </div>
+</div></div>
+
+<div class="mbg" id="m_klient"><div class="mdl">
+  <h3 id="mk_title">Nowy klient</h3>
+  <div class="row"><div class="field"><label>Imię i nazwisko / Firma</label><input id="mk_imie"></div></div>
+  <div class="row"><div class="field"><label>Telefon</label><input id="mk_tel"></div><div class="field"><label>Email</label><input id="mk_email"></div></div>
+  <div class="row"><div class="field"><label>Adres</label><input id="mk_adres"></div></div>
+  <div class="row"><div class="field"><label>Uwagi</label><textarea id="mk_uwagi"></textarea></div></div>
+  <div style="display:flex;gap:7px;margin-top:13px">
+    <button class="btn btn-primary" onclick="zapiszKlienta()">Zapisz</button>
+    <button class="btn btn-secondary" onclick="closeModal('m_klient');editKlientId=null">Anuluj</button>
+  </div>
+</div></div>
+
+<div class="mbg" id="m_projekt"><div class="mdl">
+  <h3 id="mp_title">Nowy projekt</h3>
+  <div class="row"><div class="field"><label>Nazwa projektu</label><input id="mp_nazwa"></div></div>
+  <div class="row">
+    <div class="field"><label>Klient</label><select id="mp_klient"><option value="">– wybierz –</option></select></div>
+    <div class="field" style="max-width:130px"><label>Status</label>
+      <select id="mp_status"><option value="wycena">Wycena</option><option value="umowa">Umowa</option><option value="realizacja">Realizacja</option><option value="zakończony">Zakończony</option></select>
+    </div>
+  </div>
+  <div class="row">
+    <div class="field"><label>Data start</label><input type="date" id="mp_data_start"></div>
+    <div class="field"><label>Termin</label><input type="date" id="mp_data_end"></div>
+  </div>
+  <div class="row">
+    <div class="field"><label>Wartość umowy (zł)</label><input type="number" id="mp_wartosc"></div>
+    <div class="field"><label>Zaliczka (zł)</label><input type="number" id="mp_zaliczka"></div>
+  </div>
+  <div class="row"><div class="field"><label>Uwagi</label><textarea id="mp_uwagi"></textarea></div></div>
+  <div style="display:flex;gap:7px;margin-top:13px">
+    <button class="btn btn-primary" onclick="zapiszProjekt()">Zapisz</button>
+    <button class="btn btn-secondary" onclick="closeModal('m_projekt');editProjektId=null">Anuluj</button>
+  </div>
+</div></div>
+
+<div class="mbg" id="m_pracownik"><div class="mdl">
+  <h3 id="mpr_title">Nowy pracownik</h3>
+  <div class="row"><div class="field"><label>Imię i nazwisko</label><input id="mpr_imie"></div></div>
+  <div class="row"><div class="field"><label>Telefon</label><input id="mpr_tel"></div><div class="field"><label>Email</label><input id="mpr_email"></div></div>
+  <div class="row">
+    <div class="field" style="max-width:140px"><label>Stawka godz. (zł)</label><input type="number" id="mpr_stawka" step="0.5"></div>
+    <div class="field"><label>Umowa</label><select id="mpr_umowa"><option value="zlecenie">Zlecenie</option><option value="dzielo">O dzieło</option><option value="etat">Etat</option><option value="b2b">B2B</option></select></div>
+  </div>
+  <div class="row"><div class="field"><label>Uwagi</label><textarea id="mpr_uwagi"></textarea></div></div>
+  <div style="display:flex;gap:7px;margin-top:13px">
+    <button class="btn btn-primary" onclick="zapiszPracownika()">Zapisz</button>
+    <button class="btn btn-secondary" onclick="closeModal('m_pracownik');editPracId=null">Anuluj</button>
+  </div>
+</div></div>
+
+<div class="mbg" id="m_godziny"><div class="mdl">
+  <h3>⏱️ Dodaj godziny pracy</h3>
+  <div class="row">
+    <div class="field"><label>Pracownik</label><select id="mg_prac"></select></div>
+    <div class="field"><label>Projekt</label><select id="mg_proj"><option value="">– brak –</option></select></div>
+  </div>
+  <div class="row">
+    <div class="field" style="max-width:120px"><label>Godziny</label><input type="number" id="mg_godz" value="8" step="0.5" min="0.5"></div>
+    <div class="field"><label>Data</label><input type="date" id="mg_data"></div>
+  </div>
+  <div class="row"><div class="field"><label>Opis pracy</label><input id="mg_opis" placeholder="np. montaż, lakierowanie..."></div></div>
+  <div style="display:flex;gap:7px;margin-top:13px">
+    <button class="btn btn-primary" onclick="zapiszGodziny()">Zapisz</button>
+    <button class="btn btn-secondary" onclick="closeModal('m_godziny')">Anuluj</button>
+  </div>
+</div></div>
+
+<div class="mbg" id="m_koszt"><div class="mdl">
+  <h3>💸 Dodaj koszt projektu</h3>
+  <div class="row"><div class="field"><label>Opis</label><input id="mk2_opis"></div></div>
+  <div class="row">
+    <div class="field" style="max-width:130px"><label>Kwota (zł)</label><input type="number" id="mk2_kwota" step="0.01"></div>
+    <div class="field"><label>Kategoria</label><select id="mk2_kat"><option value="materialy">Materiały</option><option value="okucia">Okucia</option><option value="transport">Transport</option><option value="inne">Inne</option></select></div>
+  </div>
+  <input type="hidden" id="mk2_proj_id">
+  <div style="display:flex;gap:7px;margin-top:13px">
+    <button class="btn btn-primary" onclick="zapiszKoszt()">Dodaj</button>
+    <button class="btn btn-secondary" onclick="closeModal('m_koszt')">Anuluj</button>
+  </div>
+</div></div>
+
+<!-- Modal podgląd dnia -->
+<div class="mbg" id="m_dzien"><div class="mdl">
+  <h3 id="m_dzien_title">Godziny – dzień</h3>
+  <div id="m_dzien_lista"></div>
+  <div style="margin-top:11px"><button class="btn btn-secondary" onclick="closeModal('m_dzien')">Zamknij</button></div>
+</div></div>
+</div>
+
+<!-- PODGLĄD OFERTY -->
+<div id="preview_overlay">
+  <div class="preview-wrap">
+    <div class="no-print" style="background:#1a1a2e;padding:12px 20px;display:flex;justify-content:space-between;align-items:center">
+      <span style="color:#fff;font-weight:700">👁️ Podgląd oferty</span>
+      <div style="display:flex;gap:8px">
+        <button class="btn btn-primary" onclick="drukujOferte()">🖨️ Drukuj / PDF</button>
+        <button class="btn btn-secondary" onclick="zamknijPodglad()">✕ Zamknij</button>
+      </div>
+    </div>
+    <div id="preview_content" style="padding:40px"></div>
+  </div>
+</div>
+
+<script>
+// ══ STAŁE ══
+const GRK=18,SZCZ=2,ARKm2=2800*2070/1e6;
+const PLECY_OFF={brak:null,proste:4,felc:16,nut:16,pelne:36};
+const ROZ={S:{h:84},M:{h:116},L:{h:167},XL:{h:199}};
+const PROW=[250,300,350,400,450,500,550,600];
+const ZESTAWY=[
+  {id:'z1',nazwa:'5×S',sz:['S','S','S','S','S']},
+  {id:'z2',nazwa:'2×XL',sz:['XL','XL']},
+  {id:'z3',nazwa:'2×L + 1×M',sz:['L','L','M']},
+  {id:'z4',nazwa:'1×XL + 2×M + 1×S',sz:['XL','M','M','S']},
+];
+const WYS_PIEK=600,WYS_MIKRO=390,WYS_SZUFL_FRONT=720;
+const TYPY_SLUPKOW=['slupek_piek','slupek_piek_mikro','slupek_lodowka'];
+const DNI=['Pon','Wt','Śr','Czw','Pt','Sob','Ndz'];
+
+// ══ STATE ══
+let szafki=[],baza=[],historia=[],nextId=1,editId=null,selZestaw=null,activeSzafkaId=null;
+let klienci=[],projekty=[],pracownicy=[],godziny=[],koszty=[];
+let nextKlientId=1,nextProjId=1,nextPracId=1,nextHistId=1;
+let editKlientId=null,editProjektId=null,editPracId=null;
+let marzaMnoznik=2;
+let kalDate=new Date();
+let firma={nazwa:'MSS WOOD DESIGN Sp. z o.o.',slogan:'Meble na wymiar',adres:'Wersalska 47/75, 90-212 Łódź',tel:'605 386 847',email:'kontakt@wnetrzazpasja.pl',www:'wnetrzazpasja.pl',nip:'9472007600',krs:'',regon:'',stopka:'Oferta ważna 30 dni od daty wystawienia.',logo:''};
+let katalog={
+  stawki:{zawias:0,zawieszka:0,nozka:0,prowadnica:0,tipon:0},
+  plyty:[
+    {n:'Kronospan Biały Alpejski W1101',m2:0,ark:0},{n:'Kronospan Biały Arktyczny W1100',m2:0,ark:0},
+    {n:'Kronospan Dąb Nebraska D3430',m2:0,ark:0},{n:'Kronospan Dąb Sonoma D3126',m2:0,ark:0},
+    {n:'Kronospan Dąb Winchester D2999',m2:0,ark:0},{n:'Kronospan Dąb Stirling D3840',m2:0,ark:0},
+    {n:'Kronospan Orzech Bari D3570',m2:0,ark:0},{n:'Kronospan Szary Jedwabisty U12025',m2:0,ark:0},
+    {n:'Kronospan Antracyt U12001',m2:0,ark:0},{n:'Kronospan Grafit U12191',m2:0,ark:0},
+    {n:'Egger Biały Alpejski W1000 ST9',m2:0,ark:0},{n:'Egger Biały Platinum W1100 ST30',m2:0,ark:0},
+    {n:'Egger Dąb Halifax naturalny H1180',m2:0,ark:0},{n:'Egger Dąb Bardolino H1145',m2:0,ark:0},
+    {n:'Egger Dąb Sherman H3840',m2:0,ark:0},{n:'Egger Dąb Casablanca H3430',m2:0,ark:0},
+    {n:'Egger Orzech Vermont H3840',m2:0,ark:0},{n:'Egger Beton Oxido ciemny F327',m2:0,ark:0},
+    {n:'Egger Szary Kremowy U702 ST9',m2:0,ark:0},{n:'Egger Antracyt U961 ST2',m2:0,ark:0},
+  ],
+  uslugi:[
+    {n:'Oklejanie ABS',jed:'mb',cena:0},{n:'Rozkrój płyty',jed:'m²',cena:0},
+    {n:'Frezowanie nut',jed:'mb',cena:0},{n:'Frezowanie felc',jed:'mb',cena:0},
+    {n:'Pogrubienie',jed:'mb',cena:0},{n:'Lakierowanie',jed:'m²',cena:0},
+  ],
+  akc:[
+    {n:'GTV Axis Pro S 500mm',jed:'para',cena:0},{n:'GTV Axis Pro M 500mm',jed:'para',cena:0},
+    {n:'GTV Axis Pro L 500mm',jed:'para',cena:0},{n:'GTV Axis Pro XL 500mm',jed:'para',cena:0},
+    {n:'Zawias Blum 110°',jed:'szt',cena:0},{n:'Zawias Blum soft-close',jed:'szt',cena:0},
+    {n:'Zawieszka regulowana',jed:'szt',cena:0},{n:'Nóżka regulowana',jed:'szt',cena:0},
+    {n:'Tipon push-to-open',jed:'szt',cena:0},{n:'Kołek do półki',jed:'szt',cena:0},
+  ]
+};
+
+// ══ STORAGE ══
+function save(){try{localStorage.setItem('meblopro_v7',JSON.stringify({szafki,baza,historia,nextId,nextHistId,klienci,projekty,pracownicy,godziny,koszty,nextKlientId,nextProjId,nextPracId,katalog,firma}));}catch(e){}}
+function load(){
+  try{
+    const raw=localStorage.getItem('meblopro_v7');if(!raw)return;
+    const d=JSON.parse(raw);
+    szafki=d.szafki||[];baza=d.baza||[];historia=d.historia||[];nextId=d.nextId||1;nextHistId=d.nextHistId||1;
+    klienci=d.klienci||[];projekty=d.projekty||[];pracownicy=d.pracownicy||[];godziny=d.godziny||[];koszty=d.koszty||[];
+    nextKlientId=d.nextKlientId||1;nextProjId=d.nextProjId||1;nextPracId=d.nextPracId||1;
+    if(d.katalog){katalog.plyty=d.katalog.plyty||katalog.plyty;katalog.uslugi=d.katalog.uslugi||katalog.uslugi;katalog.akc=d.katalog.akc||katalog.akc;if(d.katalog.stawki)katalog.stawki=d.katalog.stawki;}
+    if(d.firma)firma={...firma,...d.firma};
+  }catch(e){}
+}
+
+// ══ TABS ══
+function showTab(t){
+  ['wycena','historia','katalog','baza','klienci','projekty','pracownicy','ustawienia'].forEach(x=>document.getElementById('tab_'+x).style.display=x===t?'block':'none');
+  document.querySelectorAll('.tab').forEach((b,i)=>b.classList.toggle('active',['wycena','historia','katalog','baza','klienci','projekty','pracownicy','ustawienia'][i]===t));
+  if(t==='katalog')renderKatalog();
+  if(t==='baza')renderBaza();
+  if(t==='klienci')renderKlienci();
+  if(t==='projekty')renderProjekty();
+  if(t==='pracownicy'){renderPracownicy();renderKalendarz();}
+  if(t==='historia')renderHistoria();
+  if(t==='ustawienia')loadUstawienia();
+}
+function openModal(id){document.getElementById(id).classList.add('open');}
+function closeModal(id){document.getElementById(id).classList.remove('open');}
+function fmt(v){return(+v||0).toFixed(2);}
+function fmtPln(v){return fmt(v)+' zł';}
+
+// ══ USTAWIENIA ══
+function loadUstawienia(){['nazwa','slogan','adres','tel','email','www','nip','krs','regon','stopka'].forEach(k=>{const el=document.getElementById('firma_'+k);if(el)el.value=firma[k]||'';});}
+function zapiszUstawienia(){['nazwa','slogan','adres','tel','email','www','nip','krs','regon','stopka'].forEach(k=>{const el=document.getElementById('firma_'+k);if(el)firma[k]=el.value;});save();alert('✓ Zapisano!');}
+function eksportDanych(){const d=JSON.stringify({szafki,baza,historia,klienci,projekty,pracownicy,godziny,koszty,katalog,firma},null,2);const a=document.createElement('a');a.href='data:application/json;charset=utf-8,'+encodeURIComponent(d);a.download='meblopro_backup_'+new Date().toISOString().slice(0,10)+'.json';a.click();}
+function importDanych(inp){const f=inp.files[0];if(!f)return;const r=new FileReader();r.onload=e=>{try{const d=JSON.parse(e.target.result);if(d.szafki)szafki=d.szafki;if(d.baza)baza=d.baza;if(d.historia)historia=d.historia;if(d.klienci)klienci=d.klienci;if(d.projekty)projekty=d.projekty;if(d.pracownicy)pracownicy=d.pracownicy;if(d.godziny)godziny=d.godziny;if(d.koszty)koszty=d.koszty;if(d.katalog)katalog=d.katalog;if(d.firma)firma={...firma,...d.firma};save();renderLista();alert('✓ Import zakończony!');}catch(ex){alert('Błąd: '+ex.message);}};r.readAsText(f);}
+
+// ══ MARŻA ══
+function setMarza(v,btn){document.querySelectorAll('.marza-btn').forEach(b=>b.classList.remove('sel'));btn.classList.add('sel');if(v==='custom'){document.getElementById('marza_custom_field').style.display='flex';marzaMnoznik=+document.getElementById('marza_custom').value||2;}else{document.getElementById('marza_custom_field').style.display='none';marzaMnoznik=v;}updatePodsumowanie();}
+function updatePodsumowanie(){
+  if(document.getElementById('marza_custom_field').style.display!=='none')marzaMnoznik=+document.getElementById('marza_custom').value||2;
+  const koszt=szafki.reduce((s,sz)=>s+liczKosztSzafki(sz),0);
+  const cena=koszt*marzaMnoznik,marza=cena-koszt;
+  document.getElementById('podsumowanie_wyceny').innerHTML=`
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(130px,1fr));gap:8px">
+      <div class="stat-box"><div class="stat-val" style="font-size:14px">${fmtPln(koszt)}</div><div class="stat-lbl">Koszt materiałów</div></div>
+      <div class="stat-box"><div class="stat-val" style="font-size:14px;color:#2e7d32">${fmtPln(marza)}</div><div class="stat-lbl">Marża ×${marzaMnoznik}</div></div>
+      <div class="stat-box" style="background:#fff3ee;border:2px solid #e8601a"><div class="stat-val" style="font-size:18px">${fmtPln(cena)}</div><div class="stat-lbl">CENA DLA KLIENTA</div></div>
+    </div>`;
+}
+
+// ══ HISTORIA WYCEN ══
+function zatwierdzWycene(){
+  if(!szafki.length){alert('Brak szafek w wycenie!');return;}
+  const koszt=szafki.reduce((s,sz)=>s+liczKosztSzafki(sz),0);
+  const cena=koszt*marzaMnoznik;
+  const klientId=+document.getElementById('w_klient').value;
+  const projektId=+document.getElementById('w_projekt').value;
+  const klient=klienci.find(x=>x.id===klientId);
+  const projekt=projekty.find(x=>x.id===projektId);
+  const nr='OF/'+new Date().getFullYear()+'/'+String(nextHistId).padStart(3,'0');
+  historia.unshift({
+    id:nextHistId++,nr,data:new Date().toLocaleDateString('pl-PL'),
+    klient:klient?klient.imie:'–',projekt:projekt?projekt.nazwa:'–',
+    koszt,cena,mnoznik:marzaMnoznik,
+    szafki:JSON.parse(JSON.stringify(szafki)),
+    zatwierdzona:true
+  });
+  save();
+  if(confirm(`✅ Wycena ${nr} zatwierdzona!\nCena: ${fmtPln(cena)}\n\nCzyścić bieżącą wycenę?`)){
+    szafki=[];nextId=1;renderLista();
+  }
+  renderHistoria();
+}
+function renderHistoria(){
+  const c=document.getElementById('historia_lista');
+  if(!historia.length){c.innerHTML='<div class="empty"><div class="ic">📜</div>Brak zatwierdzonych wycen</div>';return;}
+  c.innerHTML=historia.map((h,i)=>`
+    <div class="list-card">
+      <div class="list-hdr" onclick="this.nextElementSibling.style.display=this.nextElementSibling.style.display==='none'?'block':'none'">
+        <div style="flex:1">
+          <div style="display:flex;align-items:center;gap:8px">
+            <span style="font-weight:700;color:#e8601a">${h.nr}</span>
+            <span style="font-size:12px;color:#888">${h.data}</span>
+            <span class="badge badge-green">zatwierdzona</span>
+          </div>
+          <div style="font-size:12px;color:#444;margin-top:3px">
+            👤 ${h.klient} · 📁 ${h.projekt}
+          </div>
+        </div>
+        <div style="text-align:right">
+          <div style="font-weight:700;color:#2e7d32;font-size:14px">${fmtPln(h.cena)}</div>
+          <div style="font-size:11px;color:#aaa">koszt: ${fmtPln(h.koszt)} · ×${h.mnoznik}</div>
+        </div>
+        <div style="display:flex;gap:4px;margin-left:8px" onclick="event.stopPropagation()">
+          <button class="btn btn-secondary btn-sm" onclick="wczytajZHistorii(${i})">📥 Wczytaj</button>
+          <button class="btn btn-danger btn-sm" onclick="if(confirm('Usunąć?')){historia.splice(${i},1);save();renderHistoria()}">✕</button>
+        </div>
+      </div>
+      <div class="list-body">
+        <table style="width:100%;border-collapse:collapse;font-size:12px;margin-top:8px">
+          <thead><tr style="background:#f0f2f5"><th style="padding:6px;text-align:left">Mebel</th><th style="padding:6px">Wymiary</th><th style="padding:6px">Typ</th></tr></thead>
+          <tbody>${h.szafki.map(s=>`<tr style="border-bottom:1px solid #f5f5f5"><td style="padding:5px 6px">${s.sz_nazwa||'Mebel'}</td><td style="padding:5px 6px;text-align:center">${s.wys}×${s.szer}×${s.gl}</td><td style="padding:5px 6px;text-align:center">${s.typ}</td></tr>`).join('')}</tbody>
+        </table>
+      </div>
+    </div>`).join('');
+}
+function wczytajZHistorii(i){
+  if(!confirm('Wczytać wycenę do bieżącej listy? Obecne szafki zostaną zastąpione.'))return;
+  szafki=JSON.parse(JSON.stringify(historia[i].szafki));
+  nextId=Math.max(...szafki.map(s=>s.id))+1;
+  save();renderLista();showTab('wycena');
+}
+
+// ══ KATALOG ══
+function renderKatalog(){
+  const sl={zawias:'Zawias (szt)',zawieszka:'Zawieszka (szt)',nozka:'Nóżka (szt)',prowadnica:'Prowadnica komplet (para)',tipon:'Tipon (szt)'};
+  document.getElementById('kat_stawki').innerHTML=Object.entries(sl).map(([k,lbl])=>`<tr><td style="font-size:12px;width:55%">${lbl}</td><td><input value="${katalog.stawki[k]||''}" placeholder="0.00" onchange="katalog.stawki['${k}']=+this.value;save()" style="width:80px"> zł</td></tr>`).join('');
+  document.querySelector('#kat_plyty tbody').innerHTML=katalog.plyty.map((p,i)=>`<tr><td style="font-size:12px">${p.n}</td><td><input value="${p.m2||''}" placeholder="0.00" onchange="katalog.plyty[${i}].m2=+this.value;katalog.plyty[${i}].ark=+(+this.value*${ARKm2}).toFixed(2);renderKatalog();save()" style="width:75px"> zł</td><td><input value="${p.ark||''}" placeholder="0.00" onchange="katalog.plyty[${i}].ark=+this.value;katalog.plyty[${i}].m2=+(+this.value/${ARKm2}).toFixed(2);renderKatalog();save()" style="width:75px"> zł</td><td><button class="btn btn-danger btn-sm" onclick="katalog.plyty.splice(${i},1);renderKatalog();save()">✕</button></td></tr>`).join('');
+  document.querySelector('#kat_uslugi tbody').innerHTML=katalog.uslugi.map((p,i)=>`<tr><td style="font-size:12px">${p.n}</td><td style="color:#888;font-size:11px">${p.jed}</td><td><input value="${p.cena||''}" placeholder="0.00" onchange="katalog.uslugi[${i}].cena=+this.value;save()" style="width:75px"> zł</td><td><button class="btn btn-danger btn-sm" onclick="katalog.uslugi.splice(${i},1);renderKatalog();save()">✕</button></td></tr>`).join('');
+  document.querySelector('#kat_akc tbody').innerHTML=katalog.akc.map((p,i)=>`<tr><td style="font-size:12px">${p.n}</td><td style="color:#888;font-size:11px">${p.jed}</td><td><input value="${p.cena||''}" placeholder="0.00" onchange="katalog.akc[${i}].cena=+this.value;save()" style="width:75px"> zł</td><td><button class="btn btn-danger btn-sm" onclick="katalog.akc.splice(${i},1);renderKatalog();save()">✕</button></td></tr>`).join('');
+  refreshMatSelects();
+}
+function openModalKat(){openModal('mkat');renderMKatPola();}
+function renderMKatPola(){
+  const k=document.getElementById('mk_kat').value;
+  document.getElementById('mk_pola').innerHTML=k==='plyta'?`<div class="row"><div class="field"><label>Nazwa</label><input id="mk_n" placeholder="np. Kronospan Biały"></div></div><div class="row"><div class="field"><label>zł/m²</label><input id="mk_m2" type="number" step="0.01"></div><div class="field"><label>zł/arkusz</label><input id="mk_ark" type="number" step="0.01"></div></div>`:`<div class="row"><div class="field"><label>Nazwa</label><input id="mk_n" placeholder="nazwa..."></div></div><div class="row"><div class="field"><label>Jednostka</label><select id="mk_jed"><option>szt</option><option>para</option><option>kpl</option><option>mb</option><option>m²</option></select></div><div class="field"><label>Cena</label><input id="mk_cena" type="number" step="0.01"></div></div>`;
+}
+function zapiszKat(){
+  const k=document.getElementById('mk_kat').value,n=document.getElementById('mk_n')?.value?.trim();
+  if(!n){alert('Podaj nazwę!');return;}
+  if(k==='plyta'){const m2=+document.getElementById('mk_m2').value||0;katalog.plyty.push({n,m2,ark:+(m2*ARKm2).toFixed(2)});}
+  else if(k==='usluga')katalog.uslugi.push({n,jed:document.getElementById('mk_jed').value,cena:+document.getElementById('mk_cena').value||0});
+  else katalog.akc.push({n,jed:document.getElementById('mk_jed').value,cena:+document.getElementById('mk_cena').value||0});
+  closeModal('mkat');renderKatalog();save();
+}
+function refreshMatSelects(){
+  const names=[...new Set(['Kronospan gładka','Kronospan drewnopodobna','Egger gładka','Egger drewnopodobna','REHAU akryl','Aquafront akryl',...katalog.plyty.map(p=>p.n)])];
+  ['mat_korpus','mat_front'].forEach(id=>{const sel=document.getElementById(id),v=sel.value;sel.innerHTML=names.map(n=>`<option${n===v?' selected':''}>${n}</option>`).join('');});
+}
+
+// ══ KONFIGURATOR – helpers ══
+function dobProw(gl){const p=PROW.filter(x=>x+10<=gl);return p.length?Math.max(...p):null;}
+function glPolki(plecy,gln){return(plecy==='nut'||plecy==='felc'||plecy==='pelne')?gln-20:gln;}
+function liczZaw(wf){return wf<=900?2:wf<=1400?3:4;}
+function liczFronty(sz,wys,szer){
+  const n=sz.length,avail=wys-4-(n-1)*SZCZ,sum=sz.reduce((s,r)=>s+ROZ[r].h,0);
+  let fr=sz.map(r=>Math.floor(avail*ROZ[r].h/sum));
+  sz.forEach((r,i)=>{const mn=ROZ[r].h+30;if(fr[i]<mn)fr[i]=mn;});
+  fr[n-1]+=(avail-fr.reduce((s,v)=>s+v,0));return fr;
+}
+function isSlupek(typ){return TYPY_SLUPKOW.includes(typ);}
+
+function onTypChange(){
+  const typ=document.getElementById('typ').value;
+  const slupek=isSlupek(typ);
+  document.getElementById('front_section_normal').style.display=slupek?'none':'block';
+  document.getElementById('slupek_section').style.display=slupek?'block':'none';
+  document.getElementById('row_plecy_uchwyt').style.display=slupek?'none':'flex';
+  if(slupek)renderSlupekConfig(typ);
+}
+
+function renderSlupekConfig(typ){
+  const szer=+document.getElementById('szer').value||600;
+  const wys=+document.getElementById('wys').value||2160;
+  let html='';
+  if(typ==='slupek_piek'){
+    const wysGora=wys-WYS_SZUFL_FRONT-GRK*3-WYS_PIEK; // 3 wieńce między strefami
+    html=`
+      <div class="slupek-diagram">
+        <div class="slupek-col">
+          <div class="slupek-strefa drzwi">Drzwi góra<br><small>${wysGora-4}×${szer-4} mm</small></div>
+          <div class="slupek-strefa wieniec">▬ Wieniec + półka nad piek. (18mm)</div>
+          <div class="slupek-strefa sprzet">Piekarnik 600mm<br><small>otwór ${WYS_PIEK}×${szer} mm</small></div>
+          <div class="slupek-strefa wieniec">▬ Wieniec + półka pod piek. (18mm)</div>
+          <div class="slupek-strefa szuflady">Szuflady (fronty łącznie 720mm)</div>
+          <div class="slupek-strefa wieniec">▬ Wieniec dolny + nóżki</div>
+        </div>
+      </div>
+      <div class="row" style="margin-top:10px">
+        <div class="field"><label>Zestaw szuflad (dół)</label>
+          <select id="sl_zestaw">
+            ${ZESTAWY.map(z=>`<option value="${z.id}">${z.nazwa}</option>`).join('')}
+          </select>
+        </div>
+        <div class="field"><label>Uchwyt</label>
+          <select id="sl_uchwyt"><option value="tipon">Tipon</option><option value="krawędziowy">Krawędziowy</option><option value="brak">Brak</option></select>
+        </div>
+      </div>
+      <div style="font-size:11px;color:#888;margin-top:6px">Wysokość strefy górnej (drzwi): <b>${wysGora} mm</b> · Plecy tylko za szufladami i drzwiami góra</div>`;
+  } else if(typ==='slupek_piek_mikro'){
+    const wysGora=wys-WYS_SZUFL_FRONT-GRK*4-WYS_PIEK-WYS_MIKRO;
+    html=`
+      <div class="slupek-diagram">
+        <div class="slupek-col">
+          <div class="slupek-strefa drzwi">Drzwi góra<br><small>${wysGora-4}×${szer-4} mm</small></div>
+          <div class="slupek-strefa wieniec">▬ Wieniec + półka nad mikro (18mm)</div>
+          <div class="slupek-strefa sprzet">Mikrofalówka 390mm<br><small>otwór ${WYS_MIKRO}×${szer} mm</small></div>
+          <div class="slupek-strefa wieniec">▬ Wieniec + półka nad piek. (18mm)</div>
+          <div class="slupek-strefa sprzet">Piekarnik 600mm<br><small>otwór ${WYS_PIEK}×${szer} mm</small></div>
+          <div class="slupek-strefa wieniec">▬ Wieniec + półka pod piek. (18mm)</div>
+          <div class="slupek-strefa szuflady">Szuflady (fronty łącznie 720mm)</div>
+          <div class="slupek-strefa wieniec">▬ Wieniec dolny + nóżki</div>
+        </div>
+      </div>
+      <div class="row" style="margin-top:10px">
+        <div class="field"><label>Zestaw szuflad (dół)</label>
+          <select id="sl_zestaw">${ZESTAWY.map(z=>`<option value="${z.id}">${z.nazwa}</option>`).join('')}</select>
+        </div>
+        <div class="field"><label>Uchwyt</label>
+          <select id="sl_uchwyt"><option value="tipon">Tipon</option><option value="krawędziowy">Krawędziowy</option><option value="brak">Brak</option></select>
+        </div>
+      </div>
+      <div style="font-size:11px;color:#888;margin-top:6px">Wysokość strefy górnej (drzwi): <b>${wysGora} mm</b></div>`;
+  } else if(typ==='slupek_lodowka'){
+    const fDol=720,fGora=wys-4-fDol-SZCZ;
+    html=`
+      <div class="slupek-diagram">
+        <div class="slupek-col">
+          <div class="slupek-strefa drzwi">Front górny<br><small>${fGora}×${szer-4} mm</small></div>
+          <div class="slupek-strefa drzwi">Front dolny<br><small>720×${szer-4} mm</small></div>
+          <div class="slupek-strefa wieniec">▬ Wieniec dolny + nóżki</div>
+        </div>
+      </div>
+      <div style="font-size:11px;color:#888;margin-top:8px">Bez HDF. Front dolny: <b>720mm</b>, górny: <b>${fGora}mm</b>. Zawiasy na obu frontach.</div>`;
+  }
+  document.getElementById('slupek_content').innerHTML=html;
+}
+
+function onDimChange(){if(selZestaw)wybierzZestaw(selZestaw);const typ=document.getElementById('typ').value;if(isSlupek(typ))renderSlupekConfig(typ);}
+function toggleFront(){
+  const t=document.getElementById('front_typ').value;
+  document.getElementById('f_il_field').style.display=t==='drzwi'?'flex':'none';
+  document.getElementById('sz_section').style.display=t==='szuflady'?'block':'none';
+  document.getElementById('polki_field').style.display=t==='szuflady'?'none':'flex';
+  if(t==='szuflady'){selZestaw=null;initZestawy();document.getElementById('sz_preview').innerHTML='';document.getElementById('prow_info').style.display='none';}
+}
+function initZestawy(){document.getElementById('zestawy_grid').innerHTML=ZESTAWY.map(z=>`<button class="zb${selZestaw===z.id?' sel':''}" id="zb_${z.id}" onclick="wybierzZestaw('${z.id}')">${z.nazwa}</button>`).join('');}
+function wybierzZestaw(id){
+  selZestaw=id;document.querySelectorAll('.zb').forEach(b=>b.classList.remove('sel'));document.getElementById('zb_'+id)?.classList.add('sel');
+  const z=ZESTAWY.find(x=>x.id===id),wys=+document.getElementById('wys').value,szer=+document.getElementById('szer').value,gl=+document.getElementById('gl').value;
+  const gln=gl-20,prow=dobProw(gln),fr=liczFronty(z.sz,wys,szer);
+  const cols={S:'#e8f5e9|#2e7d32',M:'#fff3e0|#e65100',L:'#e3f2fd|#1565c0',XL:'#fce4ec|#880e4f'};
+  document.getElementById('sz_preview').innerHTML=`<table style="width:100%;border-collapse:collapse;font-size:12px"><thead><tr style="background:#f0f2f5"><th style="padding:4px 7px;text-align:left">Szuflada</th><th style="padding:4px 7px">Front wys.</th><th style="padding:4px 7px">Front szer.</th><th style="padding:4px 7px">Prowadnica</th></tr></thead><tbody>${z.sz.map((r,i)=>{const[bg,col]=cols[r].split('|');return`<tr style="border-bottom:1px solid #f0f2f5"><td style="padding:4px 7px"><span style="background:${bg};color:${col};padding:1px 6px;border-radius:4px;font-weight:700">${r}</span></td><td style="padding:4px 7px;text-align:center"><b>${fr[i]}</b></td><td style="padding:4px 7px;text-align:center"><b>${szer-4}</b></td><td style="padding:4px 7px;text-align:center">${prow?prow+'mm':'⚠️'}</td></tr>`;}).join('')}</tbody></table>`;
+  const info=document.getElementById('prow_info');info.style.display='block';
+  info.textContent=prow?`✓ Prowadnica ${prow}mm (gł. netto ${gln}mm)`:`⚠️ Za mała głębokość`;
+  info.style.cssText+=prow?';background:#e8f5e9;color:#2e7d32':';background:#fff3e0;color:#e65100';
+}
+
+// ══ GENERUJ ELEMENTY SŁUPKA ══
+function genElSlupek(s){
+  const{wys,szer,gl,typ}=s;
+  const gln=gl-20,wi=szer-2*GRK;
+  let el=[],akc=[];
+  const plecy_off=16; // nut domyślnie dla szuflad i drzwi
+  const uchwyt=document.getElementById('sl_uchwyt')?.value||s.sl_uchwyt||'tipon';
+  const zestaw_id=document.getElementById('sl_zestaw')?.value||s.sl_zestaw_id||'z2';
+  const z=ZESTAWY.find(x=>x.id===zestaw_id)||ZESTAWY[1];
+  const prow=dobProw(gln);
+
+  if(typ==='slupek_piek'||typ==='slupek_piek_mikro'){
+    const nWiencow=typ==='slupek_piek'?3:4;
+    // Boki: pełna wysokość × gł_netto
+    el.push({n:'Bok',w1:wys,w2:gln,szt:2,mat:'korpus',kr:[false,false,true,true],gr:'Korpus – boki'});
+
+    // Wieńce: dolny, pod piekarnikiem, nad piekarnikiem, (nad mikro), górny
+    el.push({n:'Wieniec dolny',w1:wi,w2:gln,szt:1,mat:'korpus',kr:[false,false,false,true],gr:'Korpus – wieńce/półki'});
+    el.push({n:'Półka pod piekarnikiem',w1:wi,w2:gln,szt:1,mat:'korpus',kr:[false,false,false,true],gr:'Korpus – wieńce/półki'});
+    if(typ==='slupek_piek_mikro'){
+      el.push({n:'Półka nad piekarnikiem / pod mikro',w1:wi,w2:gln,szt:1,mat:'korpus',kr:[false,false,false,true],gr:'Korpus – wieńce/półki'});
+    }
+    el.push({n:'Półka nad '+(typ==='slupek_piek_mikro'?'mikrofalówką':'piekarnikiem'),w1:wi,w2:gln,szt:1,mat:'korpus',kr:[false,false,false,true],gr:'Korpus – wieńce/półki'});
+    el.push({n:'Wieniec górny',w1:wi,w2:gln-20,szt:1,mat:'korpus',kr:[false,false,false,true],gr:'Korpus – wieńce/półki'});
+
+    // HDF za szufladami (nut)
+    el.push({n:'Plecy HDF strefa szuflad (nut)',w1:WYS_SZUFL_FRONT+GRK-16,w2:szer-16,szt:1,mat:'hdf',kr:[false,false,false,false],gr:'Plecy HDF'});
+
+    // Szuflady
+    const fr_sz=liczFronty(z.sz,WYS_SZUFL_FRONT,szer);
+    const gld=prow?prow-24:gln-34;
+    z.sz.forEach((r,i)=>{
+      const rz=ROZ[r];
+      el.push({n:`Front szuflady ${r} (${i+1}/${z.sz.length})`,w1:fr_sz[i],w2:szer-4,szt:1,mat:'front',kr:[true,true,true,true],gr:'Fronty szuflad'});
+      el.push({n:`Dno szuflady ${r}`,w1:wi-75,w2:gld,szt:1,mat:'szuflada',kr:[false,false,false,false],gr:'Elementy szuflad'});
+      el.push({n:`Tylna ścianka ${r}`,w1:wi-87,w2:rz.h,szt:1,mat:'szuflada',kr:[false,false,false,true],gr:'Elementy szuflad'});
+      akc.push({n:`GTV Axis Pro ${r} ${prow||'?'}mm`,il:1,cena_szt:katalog.stawki.prowadnica,typ:'prowadnica'});
+      if(uchwyt==='tipon')akc.push({n:'Tipon',il:1,cena_szt:katalog.stawki.tipon,typ:'tipon'});
+    });
+
+    // Drzwi góra
+    const wysGora=typ==='slupek_piek'
+      ?wys-WYS_SZUFL_FRONT-GRK*3-WYS_PIEK
+      :wys-WYS_SZUFL_FRONT-GRK*4-WYS_PIEK-WYS_MIKRO;
+    const fhGora=wysGora-4,fwGora=szer-4;
+    el.push({n:'Drzwi górne',w1:fhGora,w2:fwGora,szt:1,mat:'front',kr:[true,true,true,true],gr:'Fronty drzwi'});
+    akc.push({n:'Zawias drzwi górne',il:liczZaw(fhGora),cena_szt:katalog.stawki.zawias,typ:'zawias'});
+    if(uchwyt==='tipon')akc.push({n:'Tipon drzwi górne',il:1,cena_szt:katalog.stawki.tipon,typ:'tipon'});
+
+    // HDF za drzwiami góra (nut)
+    el.push({n:'Plecy HDF strefa górna (nut)',w1:wysGora-16,w2:szer-16,szt:1,mat:'hdf',kr:[false,false,false,false],gr:'Plecy HDF'});
+
+  } else if(typ==='slupek_lodowka'){
+    // Boki
+    el.push({n:'Bok',w1:wys,w2:gln,szt:2,mat:'korpus',kr:[false,false,true,true],gr:'Korpus'});
+    el.push({n:'Wieniec dolny',w1:wi,w2:gln,szt:1,mat:'korpus',kr:[false,false,false,true],gr:'Korpus'});
+    el.push({n:'Wieniec górny',w1:wi,w2:gln,szt:1,mat:'korpus',kr:[false,false,false,true],gr:'Korpus'});
+    // 2 drzwi – dolny 720, górny reszta
+    const fDol=720,fGora=wys-4-fDol-SZCZ,fw=szer-4;
+    el.push({n:'Front dolny lodówki',w1:fDol,w2:fw,szt:1,mat:'front',kr:[true,true,true,true],gr:'Fronty'});
+    el.push({n:'Front górny lodówki',w1:fGora,w2:fw,szt:1,mat:'front',kr:[true,true,true,true],gr:'Fronty'});
+    akc.push({n:'Zawias front dolny',il:liczZaw(fDol),cena_szt:katalog.stawki.zawias,typ:'zawias'});
+    akc.push({n:'Zawias front górny',il:liczZaw(fGora),cena_szt:katalog.stawki.zawias,typ:'zawias'});
+    if(uchwyt==='tipon'){akc.push({n:'Tipon',il:2,cena_szt:katalog.stawki.tipon,typ:'tipon'});}
+  }
+
+  // Nóżki zawsze
+  akc.push({n:'Nóżka',il:4,cena_szt:katalog.stawki.nozka,typ:'nozka'});
+  return{el,akc,sl_zestaw_id:zestaw_id,sl_uchwyt:uchwyt};
+}
+
+// ══ GENERUJ ELEMENTY STANDARDOWE ══
+function genEl(s){
+  const{wys,szer,gl,plecy,front_typ,front_ilosc,typ,zestaw_id,polki:iP,uchwyt}=s;
+  const gln=gl-20,wi=szer-2*GRK;
+  let el=[],akc=[];
+  el.push({n:'Bok',w1:wys,w2:gln,szt:2,mat:'korpus',kr:[false,false,true,true],gr:'Korpus'});
+  const glWg=(plecy==='nut'||plecy==='felc'||plecy==='pelne')?gln-20:gln;
+  el.push({n:'Wieniec dolny',w1:wi,w2:gln,szt:1,mat:'korpus',kr:[false,false,false,true],gr:'Korpus'});
+  el.push({n:'Wieniec górny',w1:wi,w2:glWg,szt:1,mat:'korpus',kr:[false,false,false,true],gr:'Korpus'});
+  if(iP>0&&front_typ!=='szuflady'){const glP=glPolki(plecy,gln);el.push({n:'Półka',w1:wi,w2:glP,szt:iP,mat:'korpus',kr:[false,false,false,true],gr:'Korpus'});}
+  const off=PLECY_OFF[plecy];
+  if(off!==null)el.push({n:`Plecy HDF (${plecy})`,w1:wys-off,w2:szer-off,szt:1,mat:'hdf',kr:[false,false,false,false],gr:'Plecy'});
+  if(front_typ==='drzwi'&&front_ilosc>0){
+    const fh=wys-4,fw=Math.floor((szer-4-(front_ilosc-1)*SZCZ)/front_ilosc);
+    el.push({n:'Drzwi',w1:fh,w2:fw,szt:front_ilosc,mat:'front',kr:[true,true,true,true],gr:'Fronty'});
+    akc.push({n:'Zawias',il:liczZaw(fh)*front_ilosc,cena_szt:katalog.stawki.zawias,typ:'zawias'});
+    if(uchwyt==='tipon')akc.push({n:'Tipon',il:front_ilosc,cena_szt:katalog.stawki.tipon,typ:'tipon'});
+  }
+  if(front_typ==='szuflady'&&zestaw_id){
+    const z=ZESTAWY.find(x=>x.id===zestaw_id),prow=dobProw(gln),fr=liczFronty(z.sz,wys,szer);
+    const fw=szer-4,gld=prow?prow-24:gln-34;
+    z.sz.forEach((r,i)=>{
+      const rz=ROZ[r];
+      el.push({n:`Front szuflady ${r} (${i+1}/${z.sz.length})`,w1:fr[i],w2:fw,szt:1,mat:'front',kr:[true,true,true,true],gr:'Fronty szuflad'});
+      el.push({n:`Dno szuflady ${r}`,w1:wi-75,w2:gld,szt:1,mat:'szuflada',kr:[false,false,false,false],gr:'Elementy szuflad'});
+      el.push({n:`Tylna ścianka ${r}`,w1:wi-87,w2:rz.h,szt:1,mat:'szuflada',kr:[false,false,false,true],gr:'Elementy szuflad'});
+      akc.push({n:`GTV Axis Pro ${r} ${prow||'?'}mm`,il:1,cena_szt:katalog.stawki.prowadnica,typ:'prowadnica'});
+      if(uchwyt==='tipon')akc.push({n:'Tipon',il:1,cena_szt:katalog.stawki.tipon,typ:'tipon'});
+    });
+  }
+  if(typ==='wisząca')akc.push({n:'Zawieszka',il:2,cena_szt:katalog.stawki.zawieszka,typ:'zawieszka'});
+  if(typ==='stojąca')akc.push({n:'Nóżka',il:4,cena_szt:katalog.stawki.nozka,typ:'nozka'});
+  if(['krawędziowy','nabijany','velo'].includes(uchwyt)){
+    const z=ZESTAWY.find(x=>x.id===zestaw_id);
+    const il=front_typ==='drzwi'?front_ilosc:front_typ==='szuflady'&&z?z.sz.length:0;
+    if(il>0)akc.push({n:'Uchwyt '+uchwyt,il,cena_szt:0,typ:'uchwyt'});
+  }
+  return{el,akc};
+}
+
+function cenaPlyty(mat,m2){const p=katalog.plyty.find(x=>x.n===mat);return p?(p.m2||0)*m2:0;}
+function liczKosztSzafki(s){
+  let k=0;
+  [...(s.el||[]),...(s.el_dodatkowe||[])].forEach(e=>{
+    const m2=(e.w1*e.w2*e.szt)/1e6;
+    const mat=e.mat==='front'?s.mat_front:e.mat==='hdf'?null:e.mat==='szuflada'?null:s.mat_korpus;
+    if(mat)k+=cenaPlyty(mat,m2);
+  });
+  [...(s.akc||[])].forEach(a=>k+=(a.cena_szt||katalog.stawki[a.typ]||0)*a.il);
+  (s.akc_dodatkowe||[]).forEach(a=>k+=a.cena_szt*a.il);
+  return k;
+}
+
+function getCfg(){
+  const wys=+document.getElementById('wys').value,szer=+document.getElementById('szer').value,gl=+document.getElementById('gl').value;
+  const ft=document.getElementById('front_typ').value,typ=document.getElementById('typ').value;
+  if(!wys||!gl||!szer){alert('Podaj wymiary!');return null;}
+  if(!isSlupek(typ)&&ft==='szuflady'&&!selZestaw){alert('Wybierz zestaw szuflad!');return null;}
+  return{
+    sz_nazwa:document.getElementById('sz_nazwa').value.trim(),
+    sz_uwagi:document.getElementById('sz_uwagi').value.trim(),
+    mat_korpus:document.getElementById('mat_korpus').value,
+    mat_front:document.getElementById('mat_front').value,
+    wys,szer,gl,typ,
+    plecy:document.getElementById('plecy').value,
+    uchwyt:document.getElementById('uchwyt').value,
+    polki:+document.getElementById('polki').value||0,
+    front_typ:ft,
+    front_ilosc:+document.getElementById('front_ilosc').value||0,
+    zestaw_id:selZestaw,
+  };
+}
+
+function dodajSzafke(){
+  const cfg=getCfg();if(!cfg)return;
+  const slupek=isSlupek(cfg.typ);
+  if(editId!==null){
+    const idx=szafki.findIndex(s=>s.id===editId);
+    if(idx>=0){
+      const res=slupek?genElSlupek({...cfg,id:editId}):genEl({...cfg,id:editId});
+      szafki[idx]={...cfg,...res,id:editId,akc_dodatkowe:szafki[idx].akc_dodatkowe||[],el_dodatkowe:szafki[idx].el_dodatkowe||[],exp:szafki[idx].exp};
+    }
+    anulujEdycje();
+  }else{
+    const id=nextId++;
+    const res=slupek?genElSlupek({...cfg,id}):genEl({...cfg,id});
+    szafki.push({...cfg,...res,id,akc_dodatkowe:[],el_dodatkowe:[],exp:true});
+  }
+  save();renderLista();
+}
+
+function anulujEdycje(){editId=null;document.getElementById('ktitle').textContent='🔧 Dodaj mebel';document.getElementById('btn_dodaj').textContent='➕ Dodaj do wyceny';document.getElementById('btn_anuluj').style.display='none';}
+function edytuj(id){
+  const s=szafki.find(x=>x.id===id);if(!s)return;editId=id;
+  document.getElementById('sz_nazwa').value=s.sz_nazwa||'';document.getElementById('sz_uwagi').value=s.sz_uwagi||'';
+  document.getElementById('mat_korpus').value=s.mat_korpus;document.getElementById('mat_front').value=s.mat_front;
+  ['wys','szer','gl'].forEach(f=>document.getElementById(f).value=s[f]);
+  document.getElementById('typ').value=s.typ;onTypChange();
+  document.getElementById('plecy').value=s.plecy||'nut';
+  document.getElementById('uchwyt').value=s.uchwyt||'tipon';
+  document.getElementById('polki').value=s.polki||0;
+  document.getElementById('front_typ').value=s.front_typ||'otwarta';toggleFront();
+  if(s.front_ilosc)document.getElementById('front_ilosc').value=s.front_ilosc;
+  if(s.zestaw_id){selZestaw=s.zestaw_id;initZestawy();wybierzZestaw(s.zestaw_id);}
+  document.getElementById('ktitle').textContent='✏️ Edytujesz #'+id+(s.sz_nazwa?' – '+s.sz_nazwa:'');
+  document.getElementById('btn_dodaj').textContent='💾 Zapisz zmiany';document.getElementById('btn_anuluj').style.display='inline-block';
+  document.getElementById('kcard').scrollIntoView({behavior:'smooth'});
+}
+function usun(id){if(confirm('Usunąć #'+id+'?')){szafki=szafki.filter(s=>s.id!==id);save();renderLista();}}
+function toggleExp(id){const s=szafki.find(x=>x.id===id);if(s){s.exp=!s.exp;save();renderLista();}}
+function toggleKr(sid,ei,ki){const s=szafki.find(x=>x.id===sid);if(s){s.el[ei].kr[ki]=!s.el[ei].kr[ki];save();renderLista();}}
+function toggleKrDod(sid,ei,ki){const s=szafki.find(x=>x.id===sid);if(s&&s.el_dodatkowe[ei]){s.el_dodatkowe[ei].kr[ki]=!s.el_dodatkowe[ei].kr[ki];save();renderLista();}}
+
+function openAkcSzafka(id){activeSzafkaId=id;document.getElementById('ma_nazwa').value='';document.getElementById('ma_ilosc').value=1;document.getElementById('ma_cena').value=0;openModal('m_akc_szafka');}
+function zapiszAkcSzafka(){const s=szafki.find(x=>x.id===activeSzafkaId);if(!s)return;const n=document.getElementById('ma_nazwa').value.trim();if(!n)return;if(!s.akc_dodatkowe)s.akc_dodatkowe=[];s.akc_dodatkowe.push({n,il:+document.getElementById('ma_ilosc').value||1,cena_szt:+document.getElementById('ma_cena').value||0,typ:'dodatkowe'});closeModal('m_akc_szafka');save();renderLista();}
+function openFmtSzafka(id){activeSzafkaId=id;['mf_nazwa','mf_w1','mf_w2'].forEach(i=>document.getElementById(i).value='');document.getElementById('mf_szt').value=1;openModal('m_fmt_szafka');}
+function zapiszFmtSzafka(){const s=szafki.find(x=>x.id===activeSzafkaId);if(!s)return;const n=document.getElementById('mf_nazwa').value.trim(),w1=+document.getElementById('mf_w1').value,w2=+document.getElementById('mf_w2').value;if(!n||!w1||!w2){alert('Uzupełnij dane!');return;}if(!s.el_dodatkowe)s.el_dodatkowe=[];s.el_dodatkowe.push({n,w1,w2,szt:+document.getElementById('mf_szt').value||1,mat:document.getElementById('mf_mat').value,kr:[false,false,false,false],gr:'Dodatkowe formatki'});closeModal('m_fmt_szafka');save();renderLista();}
+
+// ══ KRAWĘDZIE ══
+const KR_POS=[[1,0],[2,1],[1,2],[0,1]];
+function krWrap(sid,ei,kr,w1,w2,isDod){
+  const labs=['↑','→','↓','←'],dims=[w2,w1,w2,w1];
+  let cells=Array(9).fill(null).map((_,idx)=>{
+    const r=Math.floor(idx/3),c=idx%3;
+    if(r===1&&c===1)return`<div class="kb mid">▣</div>`;
+    const ki=KR_POS.findIndex(([pc,pr])=>pc===c&&pr===r);if(ki<0)return`<div></div>`;
+    const fn=isDod?`toggleKrDod(${sid},${ei},${ki})`:`toggleKr(${sid},${ei},${ki})`;
+    return`<div class="kb${kr[ki]?' on':''}" onclick="${fn}" title="${labs[ki]}: ${dims[ki]}mm">${labs[ki]}</div>`;
+  });
+  const mb=(kr.reduce((s,k,i)=>s+(k?dims[i]:0),0)/1000).toFixed(2);
+  return`<div style="display:flex;align-items:center"><div class="kw">${cells.join('')}</div>${kr.some(Boolean)?`<span style="color:#e8601a;font-size:11px;margin-left:4px">${mb}mb</span>`:''}</div>`;
+}
+
+// ══ RENDER LISTA ══
+function renderLista(){
+  const cont=document.getElementById('lista');
+  const has=szafki.length>0;
+  document.getElementById('panel_wyceny').style.display=has?'block':'none';
+  if(!has){cont.innerHTML='<div class="empty"><div class="ic">🗂️</div>Brak mebli – dodaj pierwszy powyżej</div>';return;}
+  let totalPow={},html='',totalKoszt=0;
+  szafki.forEach(s=>{
+    const allEl=[...(s.el||[]),...(s.el_dodatkowe||[])];
+    allEl.forEach(e=>{const k=e.mat==='front'?s.mat_front:e.mat==='hdf'?'HDF 4mm':e.mat==='szuflada'?'Płyta 16mm':s.mat_korpus;totalPow[k]=(totalPow[k]||0)+(e.w1*e.w2*e.szt)/1e6;});
+    const koszt=liczKosztSzafki(s);totalKoszt+=koszt;
+    const typLabel={wisząca:'wisząca',stojąca:'stojąca',slupek_piek:'słupek piekarnik',slupek_piek_mikro:'słupek piek+mikro',slupek_lodowka:'słupek lodówka'}[s.typ]||s.typ;
+    const tagCls=isSlupek(s.typ)?'slupek':s.typ==='wisząca'?'wisząca':'stojąca';
+    const totalM2=allEl.reduce((sum,e)=>sum+(e.w1*e.w2*e.szt)/1e6,0).toFixed(3);
+    const grupy={};allEl.forEach((e,i)=>{if(!grupy[e.gr])grupy[e.gr]=[];grupy[e.gr].push({e,i,isDod:i>=(s.el||[]).length});});
+    let rows='';
+    Object.entries(grupy).forEach(([g,items])=>{
+      rows+=`<tr class="grp-hdr"><td colspan="5">${g}</td></tr>`;
+      items.forEach(({e,i,isDod})=>{const ri=isDod?i-(s.el||[]).length:i;rows+=`<tr><td>${e.n}</td><td><b>${e.w1}</b>×<b>${e.w2}</b>${e.szt>1?` <span style="color:#aaa">×${e.szt}</span>`:''}</td><td>${e.szt}</td><td>${((e.w1*e.w2*e.szt)/1e6).toFixed(3)}m²</td><td>${krWrap(s.id,ri,e.kr,e.w1,e.w2,isDod)}</td></tr>`;});
+    });
+    const allAkc=[...(s.akc||[]),...(s.akc_dodatkowe||[])];
+    html+=`<div class="sc">
+      <div class="sh" onclick="toggleExp(${s.id})">
+        <div class="sarr${s.exp?' op':''}">▶</div>
+        <span class="sidx">#${s.id}</span>
+        <div class="sinfo">
+          <span class="sname">${s.sz_nazwa||`${s.wys}×${s.szer}×${s.gl}mm`}</span>
+          ${s.sz_nazwa?`<span style="color:#aaa;font-size:11px">${s.wys}×${s.szer}×${s.gl}</span>`:''}
+          <span class="tag tag-${tagCls}">${typLabel}</span>
+          <span class="chip" style="background:#fff3ee;color:#e8601a">${totalM2}m²</span>
+          ${koszt>0?`<span class="chip" style="background:#e8f5e9;color:#2e7d32">${fmtPln(koszt)}</span>`:''}
+        </div>
+        <div style="display:flex;gap:4px" onclick="event.stopPropagation()">
+          <button class="btn btn-secondary btn-sm" onclick="openFmtSzafka(${s.id})" title="Dodaj formatkę">📐</button>
+          <button class="btn btn-secondary btn-sm" onclick="openAkcSzafka(${s.id})" title="Dodaj akcesorium">➕</button>
+          <button class="btn btn-secondary btn-sm" onclick="edytuj(${s.id})">✏️</button>
+          <button class="btn btn-danger btn-sm" onclick="usun(${s.id})">✕</button>
+        </div>
+      </div>
+      ${s.exp?`<div class="sbody">
+        ${s.sz_uwagi?`<div style="font-size:11px;color:#888;margin-bottom:7px;padding:5px 8px;background:#fffbf0;border-radius:5px;border-left:3px solid #ffc107">💬 ${s.sz_uwagi}</div>`:''}
+        <table class="etable"><thead><tr><th>Element</th><th>Wymiary mm</th><th>Szt</th><th>Pow.</th><th>Okleina ABS</th></tr></thead><tbody>${rows}</tbody></table>
+        ${allAkc.length?`<div style="margin-top:7px"><div style="font-size:10px;font-weight:700;color:#aaa;text-transform:uppercase;margin-bottom:4px">Akcesoria</div>${allAkc.map(a=>{const c=a.cena_szt||katalog.stawki[a.typ]||0;return`<span class="acc-item">✓ ${a.n} ×${a.il}${c?` = ${fmtPln(c*a.il)}`:''}</span>`;}).join('')}</div>`:''}
+      </div>`:''}
+    </div>`;
+  });
+  html+=`<div class="sumbox"><h2>📊 Podsumowanie materiałów</h2>${Object.entries(totalPow).map(([m,p])=>`<div class="sumrow"><span>${m}</span><span>${p.toFixed(3)} m²</span></div>`).join('')}${totalKoszt>0?`<div class="sumrow total"><span>Łączny koszt netto</span><span>${fmtPln(totalKoszt)}</span></div>`:''}</div>`;
+  cont.innerHTML=html;updatePodsumowanie();
+}
+
+// ══ BAZA ══
+function zapiszBaza(){const cfg=getCfg();if(!cfg)return;const n=prompt('Nazwa w bazie:');if(!n)return;const slupek=isSlupek(cfg.typ);const res=slupek?genElSlupek(cfg):genEl(cfg);baza.push({...cfg,...res,nazwa_bazy:n,bid:Date.now()});save();renderBaza();alert('✓ Zapisano!');}
+function renderBaza(){const c=document.getElementById('baza_lista');if(!baza.length){c.innerHTML='<div class="empty"><div class="ic">📦</div>Baza jest pusta</div>';return;}c.innerHTML=baza.map((b,i)=>`<div style="display:flex;align-items:center;gap:9px;padding:8px 0;border-bottom:1px solid #f0f2f5"><div style="flex:1"><div style="font-weight:700;font-size:13px">${b.nazwa_bazy}</div><div style="font-size:11px;color:#888">${b.wys}×${b.szer}×${b.gl}mm · ${b.typ}</div></div><button class="btn btn-secondary btn-sm" onclick="ladujBaza(${i})">📥 Użyj</button><button class="btn btn-danger btn-sm" onclick="if(confirm('Usunąć?')){baza.splice(${i},1);save();renderBaza()}">✕</button></div>`).join('');}
+function openModalBaza(){if(!baza.length){alert('Baza jest pusta!');return;}document.getElementById('mbaza_lista').innerHTML=baza.map((b,i)=>`<div style="display:flex;align-items:center;gap:8px;padding:7px 0;border-bottom:1px solid #f0f2f5"><div style="flex:1"><div style="font-weight:700">${b.nazwa_bazy}</div><div style="font-size:11px;color:#888">${b.wys}×${b.szer}×${b.gl}mm · ${b.typ}</div></div><button class="btn btn-primary btn-sm" onclick="ladujBaza(${i});closeModal('mbaza')">Załaduj</button></div>`).join('');openModal('mbaza');}
+function ladujBaza(i){const b=baza[i];document.getElementById('sz_nazwa').value=b.sz_nazwa||b.nazwa_bazy||'';document.getElementById('sz_uwagi').value=b.sz_uwagi||'';document.getElementById('mat_korpus').value=b.mat_korpus;document.getElementById('mat_front').value=b.mat_front;['wys','szer','gl'].forEach(f=>document.getElementById(f).value=b[f]);document.getElementById('typ').value=b.typ;onTypChange();document.getElementById('plecy').value=b.plecy||'nut';document.getElementById('uchwyt').value=b.uchwyt||'tipon';document.getElementById('polki').value=b.polki||0;document.getElementById('front_typ').value=b.front_typ||'otwarta';toggleFront();if(b.front_ilosc)document.getElementById('front_ilosc').value=b.front_ilosc;if(b.zestaw_id){selZestaw=b.zestaw_id;initZestawy();wybierzZestaw(b.zestaw_id);}}
+
+// ══ PODGLĄD PDF ══
+function pokazPodglad(){document.getElementById('preview_content').innerHTML=generujHTML();document.getElementById('preview_overlay').classList.add('open');}
+function zamknijPodglad(){document.getElementById('preview_overlay').classList.remove('open');}
+function drukujOferte(){document.getElementById('preview_content').innerHTML=generujHTML();document.getElementById('preview_overlay').classList.add('open');setTimeout(()=>window.print(),400);}
+function generujHTML(){
+  const koszt=szafki.reduce((s,sz)=>s+liczKosztSzafki(sz),0),cena=koszt*marzaMnoznik,marza=cena-koszt;
+  const klient=klienci.find(x=>x.id===+document.getElementById('w_klient').value);
+  const projekt=projekty.find(x=>x.id===+document.getElementById('w_projekt').value);
+  const nr='OF/'+new Date().getFullYear()+'/'+String(nextHistId).padStart(3,'0');
+  return`<div style="font-family:'Segoe UI',Arial,sans-serif;color:#222;font-size:13px">
+    <div style="background:#1a1a2e;color:#fff;padding:30px 40px;display:flex;justify-content:space-between;align-items:center">
+      <div><div style="font-size:24px;font-weight:900;letter-spacing:1px">MSS WOOD DESIGN</div><div style="color:#e8601a;font-size:13px;letter-spacing:3px;margin-top:2px">MEBLE NA WYMIAR</div><div style="color:#aaa;font-size:11px;margin-top:8px">${firma.adres}</div><div style="color:#aaa;font-size:11px">tel. ${firma.tel} · ${firma.email}</div><div style="color:#aaa;font-size:11px">NIP: ${firma.nip}</div></div>
+      <div style="text-align:right"><div style="background:#e8601a;color:#fff;padding:8px 20px;border-radius:6px;font-size:20px;font-weight:700">OFERTA</div><div style="color:#aaa;font-size:12px;margin-top:8px">Nr: ${nr}</div><div style="color:#aaa;font-size:12px">Data: ${new Date().toLocaleDateString('pl-PL')}</div></div>
+    </div>
+    <div style="padding:24px 40px;background:#f8f9ff;border-bottom:2px solid #e8601a;display:flex;gap:40px">
+      <div style="flex:1"><div style="font-size:11px;font-weight:700;color:#888;text-transform:uppercase;margin-bottom:6px">Dla klienta</div><div style="font-size:16px;font-weight:700">${klient?klient.imie:'–'}</div>${klient&&klient.adres?`<div style="font-size:12px;color:#666">${klient.adres}</div>`:''}${klient&&klient.tel?`<div style="font-size:12px;color:#666">tel. ${klient.tel}</div>`:''}</div>
+      <div style="flex:1"><div style="font-size:11px;font-weight:700;color:#888;text-transform:uppercase;margin-bottom:6px">Projekt</div><div style="font-size:16px;font-weight:700">${projekt?projekt.nazwa:'–'}</div></div>
+    </div>
+    <div style="padding:30px 40px">
+      <div style="font-size:14px;font-weight:700;color:#1a1a2e;margin-bottom:14px;padding-bottom:8px;border-bottom:2px solid #e8601a">ZESTAWIENIE MEBLI</div>
+      <table style="width:100%;border-collapse:collapse;font-size:13px">
+        <thead><tr style="background:#1a1a2e;color:#fff"><th style="padding:10px 12px;text-align:left;width:32px">#</th><th style="padding:10px 12px;text-align:left">Nazwa / opis</th><th style="padding:10px 12px;text-align:center">Wymiary</th><th style="padding:10px 12px;text-align:center">Materiał frontu</th></tr></thead>
+        <tbody>${szafki.map((s,i)=>`<tr style="border-bottom:1px solid #f0f2f5;${i%2===1?'background:#fafafa':''}"><td style="padding:9px 12px;color:#e8601a;font-weight:700">${i+1}</td><td style="padding:9px 12px"><div style="font-weight:600">${s.sz_nazwa||'Mebel #'+(i+1)}</div>${s.sz_uwagi?`<div style="font-size:11px;color:#888">${s.sz_uwagi}</div>`:''}<div style="font-size:11px;color:#aaa">Korpus: ${s.mat_korpus}</div></td><td style="padding:9px 12px;text-align:center">${s.wys}×${s.szer}×${s.gl} mm</td><td style="padding:9px 12px;text-align:center;font-size:12px">${s.mat_front}</td></tr>`).join('')}</tbody>
+      </table>
+    </div>
+    <div style="padding:0 40px 30px"><div style="background:#f8f9ff;border:2px solid #e8601a;border-radius:10px;padding:20px">
+      <div style="font-size:13px;font-weight:700;color:#1a1a2e;margin-bottom:12px">PODSUMOWANIE CENOWE</div>
+      <div style="display:flex;justify-content:space-between;padding:6px 0;border-bottom:1px solid #f0f2f5"><span style="color:#666">Koszt produkcji (netto)</span><span>${fmtPln(koszt)}</span></div>
+      <div style="display:flex;justify-content:space-between;padding:6px 0;border-bottom:1px solid #f0f2f5"><span style="color:#666">Marża i koszty realizacji</span><span>${fmtPln(marza)}</span></div>
+      <div style="display:flex;justify-content:space-between;padding:12px 0 0;font-size:20px;font-weight:700;color:#e8601a"><span>CENA ŁĄCZNA</span><span>${fmtPln(cena)}</span></div>
+      <div style="font-size:11px;color:#aaa;margin-top:4px">Cena nie zawiera VAT.</div>
+    </div></div>
+    <div style="background:#1a1a2e;color:#aaa;padding:20px 40px;font-size:11px;display:flex;justify-content:space-between">
+      <div>${firma.nazwa} · NIP: ${firma.nip}</div>
+      <div style="color:#e8601a;font-weight:700">${firma.www}</div>
+      <div>${firma.stopka}</div>
+    </div>
+  </div>`;
+}
+
+// ══ KLIENCI ══
+function zapiszKlienta(){const imie=document.getElementById('mk_imie').value.trim();if(!imie){alert('Podaj imię!');return;}const obj={id:editKlientId||nextKlientId++,imie,tel:document.getElementById('mk_tel').value,email:document.getElementById('mk_email').value,adres:document.getElementById('mk_adres').value,uwagi:document.getElementById('mk_uwagi').value};if(editKlientId){const i=klienci.findIndex(x=>x.id===editKlientId);if(i>=0)klienci[i]=obj;}else klienci.push(obj);editKlientId=null;closeModal('m_klient');save();renderKlienci();refreshKlientSelects();}
+function renderKlienci(){const c=document.getElementById('klienci_lista');if(!klienci.length){c.innerHTML='<div class="empty"><div class="ic">👥</div>Brak klientów</div>';return;}c.innerHTML=klienci.map(k=>{const proj=projekty.filter(p=>p.klient_id===k.id);return`<div class="list-card"><div class="list-hdr" onclick="this.nextElementSibling.style.display=this.nextElementSibling.style.display==='none'?'block':'none'"><span style="font-weight:700;font-size:14px">👤 ${k.imie}</span><span class="chip">${proj.length} proj.</span>${k.tel?`<span class="chip">📞 ${k.tel}</span>`:''}<div style="margin-left:auto;display:flex;gap:4px"><button class="btn btn-secondary btn-sm" onclick="event.stopPropagation();editKlient(${k.id})">✏️</button><button class="btn btn-danger btn-sm" onclick="event.stopPropagation();if(confirm('Usunąć?')){klienci=klienci.filter(x=>x.id!==${k.id});save();renderKlienci()}">✕</button></div></div><div class="list-body">${k.email?`<div style="font-size:12px;margin-bottom:3px">✉️ ${k.email}</div>`:''} ${k.adres?`<div style="font-size:12px;margin-bottom:3px">📍 ${k.adres}</div>`:''}${k.uwagi?`<div style="font-size:12px;color:#888;margin-bottom:8px">💬 ${k.uwagi}</div>`:''}${proj.length?proj.map(p=>`<span class="chip">${p.nazwa}</span>`).join(''):'<span style="font-size:12px;color:#aaa">Brak projektów</span>'}<br><button class="btn btn-primary btn-sm" style="margin-top:8px" onclick="nowyProjektDlaKlienta(${k.id})">+ Nowy projekt</button></div></div>`;}).join('');}
+function editKlient(id){const k=klienci.find(x=>x.id===id);if(!k)return;editKlientId=id;document.getElementById('mk_imie').value=k.imie;document.getElementById('mk_tel').value=k.tel||'';document.getElementById('mk_email').value=k.email||'';document.getElementById('mk_adres').value=k.adres||'';document.getElementById('mk_uwagi').value=k.uwagi||'';document.getElementById('mk_title').textContent='Edytuj klienta';openModal('m_klient');}
+function refreshKlientSelects(){const opts='<option value="">– wybierz –</option>'+klienci.map(k=>`<option value="${k.id}">${k.imie}</option>`).join('');['w_klient','mp_klient'].forEach(id=>{const s=document.getElementById(id);if(s){const v=s.value;s.innerHTML=opts;s.value=v;}});}
+function onKlientChange(){const kid=+document.getElementById('w_klient').value;const proj=projekty.filter(p=>p.klient_id===kid);const sel=document.getElementById('w_projekt');sel.innerHTML='<option value="">– wybierz projekt –</option>'+proj.map(p=>`<option value="${p.id}">${p.nazwa}</option>`).join('');}
+function nowyProjektDlaKlienta(kid){document.getElementById('mp_klient').value=kid;openModal('m_projekt');}
+
+// ══ PROJEKTY ══
+function zapiszProjekt(){const nazwa=document.getElementById('mp_nazwa').value.trim();if(!nazwa){alert('Podaj nazwę!');return;}const obj={id:editProjektId||nextProjId++,nazwa,klient_id:+document.getElementById('mp_klient').value||null,status:document.getElementById('mp_status').value,data_start:document.getElementById('mp_data_start').value,data_end:document.getElementById('mp_data_end').value,wartosc:+document.getElementById('mp_wartosc').value||0,zaliczka:+document.getElementById('mp_zaliczka').value||0,uwagi:document.getElementById('mp_uwagi').value};if(editProjektId){const i=projekty.findIndex(x=>x.id===editProjektId);if(i>=0)projekty[i]=obj;}else projekty.push(obj);editProjektId=null;closeModal('m_projekt');save();renderProjekty();refreshKlientSelects();}
+function renderProjekty(){
+  const c=document.getElementById('projekty_lista');if(!projekty.length){c.innerHTML='<div class="empty"><div class="ic">📁</div>Brak projektów</div>';return;}
+  c.innerHTML=projekty.map(p=>{
+    const k=klienci.find(x=>x.id===p.klient_id);
+    const kosztP=koszty.filter(x=>x.proj_id===p.id).reduce((s,x)=>s+x.kwota,0);
+    const gs=godziny.filter(x=>x.proj_id===p.id),gt=gs.reduce((s,x)=>s+x.godz,0);
+    const wypl=gs.reduce((s,x)=>{const pr=pracownicy.find(z=>z.id===x.prac_id);return s+(pr?pr.stawka*x.godz:0);},0);
+    const zysk=p.wartosc-(kosztP+wypl),procZal=p.wartosc>0?Math.min(100,(p.zaliczka/p.wartosc*100)):0;
+    const bc=p.status==='zakończony'?'badge-green':p.status==='realizacja'?'badge-blue':p.status==='umowa'?'badge-orange':'badge-red';
+    return`<div class="list-card"><div class="list-hdr" onclick="this.nextElementSibling.style.display=this.nextElementSibling.style.display==='none'?'block':'none'">
+      <span style="font-weight:700;font-size:14px">📁 ${p.nazwa}</span><span class="badge ${bc}">${p.status}</span>${k?`<span class="chip">👤 ${k.imie}</span>`:''}<span class="chip" style="background:#e8f5e9;color:#2e7d32">${fmtPln(p.wartosc)}</span>
+      <div style="margin-left:auto;display:flex;gap:4px"><button class="btn btn-secondary btn-sm" onclick="event.stopPropagation();editProjekt(${p.id})">✏️</button><button class="btn btn-danger btn-sm" onclick="event.stopPropagation();if(confirm('Usunąć?')){projekty=projekty.filter(x=>x.id!==${p.id});save();renderProjekty()}">✕</button></div>
+    </div><div class="list-body">
+      <div class="stat-grid">
+        <div class="stat-box"><div class="stat-val">${fmtPln(p.wartosc)}</div><div class="stat-lbl">Wartość umowy</div></div>
+        <div class="stat-box"><div class="stat-val">${fmtPln(p.zaliczka)}</div><div class="stat-lbl">Zaliczka</div></div>
+        <div class="stat-box"><div class="stat-val">${fmtPln(kosztP+wypl)}</div><div class="stat-lbl">Koszty łączne</div></div>
+        <div class="stat-box"><div class="stat-val" style="color:${zysk>=0?'#2e7d32':'#c00'}">${fmtPln(zysk)}</div><div class="stat-lbl">Zysk szac.</div></div>
+        <div class="stat-box"><div class="stat-val">${gt}h</div><div class="stat-lbl">Godziny</div></div>
+        <div class="stat-box"><div class="stat-val">${fmtPln(wypl)}</div><div class="stat-lbl">Wynagrodzenia</div></div>
+      </div>
+      <div style="font-size:11px;color:#888">Zaliczka: ${procZal.toFixed(0)}%</div>
+      <div class="prog-bar"><div class="prog-fill" style="width:${procZal}%"></div></div>
+      ${p.data_start||p.data_end?`<div style="font-size:11px;color:#888;margin-top:6px">📅 ${p.data_start||'?'} → ${p.data_end||'?'}</div>`:''}
+      <div style="display:flex;gap:6px;margin-top:10px;flex-wrap:wrap">
+        <button class="btn btn-secondary btn-sm" onclick="openDodajKoszt(${p.id})">💸 Dodaj koszt</button>
+        <button class="btn btn-secondary btn-sm" onclick="openDodajGodziny(${p.id})">⏱️ Dodaj godziny</button>
+      </div>
+      ${renderKosztyP(p.id)}${renderGodzinyP(p.id)}
+    </div></div>`;
+  }).join('');
+}
+function editProjekt(id){const p=projekty.find(x=>x.id===id);if(!p)return;editProjektId=id;document.getElementById('mp_nazwa').value=p.nazwa;document.getElementById('mp_klient').value=p.klient_id||'';document.getElementById('mp_status').value=p.status;document.getElementById('mp_data_start').value=p.data_start||'';document.getElementById('mp_data_end').value=p.data_end||'';document.getElementById('mp_wartosc').value=p.wartosc||'';document.getElementById('mp_zaliczka').value=p.zaliczka||'';document.getElementById('mp_uwagi').value=p.uwagi||'';document.getElementById('mp_title').textContent='Edytuj projekt';openModal('m_projekt');}
+function renderKosztyP(pid){const ks=koszty.filter(x=>x.proj_id===pid);if(!ks.length)return'';return`<div style="margin-top:10px"><div style="font-size:11px;font-weight:700;color:#aaa;text-transform:uppercase;margin-bottom:5px">Koszty</div>${ks.map((k,i)=>`<div style="display:flex;justify-content:space-between;font-size:12px;padding:3px 0;border-bottom:1px solid #f5f5f5"><span>${k.opis} <span style="color:#aaa">(${k.kat})</span></span><div style="display:flex;gap:6px;align-items:center"><span style="font-weight:600">${fmtPln(k.kwota)}</span><button class="btn btn-danger btn-sm" onclick="koszty.splice(koszty.indexOf(koszty.filter(x=>x.proj_id===${pid})[${i}]),1);save();renderProjekty()">✕</button></div></div>`).join('')}</div>`;}
+function renderGodzinyP(pid){const gs=godziny.filter(x=>x.proj_id===pid);if(!gs.length)return'';return`<div style="margin-top:10px"><div style="font-size:11px;font-weight:700;color:#aaa;text-transform:uppercase;margin-bottom:5px">Godziny pracy</div>${gs.map(g=>{const pr=pracownicy.find(x=>x.id===g.prac_id);return`<div style="display:flex;justify-content:space-between;font-size:12px;padding:3px 0;border-bottom:1px solid #f5f5f5"><span>${pr?pr.imie:'?'} · ${g.godz}h · ${g.data||''} ${g.opis?'· '+g.opis:''}</span><span style="font-weight:600">${fmtPln((pr?pr.stawka:0)*g.godz)}</span></div>`;}).join('')}</div>`;}
+function openDodajKoszt(pid){document.getElementById('mk2_proj_id').value=pid;document.getElementById('mk2_opis').value='';document.getElementById('mk2_kwota').value='';openModal('m_koszt');}
+function zapiszKoszt(){const pid=+document.getElementById('mk2_proj_id').value;const opis=document.getElementById('mk2_opis').value.trim();if(!opis){alert('Podaj opis!');return;}koszty.push({proj_id:pid,opis,kwota:+document.getElementById('mk2_kwota').value||0,kat:document.getElementById('mk2_kat').value});closeModal('m_koszt');save();renderProjekty();}
+function openDodajGodziny(pid){
+  document.getElementById('mg_proj').innerHTML='<option value="">– brak –</option>'+projekty.map(p=>`<option value="${p.id}"${p.id===pid?' selected':''}>${p.nazwa}</option>`).join('');
+  document.getElementById('mg_prac').innerHTML=pracownicy.map(p=>`<option value="${p.id}">${p.imie}</option>`).join('');
+  document.getElementById('mg_data').valueAsDate=new Date();document.getElementById('mg_godz').value=8;document.getElementById('mg_opis').value='';openModal('m_godziny');
+}
+function zapiszGodziny(){if(!pracownicy.length){alert('Najpierw dodaj pracowników!');return;}godziny.push({proj_id:+document.getElementById('mg_proj').value||null,prac_id:+document.getElementById('mg_prac').value,godz:+document.getElementById('mg_godz').value,data:document.getElementById('mg_data').value,opis:document.getElementById('mg_opis').value});closeModal('m_godziny');save();renderPracownicy();renderKalendarz();}
+
+// ══ PRACOWNICY ══
+function zapiszPracownika(){const imie=document.getElementById('mpr_imie').value.trim();if(!imie){alert('Podaj imię!');return;}const obj={id:editPracId||nextPracId++,imie,tel:document.getElementById('mpr_tel').value,email:document.getElementById('mpr_email').value,stawka:+document.getElementById('mpr_stawka').value||0,umowa:document.getElementById('mpr_umowa').value,uwagi:document.getElementById('mpr_uwagi').value};if(editPracId){const i=pracownicy.findIndex(x=>x.id===editPracId);if(i>=0)pracownicy[i]=obj;}else pracownicy.push(obj);editPracId=null;closeModal('m_pracownik');save();renderPracownicy();refreshPracSelects();}
+function renderPracownicy(){
+  const c=document.getElementById('pracownicy_lista');if(!pracownicy.length){c.innerHTML='<div class="empty"><div class="ic">👷</div>Brak pracowników</div>';return;}
+  c.innerHTML=pracownicy.map(p=>{
+    const gs=godziny.filter(x=>x.prac_id===p.id),gt=gs.reduce((s,x)=>s+x.godz,0);
+    // Ten miesiąc
+    const now=new Date(),ym=now.getFullYear()+'-'+(now.getMonth()+1).toString().padStart(2,'0');
+    const gtM=godziny.filter(x=>x.prac_id===p.id&&(x.data||'').startsWith(ym)).reduce((s,x)=>s+x.godz,0);
+    return`<div class="list-card"><div class="list-hdr" onclick="this.nextElementSibling.style.display=this.nextElementSibling.style.display==='none'?'block':'none'">
+      <span style="font-weight:700;font-size:14px">👷 ${p.imie}</span>
+      <span class="chip">${p.stawka} zł/h</span><span class="badge badge-blue">${p.umowa}</span>
+      <span class="chip" style="background:#e8f5e9;color:#2e7d32">${gtM}h ten miesiąc</span>
+      <div style="margin-left:auto;display:flex;gap:4px">
+        <button class="btn btn-secondary btn-sm" onclick="event.stopPropagation();editPrac(${p.id})">✏️</button>
+        <button class="btn btn-danger btn-sm" onclick="event.stopPropagation();if(confirm('Usunąć?')){pracownicy=pracownicy.filter(x=>x.id!==${p.id});save();renderPracownicy()}">✕</button>
+      </div>
+    </div>
+    <div class="list-body">
+      <div class="stat-grid">
+        <div class="stat-box"><div class="stat-val">${gt}h</div><div class="stat-lbl">Łącznie wszystkie</div></div>
+        <div class="stat-box"><div class="stat-val">${gtM}h</div><div class="stat-lbl">Ten miesiąc</div></div>
+        <div class="stat-box"><div class="stat-val">${fmtPln(gt*p.stawka)}</div><div class="stat-lbl">Łączne zarobki</div></div>
+        <div class="stat-box"><div class="stat-val">${fmtPln(gtM*p.stawka)}</div><div class="stat-lbl">Zarobki ten mies.</div></div>
+        <div class="stat-box"><div class="stat-val">${[...new Set(gs.map(x=>x.proj_id).filter(Boolean))].length}</div><div class="stat-lbl">Projekty</div></div>
+        <div class="stat-box"><div class="stat-val">${p.stawka} zł</div><div class="stat-lbl">Stawka/h</div></div>
+      </div>
+      ${p.tel?`<div style="font-size:12px;margin-bottom:3px">📞 ${p.tel}</div>`:''}
+      ${p.email?`<div style="font-size:12px">✉️ ${p.email}</div>`:''}
+      ${p.uwagi?`<div style="font-size:12px;color:#888;margin-top:4px">💬 ${p.uwagi}</div>`:''}
+      <div style="margin-top:10px">
+        <div style="font-size:11px;font-weight:700;color:#aaa;text-transform:uppercase;margin-bottom:5px">Ostatnie wpisy</div>
+        ${godziny.filter(x=>x.prac_id===p.id).slice(-5).reverse().map(g=>{const pr2=projekty.find(x=>x.id===g.proj_id);return`<div style="display:flex;justify-content:space-between;font-size:12px;padding:3px 0;border-bottom:1px solid #f5f5f5"><span>${g.data||'–'} · ${g.godz}h ${g.opis?'· '+g.opis:''}</span><span style="color:#aaa;font-size:11px">${pr2?pr2.nazwa:''}</span></div>`;}).join('')||'<div style="font-size:12px;color:#aaa">Brak wpisów</div>'}
+      </div>
+      <button class="btn btn-secondary btn-sm" style="margin-top:8px" onclick="openDodajGodzinyPrac(${p.id})">⏱️ Dodaj godziny</button>
+    </div></div>`;
+  }).join('');
+}
+function editPrac(id){const p=pracownicy.find(x=>x.id===id);if(!p)return;editPracId=id;document.getElementById('mpr_imie').value=p.imie;document.getElementById('mpr_tel').value=p.tel||'';document.getElementById('mpr_email').value=p.email||'';document.getElementById('mpr_stawka').value=p.stawka||'';document.getElementById('mpr_umowa').value=p.umowa||'zlecenie';document.getElementById('mpr_uwagi').value=p.uwagi||'';document.getElementById('mpr_title').textContent='Edytuj pracownika';openModal('m_pracownik');}
+function openDodajGodzinyPrac(pid){if(!projekty.length&&!confirm('Brak projektów. Dodać godziny bez projektu?'))return;document.getElementById('mg_proj').innerHTML='<option value="">– brak –</option>'+projekty.map(p=>`<option value="${p.id}">${p.nazwa}</option>`).join('');document.getElementById('mg_prac').innerHTML=pracownicy.map(p=>`<option value="${p.id}"${p.id===pid?' selected':''}>${p.imie}</option>`).join('');document.getElementById('mg_data').valueAsDate=new Date();document.getElementById('mg_godz').value=8;document.getElementById('mg_opis').value='';openModal('m_godziny');}
+function refreshPracSelects(){const sel=document.getElementById('kal_prac_filter');if(!sel)return;const v=sel.value;sel.innerHTML='<option value="">Wszyscy</option>'+pracownicy.map(p=>`<option value="${p.id}">${p.imie}</option>`).join('');sel.value=v;}
+
+// ══ KALENDARZ ══
+function kalPrev(){kalDate=new Date(kalDate.getFullYear(),kalDate.getMonth()-1,1);renderKalendarz();}
+function kalNext(){kalDate=new Date(kalDate.getFullYear(),kalDate.getMonth()+1,1);renderKalendarz();}
+function renderKalendarz(){
+  const miesiac=['Styczeń','Luty','Marzec','Kwiecień','Maj','Czerwiec','Lipiec','Sierpień','Wrzesień','Październik','Listopad','Grudzień'];
+  document.getElementById('kal_title').textContent=miesiac[kalDate.getMonth()]+' '+kalDate.getFullYear();
+  const filtPrac=document.getElementById('kal_prac_filter')?.value||'';
+  const rok=kalDate.getFullYear(),mies=kalDate.getMonth();
+  const pierwszy=new Date(rok,mies,1);
+  // Pon=0...Ndz=6
+  let dzienTyg=(pierwszy.getDay()+6)%7;
+  const ostatni=new Date(rok,mies+1,0).getDate();
+  const today=new Date();
+  const todayStr=today.getFullYear()+'-'+(today.getMonth()+1).toString().padStart(2,'0')+'-'+today.getDate().toString().padStart(2,'0');
+  let html=DNI.map(d=>`<div class="kal-hdr">${d}</div>`).join('');
+  // Puste komórki przed pierwszym dniem
+  for(let i=0;i<dzienTyg;i++)html+=`<div class="kal-day other-month"><div class="kal-num"></div></div>`;
+  for(let d=1;d<=ostatni;d++){
+    const dateStr=rok+'-'+(mies+1).toString().padStart(2,'0')+'-'+d.toString().padStart(2,'0');
+    const dGs=godziny.filter(g=>(g.data||'')==dateStr&&(!filtPrac||g.prac_id==filtPrac));
+    const totalH=dGs.reduce((s,x)=>s+x.godz,0);
+    const isToday=dateStr===todayStr;
+    const pracNames=[...new Set(dGs.map(g=>{const p=pracownicy.find(x=>x.id===g.prac_id);return p?p.imie.split(' ')[0]:'';}))].join(',');
+    html+=`<div class="kal-day${isToday?' today':''}${totalH>0?' has-work':''}" onclick="showDzien('${dateStr}')">
+      <div class="kal-num">${d}</div>
+      ${totalH>0?`<div class="kal-godz">${totalH}h</div><div class="kal-proj">${pracNames}</div>`:''}
+    </div>`;
+  }
+  document.getElementById('kal_grid').innerHTML=html;
+}
+function showDzien(dateStr){
+  const gs=godziny.filter(g=>(g.data||'')==dateStr);
+  document.getElementById('m_dzien_title').textContent='Godziny – '+dateStr;
+  if(!gs.length){document.getElementById('m_dzien_lista').innerHTML='<div style="color:#aaa;font-size:13px">Brak wpisów</div>';openModal('m_dzien');return;}
+  document.getElementById('m_dzien_lista').innerHTML=gs.map((g,i)=>{
+    const pr=pracownicy.find(x=>x.id===g.prac_id);
+    const proj=projekty.find(x=>x.id===g.proj_id);
+    return`<div style="display:flex;justify-content:space-between;align-items:center;padding:7px 0;border-bottom:1px solid #f5f5f5">
+      <div><div style="font-weight:700;font-size:13px">${pr?pr.imie:'?'} – ${g.godz}h</div>
+      <div style="font-size:11px;color:#888">${proj?proj.nazwa:''} ${g.opis?'· '+g.opis:''}</div></div>
+      <button class="btn btn-danger btn-sm" onclick="usunGodziny(${i},'${dateStr}')">✕</button>
+    </div>`;
+  }).join('');
+  openModal('m_dzien');
+}
+function usunGodziny(localIdx,dateStr){
+  const gs=godziny.filter(g=>(g.data||'')==dateStr);
+  const toRemove=gs[localIdx];if(!toRemove)return;
+  const globalIdx=godziny.indexOf(toRemove);if(globalIdx>=0)godziny.splice(globalIdx,1);
+  save();renderKalendarz();renderPracownicy();
+  // Odśwież modal
+  showDzien(dateStr);
+}
+
+// ══ INIT ══
+load();
+document.getElementById('data').valueAsDate=new Date();
+refreshMatSelects();refreshKlientSelects();refreshPracSelects();
+renderLista();renderKalendarz();
+</script>
+</body>
+</html>
