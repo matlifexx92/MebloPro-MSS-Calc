@@ -289,6 +289,9 @@ h1{font-size:19px;font-weight:700;color:#1a1a2e;margin-bottom:2px}
       <button class="btn btn-primary btn-sm" onclick="openModalKat()">+ Dodaj</button>
     </div>
     <div class="cat-sec"><h3>⚙️ Stawki podstawowe</h3><table class="kt"><tbody id="kat_stawki"></tbody></table></div>
+    <div class="cat-sec"><h3>🪵 Płyty bazowe (zawsze w wycenie)</h3>
+      <table class="kt"><tbody id="kat_baza"></tbody></table>
+    </div>
     <div class="cat-sec"><h3>🪵 Płyty 18mm</h3>
       <table class="kt" id="kat_plyty"><thead><tr><th>Nazwa</th><th>zł/m²</th><th>zł/ark.</th><th></th></tr></thead><tbody></tbody></table>
     </div>
@@ -559,6 +562,7 @@ let kalDate=new Date();
 let firma={nazwa:'MSS WOOD DESIGN Sp. z o.o.',slogan:'Meble na wymiar',adres:'Wersalska 47/75, 90-212 Łódź',tel:'605 386 847',email:'kontakt@wnetrzazpasja.pl',www:'wnetrzazpasja.pl',nip:'9472007600',krs:'',regon:'',stopka:'Oferta ważna 30 dni od daty wystawienia.',logo:''};
 let katalog={
   stawki:{zawias:0,zawieszka:0,nozka:0,prowadnica:0,tipon:0},
+  baza:{plyta16:{m2:0},hdf4:{m2:0}},
   plyty:[
     {n:'Kronospan Biały Alpejski W1101',m2:0,ark:0},{n:'Kronospan Biały Arktyczny W1100',m2:0,ark:0},
     {n:'Kronospan Dąb Nebraska D3430',m2:0,ark:0},{n:'Kronospan Dąb Sonoma D3126',m2:0,ark:0},
@@ -594,7 +598,7 @@ function load(){
     szafki=d.szafki||[];baza=d.baza||[];historia=d.historia||[];nextId=d.nextId||1;nextHistId=d.nextHistId||1;
     klienci=d.klienci||[];projekty=d.projekty||[];pracownicy=d.pracownicy||[];godziny=d.godziny||[];koszty=d.koszty||[];
     nextKlientId=d.nextKlientId||1;nextProjId=d.nextProjId||1;nextPracId=d.nextPracId||1;
-    if(d.katalog){katalog.plyty=d.katalog.plyty||katalog.plyty;katalog.uslugi=d.katalog.uslugi||katalog.uslugi;katalog.akc=d.katalog.akc||katalog.akc;if(d.katalog.stawki)katalog.stawki=d.katalog.stawki;}
+    if(d.katalog){katalog.plyty=d.katalog.plyty||katalog.plyty;katalog.uslugi=d.katalog.uslugi||katalog.uslugi;katalog.akc=d.katalog.akc||katalog.akc;if(d.katalog.stawki)katalog.stawki=d.katalog.stawki;if(d.katalog.baza)katalog.baza=d.katalog.baza;}
     if(d.firma)firma={...firma,...d.firma};
   }catch(e){}
 }
@@ -703,6 +707,9 @@ function wczytajZHistorii(i){
 function renderKatalog(){
   const sl={zawias:'Zawias (szt)',zawieszka:'Zawieszka (szt)',nozka:'Nóżka (szt)',prowadnica:'Prowadnica komplet (para)',tipon:'Tipon (szt)'};
   document.getElementById('kat_stawki').innerHTML=Object.entries(sl).map(([k,lbl])=>`<tr><td style="font-size:12px;width:55%">${lbl}</td><td><input value="${katalog.stawki[k]||''}" placeholder="0.00" onchange="katalog.stawki['${k}']=+this.value;save()" style="width:80px"> zł</td></tr>`).join('');
+  document.getElementById('kat_baza').innerHTML=`
+    <tr><td style="font-size:12px;width:55%">🪵 Płyta wiórowa 16mm</td><td><input value="${katalog.baza.plyta16.m2||''}" placeholder="0.00" onchange="katalog.baza.plyta16.m2=+this.value;save()" style="width:80px"> zł/m²</td></tr>
+    <tr><td style="font-size:12px">🪵 HDF 4mm</td><td><input value="${katalog.baza.hdf4.m2||''}" placeholder="0.00" onchange="katalog.baza.hdf4.m2=+this.value;save()" style="width:80px"> zł/m²</td></tr>`;
   document.querySelector('#kat_plyty tbody').innerHTML=katalog.plyty.map((p,i)=>`<tr><td style="font-size:12px">${p.n}</td><td><input value="${p.m2||''}" placeholder="0.00" onchange="katalog.plyty[${i}].m2=+this.value;katalog.plyty[${i}].ark=+(+this.value*${ARKm2}).toFixed(2);renderKatalog();save()" style="width:75px"> zł</td><td><input value="${p.ark||''}" placeholder="0.00" onchange="katalog.plyty[${i}].ark=+this.value;katalog.plyty[${i}].m2=+(+this.value/${ARKm2}).toFixed(2);renderKatalog();save()" style="width:75px"> zł</td><td><button class="btn btn-danger btn-sm" onclick="katalog.plyty.splice(${i},1);renderKatalog();save()">✕</button></td></tr>`).join('');
   document.querySelector('#kat_uslugi tbody').innerHTML=katalog.uslugi.map((p,i)=>`<tr><td style="font-size:12px">${p.n}</td><td style="color:#888;font-size:11px">${p.jed}</td><td><input value="${p.cena||''}" placeholder="0.00" onchange="katalog.uslugi[${i}].cena=+this.value;save()" style="width:75px"> zł</td><td><button class="btn btn-danger btn-sm" onclick="katalog.uslugi.splice(${i},1);renderKatalog();save()">✕</button></td></tr>`).join('');
   document.querySelector('#kat_akc tbody').innerHTML=katalog.akc.map((p,i)=>`<tr><td style="font-size:12px">${p.n}</td><td style="color:#888;font-size:11px">${p.jed}</td><td><input value="${p.cena||''}" placeholder="0.00" onchange="katalog.akc[${i}].cena=+this.value;save()" style="width:75px"> zł</td><td><button class="btn btn-danger btn-sm" onclick="katalog.akc.splice(${i},1);renderKatalog();save()">✕</button></td></tr>`).join('');
@@ -722,8 +729,15 @@ function zapiszKat(){
   closeModal('mkat');renderKatalog();save();
 }
 function refreshMatSelects(){
-  const names=[...new Set(['Kronospan gładka','Kronospan drewnopodobna','Egger gładka','Egger drewnopodobna','REHAU akryl','Aquafront akryl',...katalog.plyty.map(p=>p.n)])];
-  ['mat_korpus','mat_front'].forEach(id=>{const sel=document.getElementById(id),v=sel.value;sel.innerHTML=names.map(n=>`<option${n===v?' selected':''}>${n}</option>`).join('');});
+  const names=katalog.plyty.map(p=>p.n);
+  ['mat_korpus','mat_front'].forEach(id=>{
+    const sel=document.getElementById(id),v=sel.value;
+    if(!names.length){
+      sel.innerHTML='<option value="">– dodaj materiały w Katalogu –</option>';
+    } else {
+      sel.innerHTML=names.map(n=>`<option${n===v?' selected':''}>${n}</option>`).join('');
+    }
+  });
 }
 
 // ══ KONFIGURATOR – helpers ══
@@ -752,40 +766,15 @@ function renderSlupekConfig(typ){
   const wys=+document.getElementById('wys').value||2160;
   let html='';
   if(typ==='slupek_piek'){
-    const wysGora=wys-WYS_SZUFL_FRONT-GRK*3-WYS_PIEK; // 3 wieńce między strefami
+    // Górny front = wys - 4(szczeliny góra+dół) - 720(szuflady) - 2(szczelina) - 600(piek) - 2(szczelina)
+    const wysGora=wys-4-WYS_SZUFL_FRONT-2-WYS_PIEK-2;
     html=`
       <div class="slupek-diagram">
         <div class="slupek-col">
-          <div class="slupek-strefa drzwi">Drzwi góra<br><small>${wysGora-4}×${szer-4} mm</small></div>
-          <div class="slupek-strefa wieniec">▬ Wieniec + półka nad piek. (18mm)</div>
-          <div class="slupek-strefa sprzet">Piekarnik 600mm<br><small>otwór ${WYS_PIEK}×${szer} mm</small></div>
-          <div class="slupek-strefa wieniec">▬ Wieniec + półka pod piek. (18mm)</div>
-          <div class="slupek-strefa szuflady">Szuflady (fronty łącznie 720mm)</div>
-          <div class="slupek-strefa wieniec">▬ Wieniec dolny + nóżki</div>
-        </div>
-      </div>
-      <div class="row" style="margin-top:10px">
-        <div class="field"><label>Zestaw szuflad (dół)</label>
-          <select id="sl_zestaw">
-            ${ZESTAWY.map(z=>`<option value="${z.id}">${z.nazwa}</option>`).join('')}
-          </select>
-        </div>
-        <div class="field"><label>Uchwyt</label>
-          <select id="sl_uchwyt"><option value="tipon">Tipon</option><option value="krawędziowy">Krawędziowy</option><option value="brak">Brak</option></select>
-        </div>
-      </div>
-      <div style="font-size:11px;color:#888;margin-top:6px">Wysokość strefy górnej (drzwi): <b>${wysGora} mm</b> · Plecy tylko za szufladami i drzwiami góra</div>`;
-  } else if(typ==='slupek_piek_mikro'){
-    const wysGora=wys-WYS_SZUFL_FRONT-GRK*4-WYS_PIEK-WYS_MIKRO;
-    html=`
-      <div class="slupek-diagram">
-        <div class="slupek-col">
-          <div class="slupek-strefa drzwi">Drzwi góra<br><small>${wysGora-4}×${szer-4} mm</small></div>
-          <div class="slupek-strefa wieniec">▬ Wieniec + półka nad mikro (18mm)</div>
-          <div class="slupek-strefa sprzet">Mikrofalówka 390mm<br><small>otwór ${WYS_MIKRO}×${szer} mm</small></div>
-          <div class="slupek-strefa wieniec">▬ Wieniec + półka nad piek. (18mm)</div>
-          <div class="slupek-strefa sprzet">Piekarnik 600mm<br><small>otwór ${WYS_PIEK}×${szer} mm</small></div>
-          <div class="slupek-strefa wieniec">▬ Wieniec + półka pod piek. (18mm)</div>
+          <div class="slupek-strefa drzwi">Drzwi góra<br><small>${wysGora}×${szer-4} mm</small></div>
+          <div class="slupek-strefa wieniec">▬ Półka nad piek. (18mm)</div>
+          <div class="slupek-strefa sprzet">Piekarnik<br><small>otwór ${WYS_PIEK}×${szer} mm</small></div>
+          <div class="slupek-strefa wieniec">▬ Półka pod piek. (18mm)</div>
           <div class="slupek-strefa szuflady">Szuflady (fronty łącznie 720mm)</div>
           <div class="slupek-strefa wieniec">▬ Wieniec dolny + nóżki</div>
         </div>
@@ -798,7 +787,32 @@ function renderSlupekConfig(typ){
           <select id="sl_uchwyt"><option value="tipon">Tipon</option><option value="krawędziowy">Krawędziowy</option><option value="brak">Brak</option></select>
         </div>
       </div>
-      <div style="font-size:11px;color:#888;margin-top:6px">Wysokość strefy górnej (drzwi): <b>${wysGora} mm</b></div>`;
+      <div style="font-size:11px;color:#888;margin-top:6px">Front górny: <b>${wysGora}mm</b> = ${wys} - 4 - 720 - 2 - 600 - 2</div>`;
+  } else if(typ==='slupek_piek_mikro'){
+    // Górny front = wys - 4 - 720 - 2 - 600 - 2 - 390 - 2
+    const wysGora=wys-4-WYS_SZUFL_FRONT-2-WYS_PIEK-2-WYS_MIKRO-2;
+    html=`
+      <div class="slupek-diagram">
+        <div class="slupek-col">
+          <div class="slupek-strefa drzwi">Drzwi góra<br><small>${wysGora}×${szer-4} mm</small></div>
+          <div class="slupek-strefa wieniec">▬ Półka nad mikro (18mm)</div>
+          <div class="slupek-strefa sprzet">Mikrofalówka<br><small>otwór ${WYS_MIKRO}×${szer} mm</small></div>
+          <div class="slupek-strefa wieniec">▬ Półka nad piek. (18mm)</div>
+          <div class="slupek-strefa sprzet">Piekarnik<br><small>otwór ${WYS_PIEK}×${szer} mm</small></div>
+          <div class="slupek-strefa wieniec">▬ Półka pod piek. (18mm)</div>
+          <div class="slupek-strefa szuflady">Szuflady (fronty łącznie 720mm)</div>
+          <div class="slupek-strefa wieniec">▬ Wieniec dolny + nóżki</div>
+        </div>
+      </div>
+      <div class="row" style="margin-top:10px">
+        <div class="field"><label>Zestaw szuflad (dół)</label>
+          <select id="sl_zestaw">${ZESTAWY.map(z=>`<option value="${z.id}">${z.nazwa}</option>`).join('')}</select>
+        </div>
+        <div class="field"><label>Uchwyt</label>
+          <select id="sl_uchwyt"><option value="tipon">Tipon</option><option value="krawędziowy">Krawędziowy</option><option value="brak">Brak</option></select>
+        </div>
+      </div>
+      <div style="font-size:11px;color:#888;margin-top:6px">Front górny: <b>${wysGora}mm</b> = ${wys} - 4 - 720 - 2 - 600 - 2 - 390 - 2</div>`;
   } else if(typ==='slupek_lodowka'){
     const fDol=720,fGora=wys-4-fDol-SZCZ;
     html=`
@@ -851,13 +865,14 @@ function genElSlupek(s){
     el.push({n:'Bok',w1:wys,w2:gln,szt:2,mat:'korpus',kr:[false,false,true,true],gr:'Korpus – boki'});
 
     // Wieńce: dolny, pod piekarnikiem, nad piekarnikiem, (nad mikro), górny
-    el.push({n:'Wieniec dolny',w1:wi,w2:gln,szt:1,mat:'korpus',kr:[false,false,false,true],gr:'Korpus – wieńce/półki'});
-    el.push({n:'Półka pod piekarnikiem',w1:wi,w2:gln,szt:1,mat:'korpus',kr:[false,false,false,true],gr:'Korpus – wieńce/półki'});
+    const glW=gln-20;
+    el.push({n:'Wieniec dolny',w1:wi,w2:glW,szt:1,mat:'korpus',kr:[false,false,false,true],gr:'Korpus – wieńce/półki'});
+    el.push({n:'Półka pod piekarnikiem',w1:wi,w2:glW,szt:1,mat:'korpus',kr:[false,false,false,true],gr:'Korpus – wieńce/półki'});
     if(typ==='slupek_piek_mikro'){
-      el.push({n:'Półka nad piekarnikiem / pod mikro',w1:wi,w2:gln,szt:1,mat:'korpus',kr:[false,false,false,true],gr:'Korpus – wieńce/półki'});
+      el.push({n:'Półka nad piekarnikiem / pod mikro',w1:wi,w2:glW,szt:1,mat:'korpus',kr:[false,false,false,true],gr:'Korpus – wieńce/półki'});
     }
-    el.push({n:'Półka nad '+(typ==='slupek_piek_mikro'?'mikrofalówką':'piekarnikiem'),w1:wi,w2:gln,szt:1,mat:'korpus',kr:[false,false,false,true],gr:'Korpus – wieńce/półki'});
-    el.push({n:'Wieniec górny',w1:wi,w2:gln-20,szt:1,mat:'korpus',kr:[false,false,false,true],gr:'Korpus – wieńce/półki'});
+    el.push({n:'Półka nad '+(typ==='slupek_piek_mikro'?'mikrofalówką':'piekarnikiem'),w1:wi,w2:glW,szt:1,mat:'korpus',kr:[false,false,false,true],gr:'Korpus – wieńce/półki'});
+    el.push({n:'Wieniec górny',w1:wi,w2:glW,szt:1,mat:'korpus',kr:[false,false,false,true],gr:'Korpus – wieńce/półki'});
 
     // HDF za szufladami (nut)
     el.push({n:'Plecy HDF strefa szuflad (nut)',w1:WYS_SZUFL_FRONT+GRK-16,w2:szer-16,szt:1,mat:'hdf',kr:[false,false,false,false],gr:'Plecy HDF'});
@@ -874,11 +889,11 @@ function genElSlupek(s){
       if(uchwyt==='tipon')akc.push({n:'Tipon',il:1,cena_szt:katalog.stawki.tipon,typ:'tipon'});
     });
 
-    // Drzwi góra
+    // Drzwi góra – front = wys - 4 - 720 - 2 - 600 [-2 - 390] - 2
     const wysGora=typ==='slupek_piek'
-      ?wys-WYS_SZUFL_FRONT-GRK*3-WYS_PIEK
-      :wys-WYS_SZUFL_FRONT-GRK*4-WYS_PIEK-WYS_MIKRO;
-    const fhGora=wysGora-4,fwGora=szer-4;
+      ?wys-4-WYS_SZUFL_FRONT-2-WYS_PIEK-2
+      :wys-4-WYS_SZUFL_FRONT-2-WYS_PIEK-2-WYS_MIKRO-2;
+    const fhGora=wysGora,fwGora=szer-4;
     el.push({n:'Drzwi górne',w1:fhGora,w2:fwGora,szt:1,mat:'front',kr:[true,true,true,true],gr:'Fronty drzwi'});
     akc.push({n:'Zawias drzwi górne',il:liczZaw(fhGora),cena_szt:katalog.stawki.zawias,typ:'zawias'});
     if(uchwyt==='tipon')akc.push({n:'Tipon drzwi górne',il:1,cena_szt:katalog.stawki.tipon,typ:'tipon'});
@@ -945,13 +960,17 @@ function genEl(s){
   return{el,akc};
 }
 
-function cenaPlyty(mat,m2){const p=katalog.plyty.find(x=>x.n===mat);return p?(p.m2||0)*m2:0;}
+function cenaPlyty(mat,m2){
+  if(mat==='hdf') return (katalog.baza.hdf4.m2||0)*m2;
+  if(mat==='szuflada') return (katalog.baza.plyta16.m2||0)*m2;
+  const p=katalog.plyty.find(x=>x.n===mat);return p?(p.m2||0)*m2:0;
+}
 function liczKosztSzafki(s){
   let k=0;
   [...(s.el||[]),...(s.el_dodatkowe||[])].forEach(e=>{
     const m2=(e.w1*e.w2*e.szt)/1e6;
-    const mat=e.mat==='front'?s.mat_front:e.mat==='hdf'?null:e.mat==='szuflada'?null:s.mat_korpus;
-    if(mat)k+=cenaPlyty(mat,m2);
+    const mat=e.mat==='front'?s.mat_front:e.mat==='hdf'?'hdf':e.mat==='szuflada'?'szuflada':s.mat_korpus;
+    k+=cenaPlyty(mat,m2);
   });
   [...(s.akc||[])].forEach(a=>k+=(a.cena_szt||katalog.stawki[a.typ]||0)*a.il);
   (s.akc_dodatkowe||[]).forEach(a=>k+=a.cena_szt*a.il);
@@ -1099,34 +1118,108 @@ function pokazPodglad(){document.getElementById('preview_content').innerHTML=gen
 function zamknijPodglad(){document.getElementById('preview_overlay').classList.remove('open');}
 function drukujOferte(){document.getElementById('preview_content').innerHTML=generujHTML();document.getElementById('preview_overlay').classList.add('open');setTimeout(()=>window.print(),400);}
 function generujHTML(){
-  const koszt=szafki.reduce((s,sz)=>s+liczKosztSzafki(sz),0),cena=koszt*marzaMnoznik,marza=cena-koszt;
+  const koszt=szafki.reduce((s,sz)=>s+liczKosztSzafki(sz),0),cena=koszt*marzaMnoznik;
   const klient=klienci.find(x=>x.id===+document.getElementById('w_klient').value);
   const projekt=projekty.find(x=>x.id===+document.getElementById('w_projekt').value);
   const nr='OF/'+new Date().getFullYear()+'/'+String(nextHistId).padStart(3,'0');
+  const dataDzis=new Date().toLocaleDateString('pl-PL');
+
+  // Zbierz sumaryczne akcesoria
+  const sumaAkc={};
+  szafki.forEach(s=>{
+    [...(s.akc||[]),...(s.akc_dodatkowe||[])].forEach(a=>{
+      const key=a.n;
+      sumaAkc[key]=(sumaAkc[key]||0)+a.il;
+    });
+  });
+
+  // Wiersze szafek
+  const wierszeSzafek=szafki.map((s,i)=>{
+    const kosztS=liczKosztSzafki(s);
+    const cenaS=kosztS*marzaMnoznik;
+    const allAkc=[...(s.akc||[]),...(s.akc_dodatkowe||[])];
+    const akcSkrot=allAkc.map(a=>`${a.il}× ${a.n}`).join(', ');
+    return`<tr style="border-bottom:1px solid #f0f2f5;${i%2===1?'background:#fafafa':''}">
+      <td style="padding:8px 12px;color:#e8601a;font-weight:700;white-space:nowrap">${i+1}</td>
+      <td style="padding:8px 12px">
+        <div style="font-weight:600;font-size:13px">${s.sz_nazwa||'Mebel #'+(i+1)}</div>
+        <div style="font-size:11px;color:#888;margin-top:2px">${s.wys}×${s.szer}×${s.gl}mm · ${s.mat_front}</div>
+        ${akcSkrot?`<div style="font-size:11px;color:#aaa;margin-top:2px">${akcSkrot}</div>`:''}
+        ${s.sz_uwagi?`<div style="font-size:11px;color:#888;font-style:italic">${s.sz_uwagi}</div>`:''}
+      </td>
+      <td style="padding:8px 12px;text-align:right;white-space:nowrap;font-weight:700;color:#1a1a2e">${fmtPln(cenaS)}</td>
+    </tr>`;
+  }).join('');
+
+  // Podsumowanie akcesoriów
+  const sumaAkcHtml=Object.entries(sumaAkc).map(([n,il])=>
+    `<span style="display:inline-block;background:#f0f2f5;border-radius:5px;padding:2px 8px;font-size:11px;margin:2px">${il}× ${n}</span>`
+  ).join('');
+
   return`<div style="font-family:'Segoe UI',Arial,sans-serif;color:#222;font-size:13px">
-    <div style="background:#1a1a2e;color:#fff;padding:30px 40px;display:flex;justify-content:space-between;align-items:center">
-      <div><div style="font-size:24px;font-weight:900;letter-spacing:1px">MSS WOOD DESIGN</div><div style="color:#e8601a;font-size:13px;letter-spacing:3px;margin-top:2px">MEBLE NA WYMIAR</div><div style="color:#aaa;font-size:11px;margin-top:8px">${firma.adres}</div><div style="color:#aaa;font-size:11px">tel. ${firma.tel} · ${firma.email}</div><div style="color:#aaa;font-size:11px">NIP: ${firma.nip}</div></div>
-      <div style="text-align:right"><div style="background:#e8601a;color:#fff;padding:8px 20px;border-radius:6px;font-size:20px;font-weight:700">OFERTA</div><div style="color:#aaa;font-size:12px;margin-top:8px">Nr: ${nr}</div><div style="color:#aaa;font-size:12px">Data: ${new Date().toLocaleDateString('pl-PL')}</div></div>
+    <!-- NAGŁÓWEK -->
+    <div style="background:#1a1a2e;color:#fff;padding:24px 36px;display:flex;justify-content:space-between;align-items:center">
+      <div>
+        <div style="font-size:22px;font-weight:900;letter-spacing:1px">MSS WOOD DESIGN</div>
+        <div style="color:#e8601a;font-size:11px;letter-spacing:3px;margin-top:2px">MEBLE NA WYMIAR</div>
+        <div style="color:#aaa;font-size:11px;margin-top:6px">${firma.adres} · tel. ${firma.tel}</div>
+        <div style="color:#aaa;font-size:11px">${firma.email} · NIP: ${firma.nip}</div>
+      </div>
+      <div style="text-align:right">
+        <div style="background:#e8601a;color:#fff;padding:6px 18px;border-radius:6px;font-size:18px;font-weight:700">OFERTA</div>
+        <div style="color:#aaa;font-size:11px;margin-top:6px">Nr: ${nr}</div>
+        <div style="color:#aaa;font-size:11px">Data: ${dataDzis}</div>
+      </div>
     </div>
-    <div style="padding:24px 40px;background:#f8f9ff;border-bottom:2px solid #e8601a;display:flex;gap:40px">
-      <div style="flex:1"><div style="font-size:11px;font-weight:700;color:#888;text-transform:uppercase;margin-bottom:6px">Dla klienta</div><div style="font-size:16px;font-weight:700">${klient?klient.imie:'–'}</div>${klient&&klient.adres?`<div style="font-size:12px;color:#666">${klient.adres}</div>`:''}${klient&&klient.tel?`<div style="font-size:12px;color:#666">tel. ${klient.tel}</div>`:''}</div>
-      <div style="flex:1"><div style="font-size:11px;font-weight:700;color:#888;text-transform:uppercase;margin-bottom:6px">Projekt</div><div style="font-size:16px;font-weight:700">${projekt?projekt.nazwa:'–'}</div></div>
+
+    <!-- KLIENT / PROJEKT -->
+    <div style="padding:16px 36px;background:#f8f9ff;border-bottom:2px solid #e8601a;display:flex;gap:32px">
+      <div style="flex:1">
+        <div style="font-size:10px;font-weight:700;color:#888;text-transform:uppercase;margin-bottom:4px">Dla klienta</div>
+        <div style="font-size:15px;font-weight:700">${klient?klient.imie:'–'}</div>
+        ${klient&&klient.tel?`<div style="font-size:11px;color:#666">tel. ${klient.tel}</div>`:''}
+        ${klient&&klient.email?`<div style="font-size:11px;color:#666">${klient.email}</div>`:''}
+      </div>
+      <div style="flex:1">
+        <div style="font-size:10px;font-weight:700;color:#888;text-transform:uppercase;margin-bottom:4px">Projekt</div>
+        <div style="font-size:15px;font-weight:700">${projekt?projekt.nazwa:'–'}</div>
+      </div>
     </div>
-    <div style="padding:30px 40px">
-      <div style="font-size:14px;font-weight:700;color:#1a1a2e;margin-bottom:14px;padding-bottom:8px;border-bottom:2px solid #e8601a">ZESTAWIENIE MEBLI</div>
-      <table style="width:100%;border-collapse:collapse;font-size:13px">
-        <thead><tr style="background:#1a1a2e;color:#fff"><th style="padding:10px 12px;text-align:left;width:32px">#</th><th style="padding:10px 12px;text-align:left">Nazwa / opis</th><th style="padding:10px 12px;text-align:center">Wymiary</th><th style="padding:10px 12px;text-align:center">Materiał frontu</th></tr></thead>
-        <tbody>${szafki.map((s,i)=>`<tr style="border-bottom:1px solid #f0f2f5;${i%2===1?'background:#fafafa':''}"><td style="padding:9px 12px;color:#e8601a;font-weight:700">${i+1}</td><td style="padding:9px 12px"><div style="font-weight:600">${s.sz_nazwa||'Mebel #'+(i+1)}</div>${s.sz_uwagi?`<div style="font-size:11px;color:#888">${s.sz_uwagi}</div>`:''}<div style="font-size:11px;color:#aaa">Korpus: ${s.mat_korpus}</div></td><td style="padding:9px 12px;text-align:center">${s.wys}×${s.szer}×${s.gl} mm</td><td style="padding:9px 12px;text-align:center;font-size:12px">${s.mat_front}</td></tr>`).join('')}</tbody>
+
+    <!-- LISTA MEBLI -->
+    <div style="padding:24px 36px 0">
+      <div style="font-size:13px;font-weight:700;color:#1a1a2e;margin-bottom:10px;padding-bottom:6px;border-bottom:2px solid #e8601a">ZESTAWIENIE MEBLI</div>
+      <table style="width:100%;border-collapse:collapse">
+        <thead>
+          <tr style="background:#1a1a2e;color:#fff">
+            <th style="padding:8px 12px;text-align:left;width:28px">#</th>
+            <th style="padding:8px 12px;text-align:left">Nazwa / opis / wyposażenie</th>
+            <th style="padding:8px 12px;text-align:right">Cena</th>
+          </tr>
+        </thead>
+        <tbody>${wierszeSzafek}</tbody>
       </table>
     </div>
-    <div style="padding:0 40px 30px"><div style="background:#f8f9ff;border:2px solid #e8601a;border-radius:10px;padding:20px">
-      <div style="font-size:13px;font-weight:700;color:#1a1a2e;margin-bottom:12px">PODSUMOWANIE CENOWE</div>
-      <div style="display:flex;justify-content:space-between;padding:6px 0;border-bottom:1px solid #f0f2f5"><span style="color:#666">Koszt produkcji (netto)</span><span>${fmtPln(koszt)}</span></div>
-      <div style="display:flex;justify-content:space-between;padding:6px 0;border-bottom:1px solid #f0f2f5"><span style="color:#666">Marża i koszty realizacji</span><span>${fmtPln(marza)}</span></div>
-      <div style="display:flex;justify-content:space-between;padding:12px 0 0;font-size:20px;font-weight:700;color:#e8601a"><span>CENA ŁĄCZNA</span><span>${fmtPln(cena)}</span></div>
-      <div style="font-size:11px;color:#aaa;margin-top:4px">Cena nie zawiera VAT.</div>
-    </div></div>
-    <div style="background:#1a1a2e;color:#aaa;padding:20px 40px;font-size:11px;display:flex;justify-content:space-between">
+
+    <!-- PODSUMOWANIE AKCESORIÓW -->
+    <div style="padding:12px 36px;border-top:1px solid #f0f2f5">
+      <div style="font-size:10px;font-weight:700;color:#888;text-transform:uppercase;margin-bottom:6px">Łączne wyposażenie</div>
+      <div>${sumaAkcHtml}</div>
+    </div>
+
+    <!-- CENA ŁĄCZNA -->
+    <div style="padding:16px 36px 24px">
+      <div style="background:#f8f9ff;border:2px solid #e8601a;border-radius:8px;padding:16px 20px;display:flex;justify-content:space-between;align-items:center">
+        <div>
+          <div style="font-size:13px;font-weight:700;color:#1a1a2e">CENA ŁĄCZNA</div>
+          <div style="font-size:11px;color:#aaa;margin-top:2px">Cena nie zawiera VAT · ${szafki.length} pozycji</div>
+        </div>
+        <div style="font-size:24px;font-weight:900;color:#e8601a">${fmtPln(cena)}</div>
+      </div>
+    </div>
+
+    <!-- STOPKA -->
+    <div style="background:#1a1a2e;color:#aaa;padding:14px 36px;font-size:11px;display:flex;justify-content:space-between;align-items:center">
       <div>${firma.nazwa} · NIP: ${firma.nip}</div>
       <div style="color:#e8601a;font-weight:700">${firma.www}</div>
       <div>${firma.stopka}</div>
