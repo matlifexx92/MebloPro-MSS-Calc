@@ -9,9 +9,9 @@
 body{font-family:'Segoe UI',sans-serif;background:#f0f2f5;color:#222;font-size:14px}
 .app{max-width:1040px;margin:0 auto;padding:12px}
 h1{font-size:19px;font-weight:700;color:#1a1a2e;margin-bottom:2px}
-.subtitle{color:#666;font-size:11px;margin-bottom:12px}
+.subtitle{color:#666;font-size:11px;margin-bottom:10px}
 .tabs{display:flex;gap:3px;margin-bottom:12px;background:#fff;padding:5px;border-radius:10px;box-shadow:0 1px 4px rgba(0,0,0,.08);flex-wrap:wrap}
-.tab{flex:1;min-width:60px;padding:7px 4px;border:none;border-radius:7px;font-size:11px;font-weight:600;cursor:pointer;background:transparent;color:#888;transition:all .15s}
+.tab{flex:1;min-width:58px;padding:7px 3px;border:none;border-radius:7px;font-size:11px;font-weight:600;cursor:pointer;background:transparent;color:#888;transition:all .15s}
 .tab.active{background:#e8601a;color:#fff}
 .card{background:#fff;border-radius:10px;padding:16px;margin-bottom:10px;box-shadow:0 1px 4px rgba(0,0,0,.08)}
 .card>h2{font-size:12px;font-weight:700;color:#444;margin-bottom:11px;text-transform:uppercase;letter-spacing:.5px;border-bottom:2px solid #f0f2f5;padding-bottom:6px}
@@ -43,7 +43,7 @@ h1{font-size:19px;font-weight:700;color:#1a1a2e;margin-bottom:2px}
 .chip{display:inline-block;padding:2px 6px;border-radius:10px;font-size:11px;background:#f0f2f5;color:#555;margin:1px}
 .tag{display:inline-block;padding:2px 6px;border-radius:4px;font-size:11px;font-weight:600}
 .tag-wisząca{background:#e8f0fe;color:#1565c0}.tag-stojąca{background:#e8f5e9;color:#2e7d32}
-.tag-slupek{background:#fff3ee;color:#e8601a}
+.tag-slupek{background:#fff3ee;color:#e8601a}.tag-special{background:#f3e5f5;color:#6a1b9a}
 .info-box{background:#fff8f5;border:1px solid #ffd4bb;border-radius:5px;padding:5px 9px;font-size:11px;color:#c94e0e;margin-top:5px}
 .zestawy-grid{display:flex;flex-wrap:wrap;gap:6px;margin-top:7px}
 .zb{border:2px solid #e0e0e0;border-radius:7px;padding:5px 11px;font-size:12px;font-weight:600;cursor:pointer;background:#fff;color:#444;transition:all .15s}
@@ -58,7 +58,7 @@ h1{font-size:19px;font-weight:700;color:#1a1a2e;margin-bottom:2px}
 .sbody{padding:0 13px 13px;border-top:1px solid #f0f2f5}
 .sumbox{background:#1a1a2e;color:#fff;border-radius:10px;padding:13px 16px;margin-bottom:10px}
 .sumbox h2{color:#ffd4bb;font-size:11px;text-transform:uppercase;margin-bottom:9px;border-bottom:1px solid #333;padding-bottom:6px}
-.sumrow{display:flex;justify-content:space-between;padding:3px 0;font-size:12px}
+.sumrow{display:flex;justify-content:space-between;padding:3px 0;font-size:12px;gap:8px}
 .sumrow.total{font-weight:700;font-size:15px;color:#e8601a;border-top:1px solid #444;margin-top:6px;padding-top:6px}
 .empty{text-align:center;padding:30px;color:#aaa}
 .empty .ic{font-size:32px;margin-bottom:6px}
@@ -91,28 +91,21 @@ h1{font-size:19px;font-weight:700;color:#1a1a2e;margin-bottom:2px}
 .marza-btn{padding:6px 14px;border:2px solid #e0e0e0;border-radius:7px;font-size:13px;font-weight:700;cursor:pointer;background:#fff;color:#444;transition:all .15s}
 .marza-btn:hover{border-color:#e8601a;color:#e8601a}
 .marza-btn.sel{border-color:#e8601a;background:#e8601a;color:#fff}
-.slupek-diagram{display:flex;gap:16px;margin-top:10px}
-.slupek-col{flex:1}
+.slupek-config{background:#f0f4ff;border:1.5px solid #d0d8ff;border-radius:8px;padding:12px;margin-top:10px}
+.slupek-config h3{font-size:11px;font-weight:700;color:#3a5acc;margin-bottom:10px;text-transform:uppercase}
 .slupek-strefa{border:2px solid #e0e0e0;border-radius:6px;padding:8px;margin-bottom:4px;font-size:11px;text-align:center}
 .slupek-strefa.szuflady{border-color:#e8601a;background:#fff8f5;color:#e8601a}
 .slupek-strefa.sprzet{border-color:#666;background:#f5f5f5;color:#444;font-style:italic}
 .slupek-strefa.drzwi{border-color:#1565c0;background:#e8f0fe;color:#1565c0}
 .slupek-strefa.wieniec{border-color:#aaa;background:#f9f9f9;color:#888;padding:4px;font-size:10px}
-.slupek-config{background:#f0f4ff;border:1.5px solid #d0d8ff;border-radius:8px;padding:12px;margin-top:10px}
-.slupek-config h3{font-size:11px;font-weight:700;color:#3a5acc;margin-bottom:10px;text-transform:uppercase}
 .kal-grid{display:grid;grid-template-columns:repeat(7,1fr);gap:3px;margin-top:10px}
 .kal-hdr{font-size:10px;font-weight:700;color:#888;text-align:center;padding:4px}
 .kal-day{border-radius:6px;padding:4px;min-height:48px;background:#fafafa;border:1px solid #f0f2f5;font-size:10px;cursor:pointer}
-.kal-day:hover{background:#fff3ee}
-.kal-day.today{border-color:#e8601a;background:#fff8f5}
-.kal-day.has-work{background:#e8f5e9}
-.kal-day .kal-num{font-weight:700;color:#444;font-size:11px}
-.kal-day .kal-godz{color:#2e7d32;font-size:10px;font-weight:700}
-.kal-day.other-month .kal-num{color:#ccc}
+.kal-day:hover{background:#fff3ee}.kal-day.today{border-color:#e8601a;background:#fff8f5}
+.kal-day.has-work{background:#e8f5e9}.kal-day .kal-num{font-weight:700;color:#444;font-size:11px}
+.kal-day .kal-godz{color:#2e7d32;font-size:10px;font-weight:700}.kal-day.other-month .kal-num{color:#ccc}
 .kal-nav{display:flex;justify-content:space-between;align-items:center;margin-bottom:8px}
 .kal-nav span{font-weight:700;font-size:14px}
-
-/* FINANSE */
 .fin-stat-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:10px;margin-bottom:14px}
 .fin-stat{border-radius:10px;padding:14px;text-align:center;color:#fff}
 .fin-stat .val{font-size:20px;font-weight:800;margin-bottom:4px}
@@ -123,15 +116,33 @@ h1{font-size:19px;font-weight:700;color:#1a1a2e;margin-bottom:2px}
 .fin-stat.zysk{background:linear-gradient(135deg,#e8601a,#ff8c42)}
 .fin-stat.vat{background:linear-gradient(135deg,#1565c0,#1976d2)}
 .alert-box{background:#fff3e0;border:2px solid #ff9800;border-radius:8px;padding:10px 14px;margin-bottom:10px;font-size:12px;color:#e65100}
-.alert-box .alert-title{font-weight:700;margin-bottom:4px}
 .trx-row{display:grid;grid-template-columns:90px 1fr 80px 60px 80px auto;gap:6px;align-items:center;padding:6px 0;border-bottom:1px solid #f5f5f5;font-size:12px}
-.trx-row.header{font-weight:700;color:#888;font-size:11px;text-transform:uppercase;padding-bottom:4px}
-.trx-przychod{color:#2e7d32;font-weight:700}
-.trx-koszt{color:#c00;font-weight:700}
 .inline-form{display:grid;grid-template-columns:90px 1fr 80px 60px 80px 100px auto;gap:6px;align-items:center;padding:8px;background:#f8f9ff;border-radius:8px;margin-bottom:8px}
 .inline-form input,.inline-form select{border:1.5px solid #e0e0e0;border-radius:5px;padding:5px 7px;font-size:12px;width:100%;background:#fff}
 .koszt-staly{display:flex;align-items:center;gap:10px;padding:8px 0;border-bottom:1px solid #f5f5f5;font-size:12px}
 .koszt-staly.alert{background:#fff3e0;padding:8px;border-radius:6px;border:1px solid #ff9800}
+
+/* ══ QUICK ADD ══ */
+.qa-section{background:#fff;border-radius:10px;padding:16px;margin-bottom:10px;box-shadow:0 1px 4px rgba(0,0,0,.08)}
+.qa-section h2{font-size:12px;font-weight:700;color:#444;margin-bottom:12px;text-transform:uppercase;letter-spacing:.5px;border-bottom:2px solid #f0f2f5;padding-bottom:6px}
+.qa-mat-row{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:14px;padding-bottom:12px;border-bottom:1px solid #f0f2f5}
+.qa-types{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:12px}
+.qa-type-btn{display:flex;flex-direction:column;align-items:center;gap:6px;padding:10px 14px;border:2px solid #e0e0e0;border-radius:10px;cursor:pointer;background:#fff;transition:all .15s;min-width:90px}
+.qa-type-btn:hover{border-color:#e8601a;background:#fff8f5}
+.qa-type-btn.active{border-color:#e8601a;background:#e8601a;color:#fff}
+.qa-type-btn svg{display:block}
+.qa-type-btn.active svg *{stroke:#fff!important;fill:none!important}
+.qa-type-label{font-size:11px;font-weight:700;text-align:center;line-height:1.2}
+.qa-sizes{display:none;flex-wrap:wrap;gap:6px;margin-bottom:10px}
+.qa-sizes.open{display:flex}
+.qa-size-btn{padding:6px 14px;border:2px solid #e0e0e0;border-radius:8px;cursor:pointer;background:#fff;font-size:13px;font-weight:700;transition:all .15s;color:#444}
+.qa-size-btn:hover{border-color:#e8601a;color:#e8601a}
+.qa-options{background:#f8f9ff;border-radius:8px;padding:10px;margin-bottom:10px;display:none}
+.qa-options.open{display:block}
+.qa-options-row{display:flex;gap:8px;flex-wrap:wrap;align-items:center;margin-bottom:6px}
+.qa-opt-btn{padding:4px 12px;border:2px solid #e0e0e0;border-radius:6px;cursor:pointer;background:#fff;font-size:12px;font-weight:600;color:#444;transition:all .15s}
+.qa-opt-btn:hover{border-color:#e8601a;color:#e8601a}
+.qa-opt-btn.sel{border-color:#e8601a;background:#e8601a;color:#fff}
 
 #preview_overlay{display:none;position:fixed;inset:0;background:rgba(0,0,0,.6);z-index:200;overflow-y:auto;padding:20px}
 #preview_overlay.open{display:block}
@@ -146,11 +157,7 @@ h1{font-size:19px;font-weight:700;color:#1a1a2e;margin-bottom:2px}
 </head>
 <body>
 <div class="app">
-<div style="display:flex;align-items:center;gap:12px;margin-bottom:8px">
-  <div><h1>🪑 MebloPro</h1><p class="subtitle">MSS WOOD DESIGN – System wycen i zarządzania</p></div>
-</div>
-
-<!-- ALERTY KOSZTÓW STAŁYCH -->
+<h1>🪑 MebloPro</h1><p class="subtitle">MSS WOOD DESIGN – System wycen i zarządzania</p>
 <div id="alerty_koszty"></div>
 
 <div class="tabs">
@@ -175,9 +182,33 @@ h1{font-size:19px;font-weight:700;color:#1a1a2e;margin-bottom:2px}
       <div class="field" style="max-width:145px"><label>Data</label><input type="date" id="data"></div>
     </div>
   </div>
+
+  <!-- QUICK ADD -->
+  <div class="qa-section">
+    <h2>⚡ Szybkie dodawanie</h2>
+    <div class="qa-mat-row">
+      <div class="field"><label>Materiał korpusu</label><select id="qa_korpus"></select></div>
+      <div class="field"><label>Materiał frontu</label><select id="qa_front"></select></div>
+      <div class="field"><label>Uchwyt</label>
+        <select id="qa_uchwyt">
+          <option value="tipon">Tipon</option><option value="krawędziowy">Krawędziowy</option>
+          <option value="nabijany">Nabijany</option><option value="velo">Velo</option><option value="brak">Brak</option>
+        </select>
+      </div>
+    </div>
+    <!-- Typ szafki -->
+    <div class="qa-types" id="qa_types"></div>
+    <!-- Szerokości -->
+    <div style="font-size:11px;font-weight:700;color:#aaa;text-transform:uppercase;margin-bottom:6px" id="qa_szer_label" style="display:none">Szerokość (cm)</div>
+    <div class="qa-sizes" id="qa_sizes"></div>
+    <!-- Opcje frontu -->
+    <div class="qa-options" id="qa_options"></div>
+  </div>
+
+  <!-- KONFIGURATOR SZCZEGÓŁOWY -->
   <div class="card" id="kcard">
     <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:11px">
-      <h2 style="margin:0;border:none;padding:0" id="ktitle">🔧 Dodaj mebel</h2>
+      <h2 style="margin:0;border:none;padding:0" id="ktitle">🔧 Konfigurator szczegółowy</h2>
       <div style="display:flex;gap:5px">
         <button class="btn btn-secondary btn-sm" onclick="openModalBaza()">📂 Z bazy</button>
         <button class="btn btn-secondary btn-sm" id="btn_anuluj" style="display:none" onclick="anulujEdycje()">✕ Anuluj</button>
@@ -197,11 +228,16 @@ h1{font-size:19px;font-weight:700;color:#1a1a2e;margin-bottom:2px}
       <div class="field" style="max-width:100px"><label>Gł. mm</label><input type="number" id="gl" value="560" onchange="onDimChange()"></div>
       <div class="field"><label>Typ mebla</label>
         <select id="typ" onchange="onTypChange()">
-          <option value="wisząca">Wisząca</option>
+          <option value="wisząca">Wisząca płytka</option>
+          <option value="wiszaca_gl">Wisząca głęboka</option>
           <option value="stojąca">Stojąca</option>
+          <option value="stojaca_cargo">Stojąca – cargo</option>
+          <option value="stojaca_zlew">Stojąca – zlew</option>
+          <option value="stojaca_piek">Stojąca – piekarnik</option>
           <option value="slupek_piek">Słupek – piekarnik</option>
           <option value="slupek_piek_mikro">Słupek – piek+mikro</option>
           <option value="slupek_lodowka">Słupek – lodówka</option>
+          <option value="slupek_cargo">Słupek – cargo</option>
         </select>
       </div>
     </div>
@@ -215,7 +251,7 @@ h1{font-size:19px;font-weight:700;color:#1a1a2e;margin-bottom:2px}
       <div class="field"><label>Uchwyt</label>
         <select id="uchwyt">
           <option value="tipon">Tipon</option><option value="krawędziowy">Krawędziowy</option>
-          <option value="nabijany">Nabijany</option><option value="velo">Listwa Velo</option><option value="brak">Brak</option>
+          <option value="nabijany">Nabijany</option><option value="velo">Velo</option><option value="brak">Brak</option>
         </select>
       </div>
       <div class="field" style="max-width:90px" id="polki_field"><label>Półki szt</label><input type="number" id="polki" value="1" min="0" max="10"></div>
@@ -245,7 +281,40 @@ h1{font-size:19px;font-weight:700;color:#1a1a2e;margin-bottom:2px}
       <button class="btn btn-success" onclick="zapiszBaza()">💾 Zapisz w bazie</button>
     </div>
   </div>
+
   <div id="lista"></div>
+
+  <!-- BLATY -->
+  <div class="card" id="blaty_section">
+    <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:10px">
+      <h2 style="margin:0;border:none;padding:0">🪵 Blaty</h2>
+      <button class="btn btn-primary btn-sm" onclick="dodajBlat()">+ Dodaj blat</button>
+    </div>
+    <div id="blaty_inline" style="margin-bottom:8px">
+      <div class="row" style="background:#f8f9ff;border-radius:8px;padding:10px;margin-bottom:0">
+        <div class="field" style="max-width:130px"><label>Długość (mm)</label><input type="number" id="bl_dlugosc" placeholder="3000" step="10"></div>
+        <div class="field" style="max-width:120px"><label>Szerokość</label>
+          <select id="bl_szerokosc">
+            <option value="600">600 mm</option>
+            <option value="900">900 mm</option>
+            <option value="1200">1200 mm</option>
+          </select>
+        </div>
+        <div class="field"><label>Rodzaj blatu</label>
+          <select id="bl_rodzaj">
+            <option value="krono38">Kronospan 38mm</option>
+            <option value="egger38">Egger 38mm</option>
+            <option value="krono_slim">Kronospan Slim 12mm</option>
+            <option value="egger_slim">Egger Slim 12mm</option>
+          </select>
+        </div>
+        <div class="field" style="max-width:200px"><label>Uwagi</label><input id="bl_uwagi" placeholder="np. z wycięciem zlewozmywaka"></div>
+        <div class="field" style="max-width:80px;justify-content:flex-end"><label style="opacity:0">.</label><button class="btn btn-primary" onclick="dodajBlat()">Dodaj</button></div>
+      </div>
+    </div>
+    <div id="blaty_lista"></div>
+  </div>
+
   <div id="panel_wyceny" style="display:none">
     <div class="card" style="border:2px solid #e8601a">
       <h2>💰 Zatwierdź i generuj ofertę</h2>
@@ -274,9 +343,7 @@ h1{font-size:19px;font-weight:700;color:#1a1a2e;margin-bottom:2px}
 </div>
 
 <!-- HISTORIA -->
-<div id="tab_historia" style="display:none">
-  <div class="card"><div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:11px"><h2 style="margin:0;border:none;padding:0">📜 Historia wycen</h2></div><div id="historia_lista"></div></div>
-</div>
+<div id="tab_historia" style="display:none"><div class="card"><h2>📜 Historia wycen</h2><div id="historia_lista"></div></div></div>
 
 <!-- KATALOG -->
 <div id="tab_katalog" style="display:none">
@@ -299,44 +366,20 @@ h1{font-size:19px;font-weight:700;color:#1a1a2e;margin-bottom:2px}
   </div>
 </div>
 
-<!-- BAZA -->
 <div id="tab_baza" style="display:none"><div class="card"><h2>💾 Baza mebli</h2><div id="baza_lista"></div></div></div>
-
-<!-- KLIENCI -->
 <div id="tab_klienci" style="display:none">
-  <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:10px">
-    <h2 style="font-size:15px;font-weight:700">👥 Klienci</h2>
-    <button class="btn btn-primary btn-sm" onclick="openModal('m_klient')">+ Dodaj klienta</button>
-  </div>
+  <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:10px"><h2 style="font-size:15px;font-weight:700">👥 Klienci</h2><button class="btn btn-primary btn-sm" onclick="openModal('m_klient')">+ Dodaj klienta</button></div>
   <div id="klienci_lista"></div>
 </div>
-
-<!-- PROJEKTY -->
 <div id="tab_projekty" style="display:none">
-  <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:10px">
-    <h2 style="font-size:15px;font-weight:700">📁 Projekty</h2>
-    <button class="btn btn-primary btn-sm" onclick="openModal('m_projekt')">+ Nowy projekt</button>
-  </div>
+  <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:10px"><h2 style="font-size:15px;font-weight:700">📁 Projekty</h2><button class="btn btn-primary btn-sm" onclick="openModal('m_projekt')">+ Nowy projekt</button></div>
   <div id="projekty_lista"></div>
 </div>
-
-<!-- PRACOWNICY -->
 <div id="tab_pracownicy" style="display:none">
-  <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:10px">
-    <h2 style="font-size:15px;font-weight:700">👷 Pracownicy</h2>
-    <button class="btn btn-primary btn-sm" onclick="openModal('m_pracownik')">+ Dodaj pracownika</button>
-  </div>
+  <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:10px"><h2 style="font-size:15px;font-weight:700">👷 Pracownicy</h2><button class="btn btn-primary btn-sm" onclick="openModal('m_pracownik')">+ Dodaj pracownika</button></div>
   <div class="card">
-    <div class="kal-nav">
-      <button class="btn btn-secondary btn-sm" onclick="kalPrev()">◀</button>
-      <span id="kal_title"></span>
-      <button class="btn btn-secondary btn-sm" onclick="kalNext()">▶</button>
-    </div>
-    <div class="row" style="margin-bottom:8px">
-      <div class="field" style="max-width:200px"><label>Pracownik</label>
-        <select id="kal_prac_filter" onchange="renderKalendarz()"><option value="">Wszyscy</option></select>
-      </div>
-    </div>
+    <div class="kal-nav"><button class="btn btn-secondary btn-sm" onclick="kalPrev()">◀</button><span id="kal_title"></span><button class="btn btn-secondary btn-sm" onclick="kalNext()">▶</button></div>
+    <div class="row" style="margin-bottom:8px"><div class="field" style="max-width:200px"><label>Pracownik</label><select id="kal_prac_filter" onchange="renderKalendarz()"><option value="">Wszyscy</option></select></div></div>
     <div class="kal-grid" id="kal_grid"></div>
     <div style="margin-top:10px"><button class="btn btn-primary btn-sm" onclick="openModal('m_godziny')">+ Dodaj godziny</button></div>
   </div>
@@ -348,87 +391,43 @@ h1{font-size:19px;font-weight:700;color:#1a1a2e;margin-bottom:2px}
   <div class="card">
     <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:12px">
       <h2 style="margin:0;border:none;padding:0">💰 Finanse firmy</h2>
-      <div style="display:flex;gap:6px">
-        <label class="btn btn-secondary btn-sm" style="cursor:pointer">📥 Import CSV<input type="file" accept=".csv,.xlsx" onchange="importCSV(this)" style="display:none"></label>
-      </div>
+      <label class="btn btn-secondary btn-sm" style="cursor:pointer">📥 Import CSV<input type="file" accept=".csv" onchange="importCSV(this)" style="display:none"></label>
     </div>
-
-    <!-- Statystyki -->
     <div class="fin-stat-grid" id="fin_stats"></div>
-
-    <!-- Filtr miesiąc -->
     <div class="row" style="margin-bottom:10px">
-      <div class="field" style="max-width:160px"><label>Miesiąc</label>
-        <input type="month" id="fin_miesiac">
-      </div>
-      <div class="field" style="max-width:160px"><label>Filtr typ</label>
-        <select id="fin_typ_filter" onchange="renderFinanse()">
-          <option value="">Wszystkie</option>
-          <option value="przychod">Przychody</option>
-          <option value="koszt">Koszty</option>
-        </select>
-      </div>
-      <div class="field" style="max-width:160px"><label>Stan początkowy (zł)</label>
-        <input type="number" id="fin_stan_pocz" step="0.01" placeholder="0.00" onchange="finanse.stan_poczatkowy=+this.value;save();renderFinanse()">
-      </div>
+      <div class="field" style="max-width:160px"><label>Miesiąc</label><input type="month" id="fin_miesiac"></div>
+      <div class="field" style="max-width:160px"><label>Filtr typ</label><select id="fin_typ_filter" onchange="renderFinanse()"><option value="">Wszystkie</option><option value="przychod">Przychody</option><option value="koszt">Koszty</option></select></div>
+      <div class="field" style="max-width:160px"><label>Stan początkowy (zł)</label><input type="number" id="fin_stan_pocz" step="0.01" onchange="finanse.stan_poczatkowy=+this.value;save();renderFinanse()"></div>
     </div>
-
-    <!-- Szybki formularz dodawania -->
     <div style="font-size:11px;font-weight:700;color:#aaa;text-transform:uppercase;margin-bottom:6px">➕ Dodaj transakcję</div>
-    <div class="inline-form" id="trx_form">
-      <input type="date" id="trx_data">
-      <input type="text" id="trx_opis" placeholder="Opis...">
+    <div class="inline-form">
+      <input type="date" id="trx_data"><input type="text" id="trx_opis" placeholder="Opis...">
       <input type="number" id="trx_kwota" placeholder="Kwota" step="0.01">
       <select id="trx_vat"><option value="23">23%</option><option value="8">8%</option><option value="0">zw.</option></select>
       <select id="trx_typ"><option value="przychod">Przychód</option><option value="koszt">Koszt</option></select>
       <select id="trx_proj"><option value="">– projekt –</option></select>
       <button class="btn btn-primary btn-sm" onclick="dodajTransakcje()">Dodaj</button>
     </div>
-
-    <!-- Lista transakcji -->
     <div style="font-size:11px;font-weight:700;color:#aaa;text-transform:uppercase;margin-bottom:6px">Transakcje</div>
-    <div class="trx-row header">
-      <span>Data</span><span>Opis</span><span>Kwota</span><span>VAT</span><span>Projekt</span><span></span>
-    </div>
+    <div class="trx-row" style="font-weight:700;color:#888;font-size:11px;text-transform:uppercase;padding-bottom:4px"><span>Data</span><span>Opis</span><span>Kwota</span><span>VAT</span><span>Projekt</span><span></span></div>
     <div id="trx_lista"></div>
   </div>
-
-  <!-- Koszty stałe -->
   <div class="card">
-    <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:10px">
-      <h2 style="margin:0;border:none;padding:0">📅 Koszty stałe</h2>
-      <button class="btn btn-primary btn-sm" onclick="openModal('m_koszt_staly')">+ Dodaj</button>
-    </div>
+    <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:10px"><h2 style="margin:0;border:none;padding:0">📅 Koszty stałe</h2><button class="btn btn-primary btn-sm" onclick="openModal('m_koszt_staly')">+ Dodaj</button></div>
     <div id="koszty_stale_lista"></div>
   </div>
 </div>
 
-<!-- USTAWIENIA -->
 <div id="tab_ustawienia" style="display:none">
-  <div class="card">
-    <h2>⚙️ Dane firmy</h2>
-    <div class="row">
-      <div class="field"><label>Nazwa firmy</label><input id="firma_nazwa" value="MSS WOOD DESIGN Sp. z o.o."></div>
-      <div class="field"><label>Slogan</label><input id="firma_slogan" value="Meble na wymiar"></div>
-    </div>
-    <div class="row">
-      <div class="field"><label>Adres</label><input id="firma_adres" value="Wersalska 47/75, 90-212 Łódź"></div>
-      <div class="field"><label>Telefon</label><input id="firma_tel" value="605 386 847"></div>
-    </div>
-    <div class="row">
-      <div class="field"><label>Email</label><input id="firma_email" value="kontakt@wnetrzazpasja.pl"></div>
-      <div class="field"><label>WWW</label><input id="firma_www" value="wnetrzazpasja.pl"></div>
-    </div>
-    <div class="row">
-      <div class="field" style="max-width:150px"><label>NIP</label><input id="firma_nip" value="9472007600"></div>
-      <div class="field" style="max-width:150px"><label>KRS</label><input id="firma_krs" value=""></div>
-      <div class="field" style="max-width:150px"><label>REGON</label><input id="firma_regon" value=""></div>
-    </div>
-    <div class="row"><div class="field"><label>Stopka oferty</label><textarea id="firma_stopka">Oferta ważna 30 dni od daty wystawienia.</textarea></div></div>
+  <div class="card"><h2>⚙️ Dane firmy</h2>
+    <div class="row"><div class="field"><label>Nazwa firmy</label><input id="firma_nazwa"></div><div class="field"><label>Slogan</label><input id="firma_slogan"></div></div>
+    <div class="row"><div class="field"><label>Adres</label><input id="firma_adres"></div><div class="field"><label>Telefon</label><input id="firma_tel"></div></div>
+    <div class="row"><div class="field"><label>Email</label><input id="firma_email"></div><div class="field"><label>WWW</label><input id="firma_www"></div></div>
+    <div class="row"><div class="field" style="max-width:150px"><label>NIP</label><input id="firma_nip"></div><div class="field" style="max-width:150px"><label>KRS</label><input id="firma_krs"></div><div class="field" style="max-width:150px"><label>REGON</label><input id="firma_regon"></div></div>
+    <div class="row"><div class="field"><label>Stopka oferty</label><textarea id="firma_stopka"></textarea></div></div>
     <button class="btn btn-primary" onclick="zapiszUstawienia()">💾 Zapisz</button>
   </div>
-  <div class="card">
-    <h2>💾 Eksport / Import</h2>
+  <div class="card"><h2>💾 Eksport / Import</h2>
     <div style="display:flex;gap:8px;flex-wrap:wrap">
       <button class="btn btn-secondary" onclick="eksportDanych()">📤 Eksport JSON</button>
       <label class="btn btn-secondary" style="cursor:pointer">📥 Import JSON<input type="file" accept=".json" onchange="importDanych(this)" style="display:none"></label>
@@ -437,170 +436,71 @@ h1{font-size:19px;font-weight:700;color:#1a1a2e;margin-bottom:2px}
 </div>
 
 <!-- MODALS -->
-<div class="mbg" id="mkat"><div class="mdl">
-  <h3>Dodaj do katalogu</h3>
-  <div class="row"><div class="field"><label>Kategoria</label>
-    <select id="mk_kat" onchange="renderMKatPola()"><option value="plyta">Płyta</option><option value="usluga">Usługa</option><option value="akc">Akcesorium</option></select>
-  </div></div>
+<div class="mbg" id="mkat"><div class="mdl"><h3>Dodaj do katalogu</h3>
+  <div class="row"><div class="field"><label>Kategoria</label><select id="mk_kat" onchange="renderMKatPola()"><option value="plyta">Płyta</option><option value="usluga">Usługa</option><option value="akc">Akcesorium</option></select></div></div>
   <div id="mk_pola"></div>
-  <div style="display:flex;gap:7px;margin-top:13px">
-    <button class="btn btn-primary" onclick="zapiszKat()">Zapisz</button>
-    <button class="btn btn-secondary" onclick="closeModal('mkat')">Anuluj</button>
-  </div>
+  <div style="display:flex;gap:7px;margin-top:13px"><button class="btn btn-primary" onclick="zapiszKat()">Zapisz</button><button class="btn btn-secondary" onclick="closeModal('mkat')">Anuluj</button></div>
 </div></div>
-
-<div class="mbg" id="mbaza"><div class="mdl">
-  <h3>📂 Z bazy mebli</h3><div id="mbaza_lista"></div>
-  <div style="margin-top:11px"><button class="btn btn-secondary" onclick="closeModal('mbaza')">Zamknij</button></div>
-</div></div>
-
-<div class="mbg" id="m_akc_szafka"><div class="mdl">
-  <h3>➕ Dodaj akcesorium</h3>
+<div class="mbg" id="mbaza"><div class="mdl"><h3>📂 Z bazy mebli</h3><div id="mbaza_lista"></div><div style="margin-top:11px"><button class="btn btn-secondary" onclick="closeModal('mbaza')">Zamknij</button></div></div></div>
+<div class="mbg" id="m_akc_szafka"><div class="mdl"><h3>➕ Dodaj akcesorium</h3>
   <div class="row"><div class="field"><label>Nazwa</label><input id="ma_nazwa"></div></div>
-  <div class="row">
-    <div class="field" style="max-width:110px"><label>Ilość</label><input type="number" id="ma_ilosc" value="1" min="1"></div>
-    <div class="field" style="max-width:130px"><label>Cena/szt (zł)</label><input type="number" id="ma_cena" value="0" step="0.01"></div>
-  </div>
-  <div style="display:flex;gap:7px;margin-top:13px">
-    <button class="btn btn-primary" onclick="zapiszAkcSzafka()">Dodaj</button>
-    <button class="btn btn-secondary" onclick="closeModal('m_akc_szafka')">Anuluj</button>
-  </div>
+  <div class="row"><div class="field" style="max-width:110px"><label>Ilość</label><input type="number" id="ma_ilosc" value="1" min="1"></div><div class="field" style="max-width:130px"><label>Cena/szt (zł)</label><input type="number" id="ma_cena" value="0" step="0.01"></div></div>
+  <div style="display:flex;gap:7px;margin-top:13px"><button class="btn btn-primary" onclick="zapiszAkcSzafka()">Dodaj</button><button class="btn btn-secondary" onclick="closeModal('m_akc_szafka')">Anuluj</button></div>
 </div></div>
-
-<div class="mbg" id="m_fmt_szafka"><div class="mdl">
-  <h3>📐 Dodaj formatkę</h3>
+<div class="mbg" id="m_fmt_szafka"><div class="mdl"><h3>📐 Dodaj formatkę</h3>
   <div class="row"><div class="field"><label>Nazwa</label><input id="mf_nazwa"></div></div>
-  <div class="row">
-    <div class="field" style="max-width:110px"><label>Wym1 mm</label><input type="number" id="mf_w1"></div>
-    <div class="field" style="max-width:110px"><label>Wym2 mm</label><input type="number" id="mf_w2"></div>
-    <div class="field" style="max-width:80px"><label>Szt</label><input type="number" id="mf_szt" value="1" min="1"></div>
-  </div>
-  <div class="row"><div class="field"><label>Materiał</label>
-    <select id="mf_mat"><option value="korpus">Płyta korpus</option><option value="front">Płyta front</option><option value="hdf">HDF 4mm</option><option value="szuflada">Płyta 16mm</option></select>
-  </div></div>
-  <div style="display:flex;gap:7px;margin-top:13px">
-    <button class="btn btn-primary" onclick="zapiszFmtSzafka()">Dodaj</button>
-    <button class="btn btn-secondary" onclick="closeModal('m_fmt_szafka')">Anuluj</button>
-  </div>
+  <div class="row"><div class="field" style="max-width:110px"><label>Wym1 mm</label><input type="number" id="mf_w1"></div><div class="field" style="max-width:110px"><label>Wym2 mm</label><input type="number" id="mf_w2"></div><div class="field" style="max-width:80px"><label>Szt</label><input type="number" id="mf_szt" value="1" min="1"></div></div>
+  <div class="row"><div class="field"><label>Materiał</label><select id="mf_mat"><option value="korpus">Płyta korpus</option><option value="front">Płyta front</option><option value="hdf">HDF 4mm</option><option value="szuflada">Płyta 16mm</option></select></div></div>
+  <div style="display:flex;gap:7px;margin-top:13px"><button class="btn btn-primary" onclick="zapiszFmtSzafka()">Dodaj</button><button class="btn btn-secondary" onclick="closeModal('m_fmt_szafka')">Anuluj</button></div>
 </div></div>
-
-<div class="mbg" id="m_klient"><div class="mdl">
-  <h3 id="mk_title">Nowy klient</h3>
+<div class="mbg" id="m_klient"><div class="mdl"><h3 id="mk_title">Nowy klient</h3>
   <div class="row"><div class="field"><label>Imię i nazwisko / Firma</label><input id="mk_imie"></div></div>
   <div class="row"><div class="field"><label>Telefon</label><input id="mk_tel"></div><div class="field"><label>Email</label><input id="mk_email"></div></div>
   <div class="row"><div class="field"><label>Adres</label><input id="mk_adres"></div></div>
   <div class="row"><div class="field"><label>Uwagi</label><textarea id="mk_uwagi"></textarea></div></div>
-  <div style="display:flex;gap:7px;margin-top:13px">
-    <button class="btn btn-primary" onclick="zapiszKlienta()">Zapisz</button>
-    <button class="btn btn-secondary" onclick="closeModal('m_klient');editKlientId=null">Anuluj</button>
-  </div>
+  <div style="display:flex;gap:7px;margin-top:13px"><button class="btn btn-primary" onclick="zapiszKlienta()">Zapisz</button><button class="btn btn-secondary" onclick="closeModal('m_klient');editKlientId=null">Anuluj</button></div>
 </div></div>
-
-<div class="mbg" id="m_projekt"><div class="mdl">
-  <h3 id="mp_title">Nowy projekt</h3>
+<div class="mbg" id="m_projekt"><div class="mdl"><h3 id="mp_title">Nowy projekt</h3>
   <div class="row"><div class="field"><label>Nazwa projektu</label><input id="mp_nazwa"></div></div>
-  <div class="row">
-    <div class="field"><label>Klient</label><select id="mp_klient"><option value="">– wybierz –</option></select></div>
-    <div class="field" style="max-width:120px"><label>Status</label>
-      <select id="mp_status"><option value="wycena">Wycena</option><option value="umowa">Umowa</option><option value="realizacja">Realizacja</option><option value="zakończony">Zakończony</option></select>
-    </div>
-    <div class="field" style="max-width:100px"><label>VAT</label>
-      <select id="mp_vat"><option value="8">8%</option><option value="23">23%</option><option value="0">zw.</option></select>
-    </div>
-  </div>
-  <div class="row">
-    <div class="field"><label>Data start</label><input type="date" id="mp_data_start"></div>
-    <div class="field"><label>Termin</label><input type="date" id="mp_data_end"></div>
-  </div>
-  <div class="row">
-    <div class="field"><label>Wartość umowy (zł)</label><input type="number" id="mp_wartosc"></div>
-    <div class="field"><label>Zaliczka (zł)</label><input type="number" id="mp_zaliczka"></div>
-  </div>
+  <div class="row"><div class="field"><label>Klient</label><select id="mp_klient"><option value="">– wybierz –</option></select></div><div class="field" style="max-width:120px"><label>Status</label><select id="mp_status"><option value="wycena">Wycena</option><option value="umowa">Umowa</option><option value="realizacja">Realizacja</option><option value="zakończony">Zakończony</option></select></div><div class="field" style="max-width:100px"><label>VAT</label><select id="mp_vat"><option value="8">8%</option><option value="23">23%</option><option value="0">zw.</option></select></div></div>
+  <div class="row"><div class="field"><label>Data start</label><input type="date" id="mp_data_start"></div><div class="field"><label>Termin</label><input type="date" id="mp_data_end"></div></div>
+  <div class="row"><div class="field"><label>Wartość umowy (zł)</label><input type="number" id="mp_wartosc"></div><div class="field"><label>Zaliczka (zł)</label><input type="number" id="mp_zaliczka"></div></div>
   <div class="row"><div class="field"><label>Uwagi</label><textarea id="mp_uwagi"></textarea></div></div>
-  <div style="display:flex;gap:7px;margin-top:13px">
-    <button class="btn btn-primary" onclick="zapiszProjekt()">Zapisz</button>
-    <button class="btn btn-secondary" onclick="closeModal('m_projekt');editProjektId=null">Anuluj</button>
-  </div>
+  <div style="display:flex;gap:7px;margin-top:13px"><button class="btn btn-primary" onclick="zapiszProjekt()">Zapisz</button><button class="btn btn-secondary" onclick="closeModal('m_projekt');editProjektId=null">Anuluj</button></div>
 </div></div>
-
-<div class="mbg" id="m_pracownik"><div class="mdl">
-  <h3 id="mpr_title">Nowy pracownik</h3>
+<div class="mbg" id="m_pracownik"><div class="mdl"><h3 id="mpr_title">Nowy pracownik</h3>
   <div class="row"><div class="field"><label>Imię i nazwisko</label><input id="mpr_imie"></div></div>
   <div class="row"><div class="field"><label>Telefon</label><input id="mpr_tel"></div><div class="field"><label>Email</label><input id="mpr_email"></div></div>
-  <div class="row">
-    <div class="field" style="max-width:140px"><label>Stawka godz. (zł)</label><input type="number" id="mpr_stawka" step="0.5"></div>
-    <div class="field"><label>Umowa</label><select id="mpr_umowa"><option value="zlecenie">Zlecenie</option><option value="dzielo">O dzieło</option><option value="etat">Etat</option><option value="b2b">B2B</option></select></div>
-  </div>
+  <div class="row"><div class="field" style="max-width:140px"><label>Stawka godz. (zł)</label><input type="number" id="mpr_stawka" step="0.5"></div><div class="field"><label>Umowa</label><select id="mpr_umowa"><option value="zlecenie">Zlecenie</option><option value="dzielo">O dzieło</option><option value="etat">Etat</option><option value="b2b">B2B</option></select></div></div>
   <div class="row"><div class="field"><label>Uwagi</label><textarea id="mpr_uwagi"></textarea></div></div>
-  <div style="display:flex;gap:7px;margin-top:13px">
-    <button class="btn btn-primary" onclick="zapiszPracownika()">Zapisz</button>
-    <button class="btn btn-secondary" onclick="closeModal('m_pracownik');editPracId=null">Anuluj</button>
-  </div>
+  <div style="display:flex;gap:7px;margin-top:13px"><button class="btn btn-primary" onclick="zapiszPracownika()">Zapisz</button><button class="btn btn-secondary" onclick="closeModal('m_pracownik');editPracId=null">Anuluj</button></div>
 </div></div>
-
-<div class="mbg" id="m_godziny"><div class="mdl">
-  <h3>⏱️ Dodaj godziny pracy</h3>
-  <div class="row">
-    <div class="field"><label>Pracownik</label><select id="mg_prac"></select></div>
-    <div class="field"><label>Projekt</label><select id="mg_proj"><option value="">– brak –</option></select></div>
-  </div>
-  <div class="row">
-    <div class="field" style="max-width:120px"><label>Godziny</label><input type="number" id="mg_godz" value="8" step="0.5" min="0.5"></div>
-    <div class="field"><label>Data</label><input type="date" id="mg_data"></div>
-  </div>
+<div class="mbg" id="m_godziny"><div class="mdl"><h3>⏱️ Dodaj godziny pracy</h3>
+  <div class="row"><div class="field"><label>Pracownik</label><select id="mg_prac"></select></div><div class="field"><label>Projekt</label><select id="mg_proj"><option value="">– brak –</option></select></div></div>
+  <div class="row"><div class="field" style="max-width:120px"><label>Godziny</label><input type="number" id="mg_godz" value="8" step="0.5" min="0.5"></div><div class="field"><label>Data</label><input type="date" id="mg_data"></div></div>
   <div class="row"><div class="field"><label>Opis</label><input id="mg_opis" placeholder="np. montaż..."></div></div>
-  <div style="display:flex;gap:7px;margin-top:13px">
-    <button class="btn btn-primary" onclick="zapiszGodziny()">Zapisz</button>
-    <button class="btn btn-secondary" onclick="closeModal('m_godziny')">Anuluj</button>
-  </div>
+  <div style="display:flex;gap:7px;margin-top:13px"><button class="btn btn-primary" onclick="zapiszGodziny()">Zapisz</button><button class="btn btn-secondary" onclick="closeModal('m_godziny')">Anuluj</button></div>
 </div></div>
-
-<div class="mbg" id="m_koszt"><div class="mdl">
-  <h3>💸 Dodaj koszt projektu</h3>
+<div class="mbg" id="m_koszt"><div class="mdl"><h3>💸 Dodaj koszt projektu</h3>
   <div class="row"><div class="field"><label>Opis</label><input id="mk2_opis"></div></div>
-  <div class="row">
-    <div class="field" style="max-width:130px"><label>Kwota (zł)</label><input type="number" id="mk2_kwota" step="0.01"></div>
-    <div class="field"><label>Kategoria</label><select id="mk2_kat"><option value="materialy">Materiały</option><option value="okucia">Okucia</option><option value="transport">Transport</option><option value="inne">Inne</option></select></div>
-  </div>
+  <div class="row"><div class="field" style="max-width:130px"><label>Kwota (zł)</label><input type="number" id="mk2_kwota" step="0.01"></div><div class="field"><label>Kategoria</label><select id="mk2_kat"><option value="materialy">Materiały</option><option value="okucia">Okucia</option><option value="transport">Transport</option><option value="inne">Inne</option></select></div></div>
   <input type="hidden" id="mk2_proj_id">
-  <div style="display:flex;gap:7px;margin-top:13px">
-    <button class="btn btn-primary" onclick="zapiszKoszt()">Dodaj</button>
-    <button class="btn btn-secondary" onclick="closeModal('m_koszt')">Anuluj</button>
-  </div>
+  <div style="display:flex;gap:7px;margin-top:13px"><button class="btn btn-primary" onclick="zapiszKoszt()">Dodaj</button><button class="btn btn-secondary" onclick="closeModal('m_koszt')">Anuluj</button></div>
 </div></div>
-
-<div class="mbg" id="m_koszt_staly"><div class="mdl">
-  <h3>📅 Dodaj koszt stały</h3>
-  <div class="row"><div class="field"><label>Nazwa</label><input id="ks_nazwa" placeholder="np. Księgowość, Leasing Toyota"></div></div>
-  <div class="row">
-    <div class="field"><label>Kwota (zł)</label><input type="number" id="ks_kwota" step="0.01"></div>
-    <div class="field" style="max-width:130px"><label>Dzień miesiąca</label><input type="number" id="ks_dzien" min="1" max="31" placeholder="np. 10"></div>
-  </div>
-  <div class="row">
-    <div class="field"><label>VAT</label><select id="ks_vat"><option value="23">23%</option><option value="8">8%</option><option value="0">zw.</option></select></div>
-    <div class="field"><label>Uwagi</label><input id="ks_uwagi" placeholder="opcjonalne"></div>
-  </div>
-  <div style="display:flex;gap:7px;margin-top:13px">
-    <button class="btn btn-primary" onclick="zapiszKosztStaly()">Zapisz</button>
-    <button class="btn btn-secondary" onclick="closeModal('m_koszt_staly')">Anuluj</button>
-  </div>
+<div class="mbg" id="m_koszt_staly"><div class="mdl"><h3>📅 Dodaj koszt stały</h3>
+  <div class="row"><div class="field"><label>Nazwa</label><input id="ks_nazwa" placeholder="np. Księgowość, Leasing"></div></div>
+  <div class="row"><div class="field"><label>Kwota (zł)</label><input type="number" id="ks_kwota" step="0.01"></div><div class="field" style="max-width:130px"><label>Dzień miesiąca</label><input type="number" id="ks_dzien" min="1" max="31"></div></div>
+  <div class="row"><div class="field"><label>VAT</label><select id="ks_vat"><option value="23">23%</option><option value="8">8%</option><option value="0">zw.</option></select></div><div class="field"><label>Uwagi</label><input id="ks_uwagi"></div></div>
+  <div style="display:flex;gap:7px;margin-top:13px"><button class="btn btn-primary" onclick="zapiszKosztStaly()">Zapisz</button><button class="btn btn-secondary" onclick="closeModal('m_koszt_staly')">Anuluj</button></div>
 </div></div>
-
-<div class="mbg" id="m_dzien"><div class="mdl">
-  <h3 id="m_dzien_title">Godziny – dzień</h3>
-  <div id="m_dzien_lista"></div>
-  <div style="margin-top:11px"><button class="btn btn-secondary" onclick="closeModal('m_dzien')">Zamknij</button></div>
-</div></div>
+<div class="mbg" id="m_dzien"><div class="mdl"><h3 id="m_dzien_title">Godziny – dzień</h3><div id="m_dzien_lista"></div><div style="margin-top:11px"><button class="btn btn-secondary" onclick="closeModal('m_dzien')">Zamknij</button></div></div></div>
 </div>
 
 <div id="preview_overlay">
   <div class="preview-wrap">
     <div class="no-print" style="background:#1a1a2e;padding:12px 20px;display:flex;justify-content:space-between;align-items:center">
       <span style="color:#fff;font-weight:700">👁️ Podgląd oferty</span>
-      <div style="display:flex;gap:8px">
-        <button class="btn btn-primary" onclick="drukujOferte()">🖨️ Drukuj / PDF</button>
-        <button class="btn btn-secondary" onclick="zamknijPodglad()">✕ Zamknij</button>
-      </div>
+      <div style="display:flex;gap:8px"><button class="btn btn-primary" onclick="drukujOferte()">🖨️ Drukuj / PDF</button><button class="btn btn-secondary" onclick="zamknijPodglad()">✕ Zamknij</button></div>
     </div>
     <div id="preview_content" style="padding:40px"></div>
   </div>
@@ -608,7 +508,7 @@ h1{font-size:19px;font-weight:700;color:#1a1a2e;margin-bottom:2px}
 
 <script>
 // ══ STAŁE ══
-const GRK=18,SZCZ=2,ARKm2=2800*2070/1e6;
+const GRK=18,SZCZ=2,ARK_M2=2800*2070/1e6;
 const PLECY_OFF={brak:null,proste:4,felc:16,nut:16,pelne:36};
 const ROZ={S:{h:84},M:{h:116},L:{h:167},XL:{h:199}};
 const PROW=[250,300,350,400,450,500,550,600];
@@ -619,73 +519,60 @@ const ZESTAWY=[
   {id:'z4',nazwa:'1×XL + 2×M + 1×S',sz:['XL','M','M','S']},
 ];
 const WYS_PIEK=600,WYS_MIKRO=390,WYS_SZUFL_FRONT=720;
-const TYPY_SLUPKOW=['slupek_piek','slupek_piek_mikro','slupek_lodowka'];
+const TYPY_SLUPKOW=['slupek_piek','slupek_piek_mikro','slupek_lodowka','slupek_cargo'];
+const TYPY_SPECJALNE=['stojaca_piek','stojaca_zlew','stojaca_cargo','wiszaca_gl'];
 const DNI=['Pon','Wt','Śr','Czw','Pt','Sob','Ndz'];
 const MIESIAC_PL=['Styczeń','Luty','Marzec','Kwiecień','Maj','Czerwiec','Lipiec','Sierpień','Wrzesień','Październik','Listopad','Grudzień'];
 
+function ark2m2(ark){return+(ark/ARK_M2).toFixed(2);}
+
 // ══ STATE ══
-let szafki=[],baza=[],historia=[],nextId=1,editId=null,selZestaw=null,activeSzafkaId=null;
+let szafki=[],baza=[],historia=[],blaty=[],nextId=1,nextBlatId=1,editId=null,selZestaw=null,activeSzafkaId=null;
 let klienci=[],projekty=[],pracownicy=[],godziny=[],koszty=[];
 let transakcje=[],kosztyStale=[],nextTrxId=1,nextKsId=1;
 let finanse={stan_poczatkowy:0};
 let nextKlientId=1,nextProjId=1,nextPracId=1,nextHistId=1;
 let editKlientId=null,editProjektId=null,editPracId=null;
-let marzaMnoznik=2;
-let kalDate=new Date();
-let firma={nazwa:'MSS WOOD DESIGN Sp. z o.o.',slogan:'Meble na wymiar',adres:'Wersalska 47/75, 90-212 Łódź',tel:'605 386 847',email:'kontakt@wnetrzazpasja.pl',www:'wnetrzazpasja.pl',nip:'9472007600',krs:'',regon:'',stopka:'Oferta ważna 30 dni od daty wystawienia.',logo:''};
-const ARK_M2=2800*2070/1e6; // 5.796 m²
+let marzaMnoznik=2,kalDate=new Date();
+let firma={nazwa:'MSS WOOD DESIGN Sp. z o.o.',slogan:'Meble na wymiar',adres:'Wersalska 47/75, 90-212 Łódź',tel:'605 386 847',email:'kontakt@wnetrzazpasja.pl',www:'wnetrzazpasja.pl',nip:'9472007600',krs:'',regon:'',stopka:'Oferta ważna 30 dni od daty wystawienia.'};
 
-// Pomocnik – cena m2 z ceny arkusza
-function ark2m2(ark){return+(ark/ARK_M2).toFixed(2);}
+// Quick Add state
+let qaTyp=null,qaSzer=null,qaFront='drzwi',qaZestaw='z2',qaCargo=200;
 
 let katalog={
-  stawki:{zawias:15,zawieszka:8,nozka:7,prowadnica:120,tipon:15,uchwyt:15,abs_mb:10,nut_mb:7,felc_mb:7,rozkroj_ark:50},
-  baza:{
-    plyta16:{m2:ark2m2(200)},
-    hdf4:{m2:10},
-    // Usługi lakiernicze i specjalne – cena za m² frontu
-    lak_gladkie:{m2:450},
-    lak_frezowane:{m2:600},
-    ryflowane:{m2:600},
-    pogrubienie:{m2:50},
-  },
+  stawki:{zawias:15,zawieszka:8,nozka:7,prowadnica:120,tipon:15,uchwyt:15,abs_mb:10,nut_mb:7,felc_mb:7,rozkroj_ark:50,cargo200:200,cargo400:400,slupek_cargo:1500,szuflada_tipon:150,
+    blat_krono_ark:500,blat_egger_ark:700,blat_krono_slim_m2:850,blat_egger_slim_m2:1200},
+  baza:{plyta16:{m2:ark2m2(200)},hdf4:{m2:10}},
   plyty:[
-    // Kronospan – gładkie 200 zł/ark, drewnopodobne 320 zł/ark
-    {n:'Kronospan Biały Alpejski W1101',   m2:ark2m2(200),ark:200},
-    {n:'Kronospan Biały Arktyczny W1100',  m2:ark2m2(200),ark:200},
+    {n:'Kronospan Biały Alpejski W1101',m2:ark2m2(200),ark:200},
+    {n:'Kronospan Biały Arktyczny W1100',m2:ark2m2(200),ark:200},
     {n:'Kronospan Szary Jedwabisty U12025',m2:ark2m2(200),ark:200},
-    {n:'Kronospan Antracyt U12001',        m2:ark2m2(200),ark:200},
-    {n:'Kronospan Grafit U12191',          m2:ark2m2(200),ark:200},
-    {n:'Kronospan Dąb Nebraska D3430',     m2:ark2m2(320),ark:320},
-    {n:'Kronospan Dąb Sonoma D3126',       m2:ark2m2(320),ark:320},
-    {n:'Kronospan Dąb Winchester D2999',   m2:ark2m2(320),ark:320},
-    {n:'Kronospan Dąb Stirling D3840',     m2:ark2m2(320),ark:320},
-    {n:'Kronospan Orzech Bari D3570',      m2:ark2m2(320),ark:320},
-    // Egger – gładkie 350 zł/ark, drewnopodobne 500 zł/ark
-    {n:'Egger Biały Alpejski W1000 ST9',   m2:ark2m2(350),ark:350},
-    {n:'Egger Biały Platinum W1100 ST30',  m2:ark2m2(350),ark:350},
-    {n:'Egger Szary Kremowy U702 ST9',     m2:ark2m2(350),ark:350},
-    {n:'Egger Antracyt U961 ST2',          m2:ark2m2(350),ark:350},
-    {n:'Egger Beton Oxido ciemny F327',    m2:ark2m2(350),ark:350},
+    {n:'Kronospan Antracyt U12001',m2:ark2m2(200),ark:200},
+    {n:'Kronospan Grafit U12191',m2:ark2m2(200),ark:200},
+    {n:'Kronospan Dąb Nebraska D3430',m2:ark2m2(320),ark:320},
+    {n:'Kronospan Dąb Sonoma D3126',m2:ark2m2(320),ark:320},
+    {n:'Kronospan Dąb Winchester D2999',m2:ark2m2(320),ark:320},
+    {n:'Kronospan Dąb Stirling D3840',m2:ark2m2(320),ark:320},
+    {n:'Kronospan Orzech Bari D3570',m2:ark2m2(320),ark:320},
+    {n:'Egger Biały Alpejski W1000 ST9',m2:ark2m2(350),ark:350},
+    {n:'Egger Biały Platinum W1100 ST30',m2:ark2m2(350),ark:350},
+    {n:'Egger Szary Kremowy U702 ST9',m2:ark2m2(350),ark:350},
+    {n:'Egger Antracyt U961 ST2',m2:ark2m2(350),ark:350},
+    {n:'Egger Beton Oxido ciemny F327',m2:ark2m2(350),ark:350},
     {n:'Egger Dąb Halifax naturalny H1180',m2:ark2m2(500),ark:500},
-    {n:'Egger Dąb Bardolino H1145',        m2:ark2m2(500),ark:500},
-    {n:'Egger Dąb Sherman H3840',          m2:ark2m2(500),ark:500},
-    {n:'Egger Dąb Casablanca H3430',       m2:ark2m2(500),ark:500},
-    {n:'Egger Orzech Vermont H3840',       m2:ark2m2(500),ark:500},
-    // Fronty lakierowane / specjalne – cena za m²
-    {n:'Front lakierowany gładki',         m2:450, ark:0, typ:'usluga'},
-    {n:'Front lakierowany frezowany',      m2:600, ark:0, typ:'usluga'},
-    {n:'Front ryflowany lakierowany',      m2:600, ark:0, typ:'usluga'},
+    {n:'Egger Dąb Bardolino H1145',m2:ark2m2(500),ark:500},
+    {n:'Egger Dąb Sherman H3840',m2:ark2m2(500),ark:500},
+    {n:'Egger Dąb Casablanca H3430',m2:ark2m2(500),ark:500},
+    {n:'Egger Orzech Vermont H3840',m2:ark2m2(500),ark:500},
+    {n:'Front lakierowany gładki',m2:450,ark:0,typ:'usluga'},
+    {n:'Front lakierowany frezowany',m2:600,ark:0,typ:'usluga'},
+    {n:'Front ryflowany lakierowany',m2:600,ark:0,typ:'usluga'},
   ],
   uslugi:[
-    {n:'Oklejanie ABS',jed:'mb',cena:10},
-    {n:'Rozkrój płyty (1 arkusz)',jed:'ark',cena:50},
-    {n:'Frezowanie nut',jed:'mb',cena:7},
-    {n:'Frezowanie felc',jed:'mb',cena:7},
-    {n:'Pogrubienie',jed:'m²',cena:50},
-    {n:'Lakierowanie gładkie',jed:'m²',cena:450},
-    {n:'Lakierowanie frezowane',jed:'m²',cena:600},
-    {n:'Ryflowanie + lakier',jed:'m²',cena:600},
+    {n:'Oklejanie ABS',jed:'mb',cena:10},{n:'Rozkrój płyty (1 arkusz)',jed:'ark',cena:50},
+    {n:'Frezowanie nut',jed:'mb',cena:7},{n:'Frezowanie felc',jed:'mb',cena:7},
+    {n:'Pogrubienie',jed:'m²',cena:50},{n:'Lakierowanie gładkie',jed:'m²',cena:450},
+    {n:'Lakierowanie frezowane',jed:'m²',cena:600},{n:'Ryflowanie + lakier',jed:'m²',cena:600},
   ],
   akc:[
     {n:'GTV Axis Pro S 500mm',jed:'para',cena:120},{n:'GTV Axis Pro M 500mm',jed:'para',cena:120},
@@ -693,30 +580,24 @@ let katalog={
     {n:'Zawias Blum 110°',jed:'szt',cena:15},{n:'Zawias Blum soft-close',jed:'szt',cena:15},
     {n:'Zawieszka regulowana',jed:'szt',cena:8},{n:'Nóżka regulowana',jed:'szt',cena:7},
     {n:'Tipon push-to-open',jed:'szt',cena:15},{n:'Kołek do półki',jed:'szt',cena:1},
+    {n:'Cargo 200mm',jed:'szt',cena:200},{n:'Cargo 400mm',jed:'szt',cena:400},
+    {n:'Servo Drive Blum',jed:'szt',cena:500},
   ]
 };
 
 // ══ STORAGE ══
-function save(){
-  try{localStorage.setItem('meblopro_v8',JSON.stringify({szafki,baza,historia,nextId,nextHistId,nextTrxId,nextKsId,klienci,projekty,pracownicy,godziny,koszty,transakcje,kosztyStale,finanse,nextKlientId,nextProjId,nextPracId,katalog,firma}));}catch(e){}
-}
+function save(){try{localStorage.setItem('meblopro_v9',JSON.stringify({szafki,baza,historia,blaty,nextId,nextBlatId,nextHistId,nextTrxId,nextKsId,klienci,projekty,pracownicy,godziny,koszty,transakcje,kosztyStale,finanse,nextKlientId,nextProjId,nextPracId,katalog,firma}));}catch(e){}}
 function load(){
   try{
-    const raw=localStorage.getItem('meblopro_v8');if(!raw)return;
+    const raw=localStorage.getItem('meblopro_v9');if(!raw)return;
     const d=JSON.parse(raw);
-    szafki=d.szafki||[];baza=d.baza||[];historia=d.historia||[];nextId=d.nextId||1;nextHistId=d.nextHistId||1;
+    szafki=d.szafki||[];baza=d.baza||[];historia=d.historia||[];blaty=d.blaty||[];
+    nextId=d.nextId||1;nextBlatId=d.nextBlatId||1;nextHistId=d.nextHistId||1;
     klienci=d.klienci||[];projekty=d.projekty||[];pracownicy=d.pracownicy||[];godziny=d.godziny||[];koszty=d.koszty||[];
-    transakcje=d.transakcje||[];kosztyStale=d.kosztyStale||[];
-    nextTrxId=d.nextTrxId||1;nextKsId=d.nextKsId||1;
+    transakcje=d.transakcje||[];kosztyStale=d.kosztyStale||[];nextTrxId=d.nextTrxId||1;nextKsId=d.nextKsId||1;
     if(d.finanse)finanse=d.finanse;
     nextKlientId=d.nextKlientId||1;nextProjId=d.nextProjId||1;nextPracId=d.nextPracId||1;
-    if(d.katalog){
-      katalog.plyty=d.katalog.plyty||katalog.plyty;
-      katalog.uslugi=d.katalog.uslugi||katalog.uslugi;
-      katalog.akc=d.katalog.akc||katalog.akc;
-      if(d.katalog.stawki)katalog.stawki=d.katalog.stawki;
-      if(d.katalog.baza)katalog.baza=d.katalog.baza;
-    }
+    if(d.katalog){katalog.plyty=d.katalog.plyty||katalog.plyty;katalog.uslugi=d.katalog.uslugi||katalog.uslugi;katalog.akc=d.katalog.akc||katalog.akc;if(d.katalog.stawki)katalog.stawki={...katalog.stawki,...d.katalog.stawki};if(d.katalog.baza)katalog.baza=d.katalog.baza;}
     if(d.firma)firma={...firma,...d.firma};
   }catch(e){}
 }
@@ -725,257 +606,162 @@ function load(){
 function showTab(t){
   ['wycena','historia','katalog','baza','klienci','projekty','pracownicy','finanse','ustawienia'].forEach(x=>document.getElementById('tab_'+x).style.display=x===t?'block':'none');
   document.querySelectorAll('.tab').forEach((b,i)=>b.classList.toggle('active',['wycena','historia','katalog','baza','klienci','projekty','pracownicy','finanse','ustawienia'][i]===t));
-  if(t==='katalog')renderKatalog();
-  if(t==='baza')renderBaza();
-  if(t==='klienci')renderKlienci();
-  if(t==='projekty')renderProjekty();
-  if(t==='pracownicy'){renderPracownicy();renderKalendarz();}
-  if(t==='historia')renderHistoria();
-  if(t==='finanse')renderFinanse();
-  if(t==='ustawienia')loadUstawienia();
+  if(t==='katalog')renderKatalog();if(t==='baza')renderBaza();if(t==='klienci')renderKlienci();
+  if(t==='projekty')renderProjekty();if(t==='pracownicy'){renderPracownicy();renderKalendarz();}
+  if(t==='historia')renderHistoria();if(t==='finanse')renderFinanse();if(t==='ustawienia')loadUstawienia();
 }
 function openModal(id){document.getElementById(id).classList.add('open');}
 function closeModal(id){document.getElementById(id).classList.remove('open');}
 function fmt(v){return(+v||0).toFixed(2);}
 function fmtPln(v){return fmt(v)+' zł';}
 
-// ══ ALERTY KOSZTÓW STAŁYCH ══
-function sprawdzAlerty(){
-  const dzis=new Date();
-  const dzien=dzis.getDate();
-  const alerty=kosztyStale.filter(k=>{
-    const dni=k.dzien-dzien;
-    return dni>=0&&dni<=5;
+// ══ QUICK ADD ══
+const QA_TYPES=[
+  {id:'wisząca',       label:'Wisząca\npłytka',  wys:720,gl:330,
+   szerokie:[30,40,45,50,60,80,90,100],
+   svg:`<svg width="44" height="50" viewBox="0 0 44 50"><rect x="2" y="2" width="40" height="46" rx="2" stroke="#666" stroke-width="2" fill="#f0f0f0"/><line x1="2" y1="24" x2="42" y2="24" stroke="#999" stroke-width="1"/><circle cx="22" cy="14" r="3" fill="#ccc"/></svg>`},
+  {id:'wiszaca_gl',    label:'Wisząca\ngłęboka', wys:500,gl:580,
+   szerokie:[30,40,45,50,60,80,90,100],
+   svg:`<svg width="44" height="50" viewBox="0 0 44 50"><rect x="2" y="8" width="40" height="40" rx="2" stroke="#4f7ef8" stroke-width="2" fill="#e8f0fe"/><line x1="2" y1="26" x2="42" y2="26" stroke="#4f7ef8" stroke-width="1"/><circle cx="22" cy="17" r="3" fill="#4f7ef8"/></svg>`},
+  {id:'stojąca',       label:'Stojąca',           wys:720,gl:560,
+   szerokie:[30,40,45,50,60,80,90],
+   svg:`<svg width="44" height="60" viewBox="0 0 44 60"><rect x="2" y="2" width="40" height="50" rx="2" stroke="#2e7d32" stroke-width="2" fill="#e8f5e9"/><line x1="2" y1="26" x2="42" y2="26" stroke="#2e7d32" stroke-width="1"/><line x1="8" y1="52" x2="8" y2="60" stroke="#2e7d32" stroke-width="2"/><line x1="36" y1="52" x2="36" y2="60" stroke="#2e7d32" stroke-width="2"/></svg>`},
+  {id:'stojaca_piek',  label:'Stojąca\npiekarnik',wys:720,gl:560,
+   szerokie:[60],
+   svg:`<svg width="44" height="60" viewBox="0 0 44 60"><rect x="2" y="2" width="40" height="50" rx="2" stroke="#e8601a" stroke-width="2" fill="#fff8f5"/><rect x="6" y="6" width="32" height="16" rx="1" stroke="#e8601a" stroke-width="1.5" fill="#ffd4bb"/><text x="22" y="18" font-size="8" text-anchor="middle" fill="#e8601a">PIEK</text><rect x="6" y="34" width="32" height="14" rx="1" stroke="#aaa" stroke-width="1" fill="#f5f5f5"/><line x1="8" y1="52" x2="8" y2="60" stroke="#888" stroke-width="2"/><line x1="36" y1="52" x2="36" y2="60" stroke="#888" stroke-width="2"/></svg>`},
+  {id:'stojaca_zlew',  label:'Stojąca\nzlew',     wys:720,gl:560,
+   szerokie:[60,80,90,100],
+   svg:`<svg width="44" height="60" viewBox="0 0 44 60"><rect x="2" y="2" width="40" height="50" rx="2" stroke="#1565c0" stroke-width="2" fill="#e8f0fe"/><ellipse cx="22" cy="20" rx="12" ry="8" stroke="#1565c0" stroke-width="1.5" fill="#fff"/><line x1="22" y1="28" x2="22" y2="34" stroke="#1565c0" stroke-width="2"/><line x1="8" y1="52" x2="8" y2="60" stroke="#1565c0" stroke-width="2"/><line x1="36" y1="52" x2="36" y2="60" stroke="#1565c0" stroke-width="2"/></svg>`},
+  {id:'stojaca_cargo', label:'Stojąca\ncargo',    wys:720,gl:560,
+   szerokie:[40,45,50,60,80,90],
+   svg:`<svg width="44" height="60" viewBox="0 0 44 60"><rect x="2" y="2" width="40" height="50" rx="2" stroke="#7b1fa2" stroke-width="2" fill="#f3e5f5"/><rect x="6" y="8" width="32" height="8" rx="1" stroke="#7b1fa2" stroke-width="1.5" fill="#e1bee7"/><rect x="6" y="20" width="32" height="8" rx="1" stroke="#7b1fa2" stroke-width="1.5" fill="#e1bee7"/><rect x="6" y="32" width="32" height="8" rx="1" stroke="#7b1fa2" stroke-width="1.5" fill="#e1bee7"/><line x1="8" y1="52" x2="8" y2="60" stroke="#7b1fa2" stroke-width="2"/><line x1="36" y1="52" x2="36" y2="60" stroke="#7b1fa2" stroke-width="2"/></svg>`},
+  {id:'slupek_piek',   label:'Słupek\npiekarnik', wys:2160,gl:560,
+   szerokie:[60],
+   svg:`<svg width="30" height="70" viewBox="0 0 30 70"><rect x="2" y="2" width="26" height="66" rx="2" stroke="#e8601a" stroke-width="2" fill="#fff8f5"/><rect x="4" y="4" width="22" height="18" rx="1" stroke="#4f7ef8" stroke-width="1.5" fill="#e8f0fe"/><rect x="4" y="28" width="22" height="16" rx="1" stroke="#aaa" stroke-width="1" fill="#f5f5f5"/><text x="15" y="39" font-size="6" text-anchor="middle" fill="#666">PIEK</text><rect x="4" y="48" width="22" height="12" rx="1" stroke="#e8601a" stroke-width="1.5" fill="#ffd4bb"/><line x1="6" y1="68" x2="6" y2="72" stroke="#888" stroke-width="2"/><line x1="24" y1="68" x2="24" y2="72" stroke="#888" stroke-width="2"/></svg>`},
+  {id:'slupek_piek_mikro',label:'Słupek\npiek+mikro',wys:2160,gl:560,
+   szerokie:[60],
+   svg:`<svg width="30" height="70" viewBox="0 0 30 70"><rect x="2" y="2" width="26" height="66" rx="2" stroke="#e8601a" stroke-width="2" fill="#fff8f5"/><rect x="4" y="4" width="22" height="12" rx="1" stroke="#4f7ef8" stroke-width="1.5" fill="#e8f0fe"/><rect x="4" y="20" width="22" height="10" rx="1" stroke="#666" stroke-width="1" fill="#f5f5f5"/><text x="15" y="28" font-size="5" text-anchor="middle" fill="#666">MKR</text><rect x="4" y="34" width="22" height="14" rx="1" stroke="#aaa" stroke-width="1" fill="#f5f5f5"/><text x="15" y="44" font-size="5" text-anchor="middle" fill="#666">PIEK</text><rect x="4" y="52" width="22" height="10" rx="1" stroke="#e8601a" stroke-width="1.5" fill="#ffd4bb"/><line x1="6" y1="66" x2="6" y2="70" stroke="#888" stroke-width="2"/><line x1="24" y1="66" x2="24" y2="70" stroke="#888" stroke-width="2"/></svg>`},
+  {id:'slupek_lodowka',label:'Słupek\nlodówka',  wys:2160,gl:560,
+   szerokie:[60,75],
+   svg:`<svg width="30" height="70" viewBox="0 0 30 70"><rect x="2" y="2" width="26" height="66" rx="2" stroke="#1565c0" stroke-width="2" fill="#e8f0fe"/><line x1="2" y1="38" x2="28" y2="38" stroke="#1565c0" stroke-width="1.5"/><circle cx="15" cy="20" r="3" fill="#1565c0"/><circle cx="15" cy="52" r="3" fill="#1565c0"/><line x1="6" y1="68" x2="6" y2="72" stroke="#1565c0" stroke-width="2"/><line x1="24" y1="68" x2="24" y2="72" stroke="#1565c0" stroke-width="2"/></svg>`},
+  {id:'slupek_cargo',  label:'Słupek\ncargo',     wys:2160,gl:560,
+   szerokie:[20,30,40,50,60],
+   svg:`<svg width="30" height="70" viewBox="0 0 30 70"><rect x="2" y="2" width="26" height="66" rx="2" stroke="#7b1fa2" stroke-width="2" fill="#f3e5f5"/><rect x="4" y="6" width="22" height="8" rx="1" stroke="#7b1fa2" stroke-width="1.5" fill="#e1bee7"/><rect x="4" y="18" width="22" height="8" rx="1" stroke="#7b1fa2" stroke-width="1.5" fill="#e1bee7"/><rect x="4" y="30" width="22" height="8" rx="1" stroke="#7b1fa2" stroke-width="1.5" fill="#e1bee7"/><rect x="4" y="42" width="22" height="8" rx="1" stroke="#7b1fa2" stroke-width="1.5" fill="#e1bee7"/><line x1="6" y1="68" x2="6" y2="72" stroke="#7b1fa2" stroke-width="2"/><line x1="24" y1="68" x2="24" y2="72" stroke="#7b1fa2" stroke-width="2"/></svg>`},
+];
+
+function initQuickAdd(){
+  const names=katalog.plyty.map(p=>p.n);
+  ['qa_korpus','qa_front'].forEach(id=>{
+    const sel=document.getElementById(id);
+    sel.innerHTML=names.length?names.map(n=>`<option>${n}</option>`).join(''):'<option>– dodaj materiały w Katalogu –</option>';
   });
-  const el=document.getElementById('alerty_koszty');
-  if(!alerty.length){el.innerHTML='';return;}
-  el.innerHTML=alerty.map(k=>{
-    const dni=k.dzien-dzien;
-    return`<div class="alert-box">
-      <div class="alert-title">⏰ Zbliża się płatność${dni===0?' – DZIŚ!':` – za ${dni} ${dni===1?'dzień':'dni'}`}</div>
-      <div>${k.nazwa} · ${fmtPln(k.kwota)} · ${k.dzien}. dnia miesiąca</div>
-    </div>`;
-  }).join('');
-}
-
-// ══ FINANSE ══
-function renderFinanse(){
-  const miesiac=document.getElementById('fin_miesiac').value;
-  const typFilter=document.getElementById('fin_typ_filter').value;
-  document.getElementById('fin_stan_pocz').value=finanse.stan_poczatkowy||'';
-
-  // Filtrowanie transakcji
-  let trx=transakcje;
-  if(miesiac) trx=trx.filter(t=>(t.data||'').startsWith(miesiac));
-  if(typFilter) trx=trx.filter(t=>t.typ===typFilter);
-
-  // Wszystkie transakcje do statystyk (bez filtra typ)
-  let trxAll=transakcje;
-  if(miesiac) trxAll=trxAll.filter(t=>(t.data||'').startsWith(miesiac));
-
-  const przychody=trxAll.filter(t=>t.typ==='przychod').reduce((s,t)=>s+t.kwota,0);
-  const kosztySuma=trxAll.filter(t=>t.typ==='koszt').reduce((s,t)=>s+t.kwota,0);
-  const zysk=przychody-kosztySuma;
-
-  // VAT naliczony (od kosztów) vs należny (od przychodów)
-  const vatNalezny=trxAll.filter(t=>t.typ==='przychod'&&t.vat>0).reduce((s,t)=>s+t.kwota*(t.vat/(100+t.vat)),0);
-  const vatNaliczony=trxAll.filter(t=>t.typ==='koszt'&&t.vat>0).reduce((s,t)=>s+t.kwota*(t.vat/(100+t.vat)),0);
-  const vatDoZaplaty=vatNalezny-vatNaliczony;
-
-  // Brutto/netto
-  const przychodNetto=trxAll.filter(t=>t.typ==='przychod').reduce((s,t)=>s+t.kwota*(1-t.vat/(100+t.vat)),0);
-
-  // Saldo
-  const saldo=(finanse.stan_poczatkowy||0)+przychody-kosztySuma;
-
-  document.getElementById('fin_stats').innerHTML=`
-    <div class="fin-stat saldo"><div class="val">${fmtPln(saldo)}</div><div class="lbl">Stan konta</div></div>
-    <div class="fin-stat przychody"><div class="val">${fmtPln(przychody)}</div><div class="lbl">Przychody brutto</div></div>
-    <div class="fin-stat koszty"><div class="val">${fmtPln(kosztySuma)}</div><div class="lbl">Koszty brutto</div></div>
-    <div class="fin-stat zysk"><div class="val">${fmtPln(zysk)}</div><div class="lbl">Zysk brutto</div></div>
-    <div class="fin-stat vat" style="background:${vatDoZaplaty>=0?'linear-gradient(135deg,#c62828,#e53935)':'linear-gradient(135deg,#2e7d32,#43a047)'}">
-      <div class="val">${fmtPln(Math.abs(vatDoZaplaty))}</div>
-      <div class="lbl">VAT ${vatDoZaplaty>=0?'do zapłaty':'nadwyżka'}</div>
-    </div>
-    <div class="fin-stat" style="background:linear-gradient(135deg,#555,#777)"><div class="val">${fmtPln(przychodNetto)}</div><div class="lbl">Przychody netto</div></div>`;
-
-  // Lista transakcji
-  const lista=document.getElementById('trx_lista');
-  if(!trx.length){lista.innerHTML='<div style="color:#aaa;font-size:12px;padding:10px 0">Brak transakcji</div>';return;}
-  lista.innerHTML=trx.sort((a,b)=>b.data?.localeCompare(a.data||'')).map((t,i)=>{
-    const proj=projekty.find(p=>p.id===t.proj_id);
-    const vatKwota=t.kwota*(t.vat/(100+t.vat));
-    return`<div class="trx-row">
-      <span style="color:#888">${t.data||'–'}</span>
-      <span>${t.opis||'–'}</span>
-      <span class="${t.typ==='przychod'?'trx-przychod':'trx-koszt'}">${t.typ==='przychod'?'+':'−'}${fmtPln(t.kwota)}</span>
-      <span style="font-size:11px;color:#888">${t.vat}% <span style="color:#aaa">(${fmtPln(vatKwota)})</span></span>
-      <span style="font-size:11px;color:#aaa">${proj?proj.nazwa:''}</span>
-      <button class="btn btn-danger btn-sm" onclick="usunTransakcje(${t.id})">✕</button>
-    </div>`;
-  }).join('');
-
-  // Koszty stałe
-  renderKosztyStale();
-}
-
-function dodajTransakcje(){
-  const opis=document.getElementById('trx_opis').value.trim();
-  const kwota=+document.getElementById('trx_kwota').value;
-  if(!opis||!kwota){alert('Podaj opis i kwotę!');return;}
-  transakcje.push({
-    id:nextTrxId++,
-    data:document.getElementById('trx_data').value,
-    opis,kwota,
-    vat:+document.getElementById('trx_vat').value,
-    typ:document.getElementById('trx_typ').value,
-    proj_id:+document.getElementById('trx_proj').value||null
-  });
-  document.getElementById('trx_opis').value='';
-  document.getElementById('trx_kwota').value='';
-  save();renderFinanse();
-}
-
-function usunTransakcje(id){
-  transakcje=transakcje.filter(t=>t.id!==id);
-  save();renderFinanse();
-}
-
-function zapiszKosztStaly(){
-  const nazwa=document.getElementById('ks_nazwa').value.trim();
-  if(!nazwa){alert('Podaj nazwę!');return;}
-  kosztyStale.push({
-    id:nextKsId++,
-    nazwa,
-    kwota:+document.getElementById('ks_kwota').value||0,
-    dzien:+document.getElementById('ks_dzien').value||1,
-    vat:+document.getElementById('ks_vat').value,
-    uwagi:document.getElementById('ks_uwagi').value
-  });
-  closeModal('m_koszt_staly');save();renderKosztyStale();sprawdzAlerty();
-}
-
-function renderKosztyStale(){
-  const el=document.getElementById('koszty_stale_lista');
-  if(!kosztyStale.length){el.innerHTML='<div style="color:#aaa;font-size:12px">Brak kosztów stałych</div>';return;}
-  const dzis=new Date().getDate();
-  el.innerHTML=kosztyStale.map((k,i)=>{
-    const dni=k.dzien-dzis;
-    const alert=dni>=0&&dni<=5;
-    return`<div class="koszt-staly${alert?' alert':''}">
-      <div style="flex:1">
-        <div style="font-weight:600">${k.nazwa}${alert?` <span style="color:#e65100">⏰ ${dni===0?'DZIŚ!':'za '+dni+' dni'}</span>`:''}</div>
-        <div style="font-size:11px;color:#888">${fmtPln(k.kwota)} · VAT ${k.vat}% · ${k.dzien}. każdego miesiąca ${k.uwagi?'· '+k.uwagi:''}</div>
-      </div>
-      <button class="btn btn-danger btn-sm" onclick="usunKosztStaly(${i})">✕</button>
-    </div>`;
-  }).join('');
-}
-
-function usunKosztStaly(i){if(confirm('Usunąć?')){kosztyStale.splice(i,1);save();renderKosztyStale();sprawdzAlerty();}}
-
-// Import CSV
-function importCSV(inp){
-  const f=inp.files[0];if(!f)return;
-  const r=new FileReader();
-  r.onload=e=>{
-    const lines=e.target.result.split('\n').filter(l=>l.trim());
-    let imported=0;
-    lines.forEach((line,idx)=>{
-      if(idx===0)return; // pomijamy nagłówek
-      const cols=line.split(/[,;]/).map(c=>c.trim().replace(/"/g,''));
-      if(cols.length<3)return;
-      // Próbujemy dopasować: data, opis, kwota
-      const data=cols[0]||'';
-      const opis=cols[1]||cols[2]||'import';
-      const kwotaRaw=(cols[3]||cols[2]||'0').replace(',','.');
-      const kwota=Math.abs(parseFloat(kwotaRaw)||0);
-      const typ=parseFloat(kwotaRaw)<0?'koszt':'przychod';
-      if(!kwota)return;
-      transakcje.push({id:nextTrxId++,data:data.slice(0,10),opis,kwota,vat:23,typ,proj_id:null});
-      imported++;
-    });
-    save();renderFinanse();alert(`✓ Zaimportowano ${imported} transakcji. Sprawdź i przypisz projekty i stawki VAT.`);
-  };
-  r.readAsText(f,'windows-1250');
-}
-
-// ══ USTAWIENIA ══
-function loadUstawienia(){['nazwa','slogan','adres','tel','email','www','nip','krs','regon','stopka'].forEach(k=>{const el=document.getElementById('firma_'+k);if(el)el.value=firma[k]||'';});}
-function zapiszUstawienia(){['nazwa','slogan','adres','tel','email','www','nip','krs','regon','stopka'].forEach(k=>{const el=document.getElementById('firma_'+k);if(el)firma[k]=el.value;});save();alert('✓ Zapisano!');}
-function eksportDanych(){const d=JSON.stringify({szafki,baza,historia,klienci,projekty,pracownicy,godziny,koszty,transakcje,kosztyStale,finanse,katalog,firma},null,2);const a=document.createElement('a');a.href='data:application/json;charset=utf-8,'+encodeURIComponent(d);a.download='meblopro_backup_'+new Date().toISOString().slice(0,10)+'.json';a.click();}
-function importDanych(inp){const f=inp.files[0];if(!f)return;const r=new FileReader();r.onload=e=>{try{const d=JSON.parse(e.target.result);if(d.szafki)szafki=d.szafki;if(d.baza)baza=d.baza;if(d.historia)historia=d.historia;if(d.klienci)klienci=d.klienci;if(d.projekty)projekty=d.projekty;if(d.pracownicy)pracownicy=d.pracownicy;if(d.godziny)godziny=d.godziny;if(d.koszty)koszty=d.koszty;if(d.transakcje)transakcje=d.transakcje;if(d.kosztyStale)kosztyStale=d.kosztyStale;if(d.finanse)finanse=d.finanse;if(d.katalog)katalog=d.katalog;if(d.firma)firma={...firma,...d.firma};save();renderLista();alert('✓ Import zakończony!');}catch(ex){alert('Błąd: '+ex.message);}};r.readAsText(f);}
-
-// ══ MARŻA ══
-function setMarza(v,btn){document.querySelectorAll('.marza-btn').forEach(b=>b.classList.remove('sel'));btn.classList.add('sel');if(v==='custom'){document.getElementById('marza_custom_field').style.display='flex';marzaMnoznik=+document.getElementById('marza_custom').value||2;}else{document.getElementById('marza_custom_field').style.display='none';marzaMnoznik=v;}updatePodsumowanie();}
-function updatePodsumowanie(){
-  if(document.getElementById('marza_custom_field').style.display!=='none')marzaMnoznik=+document.getElementById('marza_custom').value||2;
-  const koszt=szafki.reduce((s,sz)=>s+liczKosztSzafki(sz),0);
-  const cena=koszt*marzaMnoznik,marza=cena-koszt;
-  document.getElementById('podsumowanie_wyceny').innerHTML=`
-    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(130px,1fr));gap:8px">
-      <div class="stat-box"><div class="stat-val" style="font-size:14px">${fmtPln(koszt)}</div><div class="stat-lbl">Koszt materiałów</div></div>
-      <div class="stat-box"><div class="stat-val" style="font-size:14px;color:#2e7d32">${fmtPln(marza)}</div><div class="stat-lbl">Marża ×${marzaMnoznik}</div></div>
-      <div class="stat-box" style="background:#fff3ee;border:2px solid #e8601a"><div class="stat-val" style="font-size:18px">${fmtPln(cena)}</div><div class="stat-lbl">CENA DLA KLIENTA</div></div>
-    </div>`;
-}
-
-// ══ HISTORIA ══
-function zatwierdzWycene(){
-  if(!szafki.length){alert('Brak szafek!');return;}
-  const koszt=szafki.reduce((s,sz)=>s+liczKosztSzafki(sz),0);
-  const cena=koszt*marzaMnoznik;
-  const klientId=+document.getElementById('w_klient').value;
-  const projektId=+document.getElementById('w_projekt').value;
-  const klient=klienci.find(x=>x.id===klientId);
-  const projekt=projekty.find(x=>x.id===projektId);
-  const nr='OF/'+new Date().getFullYear()+'/'+String(nextHistId).padStart(3,'0');
-  historia.unshift({id:nextHistId++,nr,data:new Date().toLocaleDateString('pl-PL'),klient:klient?klient.imie:'–',projekt:projekt?projekt.nazwa:'–',koszt,cena,mnoznik:marzaMnoznik,szafki:JSON.parse(JSON.stringify(szafki)),zatwierdzona:true});
-  save();
-  if(confirm(`✅ Wycena ${nr} zatwierdzona!\nCena: ${fmtPln(cena)}\n\nCzyścić bieżącą wycenę?`)){szafki=[];nextId=1;renderLista();}
-  renderHistoria();
-}
-function renderHistoria(){
-  const c=document.getElementById('historia_lista');
-  if(!historia.length){c.innerHTML='<div class="empty"><div class="ic">📜</div>Brak zatwierdzonych wycen</div>';return;}
-  c.innerHTML=historia.map((h,i)=>`
-    <div class="list-card">
-      <div class="list-hdr" onclick="this.nextElementSibling.style.display=this.nextElementSibling.style.display==='none'?'block':'none'">
-        <div style="flex:1">
-          <div style="display:flex;align-items:center;gap:8px">
-            <span style="font-weight:700;color:#e8601a">${h.nr}</span>
-            <span style="font-size:12px;color:#888">${h.data}</span>
-            <span class="badge badge-green">zatwierdzona</span>
-          </div>
-          <div style="font-size:12px;color:#444;margin-top:3px">👤 ${h.klient} · 📁 ${h.projekt}</div>
-        </div>
-        <div style="text-align:right">
-          <div style="font-weight:700;color:#2e7d32;font-size:14px">${fmtPln(h.cena)}</div>
-          <div style="font-size:11px;color:#aaa">koszt: ${fmtPln(h.koszt)} · ×${h.mnoznik}</div>
-        </div>
-        <div style="display:flex;gap:4px;margin-left:8px" onclick="event.stopPropagation()">
-          <button class="btn btn-secondary btn-sm" onclick="wczytajZHistorii(${i})">📥 Wczytaj</button>
-          <button class="btn btn-danger btn-sm" onclick="if(confirm('Usunąć?')){historia.splice(${i},1);save();renderHistoria()}">✕</button>
-        </div>
-      </div>
-      <div class="list-body">
-        <table style="width:100%;border-collapse:collapse;font-size:12px;margin-top:8px">
-          <thead><tr style="background:#f0f2f5"><th style="padding:6px;text-align:left">Mebel</th><th style="padding:6px">Wymiary</th><th style="padding:6px">Typ</th></tr></thead>
-          <tbody>${h.szafki.map(s=>`<tr style="border-bottom:1px solid #f5f5f5"><td style="padding:5px 6px">${s.sz_nazwa||'Mebel'}</td><td style="padding:5px 6px;text-align:center">${s.wys}×${s.szer}×${s.gl}</td><td style="padding:5px 6px;text-align:center">${s.typ}</td></tr>`).join('')}</tbody>
-        </table>
-      </div>
+  document.getElementById('qa_types').innerHTML=QA_TYPES.map(t=>`
+    <div class="qa-type-btn${qaTyp===t.id?' active':''}" onclick="qaSelectType('${t.id}')">
+      ${t.svg}
+      <div class="qa-type-label">${t.label.replace('\n','<br>')}</div>
     </div>`).join('');
 }
-function wczytajZHistorii(i){if(!confirm('Zastąpić bieżące szafki?'))return;szafki=JSON.parse(JSON.stringify(historia[i].szafki));nextId=Math.max(...szafki.map(s=>s.id))+1;save();renderLista();showTab('wycena');}
+
+function qaSelectType(id){
+  qaTyp=id;qaSzer=null;qaFront='drzwi';qaZestaw='z2';qaCargo=200;
+  document.querySelectorAll('.qa-type-btn').forEach(b=>b.classList.remove('active'));
+  event.currentTarget.classList.add('active');
+  const t=QA_TYPES.find(x=>x.id===id);
+  // Szerokości
+  document.getElementById('qa_szer_label').style.display='block';
+  const sizesEl=document.getElementById('qa_sizes');
+  sizesEl.innerHTML=t.szerokie.map(s=>`<button class="qa-size-btn" onclick="qaSelectSzer(${s},this)">${s} cm</button>`).join('');
+  sizesEl.classList.add('open');
+  document.getElementById('qa_options').classList.remove('open');
+}
+
+function qaSelectSzer(szer,btn){
+  qaSzer=szer*10;
+  document.querySelectorAll('.qa-size-btn').forEach(b=>b.classList.remove('sel'));
+  btn.classList.add('sel');
+  renderQaOptions();
+}
+
+function renderQaOptions(){
+  const t=QA_TYPES.find(x=>x.id===qaTyp);if(!t)return;
+  const opt=document.getElementById('qa_options');
+  let html='';
+
+  if(qaTyp==='wisząca'||qaTyp==='wiszaca_gl'){
+    html=`<div style="font-size:11px;font-weight:700;color:#aaa;text-transform:uppercase;margin-bottom:6px">Front</div>
+    <div class="qa-options-row">
+      <button class="qa-opt-btn${qaFront==='otwarta'?' sel':''}" onclick="qaSetFront('otwarta',this)">Otwarta</button>
+      <button class="qa-opt-btn${qaFront==='drzwi1'?' sel':''}" onclick="qaSetFront('drzwi1',this)">1 drzwi</button>
+      <button class="qa-opt-btn${qaFront==='drzwi'?' sel':''}" onclick="qaSetFront('drzwi',this)">2 drzwi</button>
+    </div>`;
+  } else if(qaTyp==='stojąca'||qaTyp==='stojaca_zlew'){
+    html=`<div style="font-size:11px;font-weight:700;color:#aaa;text-transform:uppercase;margin-bottom:6px">Front</div>
+    <div class="qa-options-row">
+      <button class="qa-opt-btn${qaFront==='drzwi'?' sel':''}" onclick="qaSetFront('drzwi',this)">Drzwi</button>
+      <button class="qa-opt-btn${qaFront==='szuflady'?' sel':''}" onclick="qaSetFront('szuflady',this)">Szuflady</button>
+    </div>
+    ${qaFront==='szuflady'?`<div style="font-size:11px;font-weight:700;color:#aaa;text-transform:uppercase;margin:6px 0">Zestaw szuflad</div>
+    <div class="qa-options-row">${ZESTAWY.map(z=>`<button class="qa-opt-btn${qaZestaw===z.id?' sel':''}" onclick="qaSetZestaw('${z.id}',this)">${z.nazwa}</button>`).join('')}</div>`:''}`;
+  } else if(qaTyp==='stojaca_cargo'){
+    html=`<div style="font-size:11px;font-weight:700;color:#aaa;text-transform:uppercase;margin-bottom:6px">Rozmiar cargo</div>
+    <div class="qa-options-row">
+      <button class="qa-opt-btn${qaCargo===200?' sel':''}" onclick="qaSetCargo(200,this)">Cargo 200 (200 zł)</button>
+      <button class="qa-opt-btn${qaCargo===400?' sel':''}" onclick="qaSetCargo(400,this)">Cargo 400 (400 zł)</button>
+    </div>`;
+  } else if(qaTyp==='slupek_piek'||qaTyp==='slupek_piek_mikro'){
+    html=`<div style="font-size:11px;font-weight:700;color:#aaa;text-transform:uppercase;margin-bottom:6px">Szuflady (dół)</div>
+    <div class="qa-options-row">${ZESTAWY.map(z=>`<button class="qa-opt-btn${qaZestaw===z.id?' sel':''}" onclick="qaSetZestaw('${z.id}',this)">${z.nazwa}</button>`).join('')}</div>`;
+  }
+
+  html+=`<div style="margin-top:10px">
+    <button class="btn btn-primary" onclick="qaAdd()">➕ Dodaj szafkę ${qaSzer?qaSzer/10+'cm':''}</button>
+  </div>`;
+  opt.innerHTML=html;opt.classList.add('open');
+}
+
+function qaSetFront(f,btn){qaFront=f;renderQaOptions();}
+function qaSetZestaw(z,btn){qaZestaw=z;renderQaOptions();}
+function qaSetCargo(c,btn){qaCargo=c;renderQaOptions();}
+
+function qaAdd(){
+  if(!qaTyp||!qaSzer){alert('Wybierz typ i szerokość!');return;}
+  const t=QA_TYPES.find(x=>x.id===qaTyp);
+  const szer=qaSzer,wys=t.wys,gl=t.gl;
+  const korpus=document.getElementById('qa_korpus').value;
+  const front=document.getElementById('qa_front').value;
+  const uchwyt=document.getElementById('qa_uchwyt').value;
+
+  // Ustal parametry
+  let plecy='nut',front_typ='drzwi',front_ilosc=2,zestaw_id=qaZestaw;
+  if(qaTyp==='wiszaca_gl') plecy='nut';
+  if(qaFront==='otwarta'){front_typ='otwarta';front_ilosc=0;}
+  else if(qaFront==='drzwi1'){front_typ='drzwi';front_ilosc=1;}
+  else if(qaFront==='szuflady'){front_typ='szuflady';}
+  if(TYPY_SLUPKOW.includes(qaTyp)||TYPY_SPECJALNE.includes(qaTyp)){plecy='nut';}
+  if(qaTyp==='stojaca_zlew'){plecy='brak';}
+
+  const nazwa=`${t.label.replace('\n',' ')} ${szer/10}cm`;
+  const cfg={sz_nazwa:nazwa,sz_uwagi:'',mat_korpus:korpus,mat_front:front,wys,szer,gl,typ:qaTyp,plecy,uchwyt,polki:1,front_typ,front_ilosc,zestaw_id,qa_cargo:qaTyp==='stojaca_cargo'||qaTyp==='slupek_cargo'?qaCargo:null};
+  const sl=TYPY_SLUPKOW.includes(qaTyp);
+  const id=nextId++;
+  const res=sl?genElSlupek({...cfg,id}):genEl({...cfg,id});
+  szafki.push({...cfg,...res,id,akc_dodatkowe:[],el_dodatkowe:[],exp:true});
+  save();renderLista();
+  // Reset szerokości
+  document.querySelectorAll('.qa-size-btn').forEach(b=>b.classList.remove('sel'));
+  qaSzer=null;
+  document.getElementById('qa_options').innerHTML+='<div style="color:#2e7d32;font-size:12px;font-weight:700;margin-top:4px">✓ Dodano!</div>';
+  setTimeout(()=>renderQaOptions(),1500);
+}
 
 // ══ KATALOG ══
 function renderKatalog(){
-  const sl={zawias:'Zawias (szt)',zawieszka:'Zawieszka (szt)',nozka:'Nóżka (szt)',prowadnica:'Prowadnica komplet (para)',tipon:'Tipon (szt)',uchwyt:'Uchwyt (szt)',abs_mb:'Okleina ABS (mb)',nut_mb:'Frezowanie nut (mb)',felc_mb:'Frezowanie felc (mb)',rozkroj_ark:'Rozkrój 1 arkusza (zł)'};
+  const sl={zawias:'Zawias (szt)',zawieszka:'Zawieszka (szt)',nozka:'Nóżka (szt)',prowadnica:'Prowadnica (para)',tipon:'Tipon przy drzwiach (szt)',uchwyt:'Uchwyt (szt)',szuflada_tipon:'Szuflada z Tiponem (szt)',abs_mb:'Okleina ABS (mb)',nut_mb:'Frezowanie nut (mb)',felc_mb:'Frezowanie felc (mb)',rozkroj_ark:'Rozkrój 1 arkusza',cargo200:'Cargo 200mm (szt)',cargo400:'Cargo 400mm (szt)',slupek_cargo:'Słupek cargo komplet',blat_krono_ark:'Blat Kronospan 38mm (arkusz)',blat_egger_ark:'Blat Egger 38mm (arkusz)',blat_krono_slim_m2:'Blat Kronospan Slim 12mm (m²)',blat_egger_slim_m2:'Blat Egger Slim 12mm (m²)'};
   document.getElementById('kat_stawki').innerHTML=Object.entries(sl).map(([k,lbl])=>`<tr><td style="font-size:12px;width:60%">${lbl}</td><td><input value="${katalog.stawki[k]||''}" placeholder="0.00" onchange="katalog.stawki['${k}']=+this.value;save()" style="width:80px"> zł</td></tr>`).join('');
   document.getElementById('kat_baza').innerHTML=`
     <tr><td style="font-size:12px;width:55%">🪵 Płyta wiórowa 16mm</td><td><input value="${katalog.baza.plyta16.m2||''}" placeholder="0.00" onchange="katalog.baza.plyta16.m2=+this.value;save()" style="width:80px"> zł/m²</td></tr>
     <tr><td style="font-size:12px">🪵 HDF 4mm</td><td><input value="${katalog.baza.hdf4.m2||''}" placeholder="0.00" onchange="katalog.baza.hdf4.m2=+this.value;save()" style="width:80px"> zł/m²</td></tr>`;
-  document.querySelector('#kat_plyty tbody').innerHTML=katalog.plyty.map((p,i)=>`<tr><td style="font-size:12px">${p.n}</td><td><input value="${p.m2||''}" placeholder="0.00" onchange="katalog.plyty[${i}].m2=+this.value;katalog.plyty[${i}].ark=+(+this.value*${ARKm2}).toFixed(2);renderKatalog();save()" style="width:75px"> zł</td><td><input value="${p.ark||''}" placeholder="0.00" onchange="katalog.plyty[${i}].ark=+this.value;katalog.plyty[${i}].m2=+(+this.value/${ARKm2}).toFixed(2);renderKatalog();save()" style="width:75px"> zł</td><td><button class="btn btn-danger btn-sm" onclick="katalog.plyty.splice(${i},1);renderKatalog();save()">✕</button></td></tr>`).join('');
+  document.querySelector('#kat_plyty tbody').innerHTML=katalog.plyty.map((p,i)=>`<tr><td style="font-size:12px">${p.n}${p.typ==='usluga'?' <span style="color:#e8601a;font-size:10px">(usługa/m²)</span>':''}</td><td><input value="${p.m2||''}" placeholder="0.00" onchange="katalog.plyty[${i}].m2=+this.value;${p.typ!=='usluga'?`katalog.plyty[${i}].ark=+(+this.value*${ARK_M2}).toFixed(2);`:''}renderKatalog();save()" style="width:75px"> zł</td><td>${p.typ==='usluga'?'<span style="color:#aaa;font-size:11px">za m²</span>':`<input value="${p.ark||''}" placeholder="0.00" onchange="katalog.plyty[${i}].ark=+this.value;katalog.plyty[${i}].m2=+(+this.value/${ARK_M2}).toFixed(2);renderKatalog();save()" style="width:75px"> zł`}</td><td><button class="btn btn-danger btn-sm" onclick="katalog.plyty.splice(${i},1);renderKatalog();save()">✕</button></td></tr>`).join('');
   document.querySelector('#kat_uslugi tbody').innerHTML=katalog.uslugi.map((p,i)=>`<tr><td style="font-size:12px">${p.n}</td><td style="color:#888;font-size:11px">${p.jed}</td><td><input value="${p.cena||''}" placeholder="0.00" onchange="katalog.uslugi[${i}].cena=+this.value;save()" style="width:75px"> zł</td><td><button class="btn btn-danger btn-sm" onclick="katalog.uslugi.splice(${i},1);renderKatalog();save()">✕</button></td></tr>`).join('');
   document.querySelector('#kat_akc tbody').innerHTML=katalog.akc.map((p,i)=>`<tr><td style="font-size:12px">${p.n}</td><td style="color:#888;font-size:11px">${p.jed}</td><td><input value="${p.cena||''}" placeholder="0.00" onchange="katalog.akc[${i}].cena=+this.value;save()" style="width:75px"> zł</td><td><button class="btn btn-danger btn-sm" onclick="katalog.akc.splice(${i},1);renderKatalog();save()">✕</button></td></tr>`).join('');
   refreshMatSelects();
@@ -983,31 +769,27 @@ function renderKatalog(){
 function openModalKat(){openModal('mkat');renderMKatPola();}
 function renderMKatPola(){
   const k=document.getElementById('mk_kat').value;
-  document.getElementById('mk_pola').innerHTML=k==='plyta'?`<div class="row"><div class="field"><label>Nazwa</label><input id="mk_n" placeholder="np. Kronospan Biały"></div></div><div class="row"><div class="field"><label>zł/m²</label><input id="mk_m2" type="number" step="0.01"></div><div class="field"><label>zł/arkusz</label><input id="mk_ark" type="number" step="0.01"></div></div>`:`<div class="row"><div class="field"><label>Nazwa</label><input id="mk_n" placeholder="nazwa..."></div></div><div class="row"><div class="field"><label>Jednostka</label><select id="mk_jed"><option>szt</option><option>para</option><option>kpl</option><option>mb</option><option>m²</option></select></div><div class="field"><label>Cena</label><input id="mk_cena" type="number" step="0.01"></div></div>`;
+  document.getElementById('mk_pola').innerHTML=k==='plyta'?`<div class="row"><div class="field"><label>Nazwa</label><input id="mk_n"></div></div><div class="row"><div class="field"><label>zł/m²</label><input id="mk_m2" type="number" step="0.01"></div><div class="field"><label>zł/arkusz</label><input id="mk_ark" type="number" step="0.01"></div></div>`:`<div class="row"><div class="field"><label>Nazwa</label><input id="mk_n"></div></div><div class="row"><div class="field"><label>Jednostka</label><select id="mk_jed"><option>szt</option><option>para</option><option>kpl</option><option>mb</option><option>m²</option><option>ark</option></select></div><div class="field"><label>Cena</label><input id="mk_cena" type="number" step="0.01"></div></div>`;
 }
 function zapiszKat(){
   const k=document.getElementById('mk_kat').value,n=document.getElementById('mk_n')?.value?.trim();
   if(!n){alert('Podaj nazwę!');return;}
-  if(k==='plyta'){const m2=+document.getElementById('mk_m2').value||0;katalog.plyty.push({n,m2,ark:+(m2*ARKm2).toFixed(2)});}
+  if(k==='plyta'){const m2=+document.getElementById('mk_m2').value||0;katalog.plyty.push({n,m2,ark:+(m2*ARK_M2).toFixed(2)});}
   else if(k==='usluga')katalog.uslugi.push({n,jed:document.getElementById('mk_jed').value,cena:+document.getElementById('mk_cena').value||0});
   else katalog.akc.push({n,jed:document.getElementById('mk_jed').value,cena:+document.getElementById('mk_cena').value||0});
   closeModal('mkat');renderKatalog();save();
 }
 function refreshMatSelects(){
   const names=katalog.plyty.map(p=>p.n);
-  ['mat_korpus','mat_front'].forEach(id=>{
-    const sel=document.getElementById(id),v=sel.value;
-    sel.innerHTML=names.length?names.map(n=>`<option${n===v?' selected':''}>${n}</option>`).join(''):'<option value="">– dodaj materiały w Katalogu –</option>';
+  ['mat_korpus','mat_front','qa_korpus','qa_front'].forEach(id=>{
+    const sel=document.getElementById(id);if(!sel)return;
+    const v=sel.value;sel.innerHTML=names.length?names.map(n=>`<option${n===v?' selected':''}>${n}</option>`).join(''):'<option>– dodaj materiały w Katalogu –</option>';
   });
-  // Aktualizuj select projektu w formularzu transakcji
   const trxProj=document.getElementById('trx_proj');
-  if(trxProj){
-    const vp=trxProj.value;
-    trxProj.innerHTML='<option value="">– projekt –</option>'+projekty.map(p=>`<option value="${p.id}"${p.id==vp?' selected':''}>${p.nazwa}</option>`).join('');
-  }
+  if(trxProj){const vp=trxProj.value;trxProj.innerHTML='<option value="">– projekt –</option>'+projekty.map(p=>`<option value="${p.id}"${p.id==vp?' selected':''}>${p.nazwa}</option>`).join('');trxProj.value=vp;}
 }
 
-// ══ KONFIGURATOR ══
+// ══ POMOCNIKI ══
 function dobProw(gl){const p=PROW.filter(x=>x+10<=gl);return p.length?Math.max(...p):null;}
 function glPolki(plecy,gln){return(plecy==='nut'||plecy==='felc'||plecy==='pelne')?gln-20:gln;}
 function liczZaw(wf){return wf<=900?2:wf<=1400?3:4;}
@@ -1018,64 +800,37 @@ function liczFronty(sz,wys,szer){
   fr[n-1]+=(avail-fr.reduce((s,v)=>s+v,0));return fr;
 }
 function isSlupek(typ){return TYPY_SLUPKOW.includes(typ);}
+function isSpecjalna(typ){return TYPY_SPECJALNE.includes(typ);}
 
+// ══ KONFIGURATOR ══
 function onTypChange(){
   const typ=document.getElementById('typ').value;
-  const sl=isSlupek(typ);
-  document.getElementById('front_section_normal').style.display=sl?'none':'block';
+  const sl=isSlupek(typ),sp=isSpecjalna(typ);
+  document.getElementById('front_section_normal').style.display=(sl||sp)?'none':'block';
   document.getElementById('slupek_section').style.display=sl?'block':'none';
-  document.getElementById('row_plecy_uchwyt').style.display=sl?'none':'flex';
+  document.getElementById('row_plecy_uchwyt').style.display='flex';
   if(sl)renderSlupekConfig(typ);
 }
-
 function renderSlupekConfig(typ){
-  const szer=+document.getElementById('szer').value||600;
-  const wys=+document.getElementById('wys').value||2160;
+  const szer=+document.getElementById('szer').value||600,wys=+document.getElementById('wys').value||2160;
   let html='';
   if(typ==='slupek_piek'){
-    const wysGora=wys-4-WYS_SZUFL_FRONT-2-WYS_PIEK-2;
-    html=`<div class="slupek-diagram"><div class="slupek-col">
-      <div class="slupek-strefa drzwi">Drzwi góra<br><small>${wysGora}×${szer-4} mm</small></div>
-      <div class="slupek-strefa wieniec">▬ Półka nad piek.</div>
-      <div class="slupek-strefa sprzet">Piekarnik ${WYS_PIEK}mm</div>
-      <div class="slupek-strefa wieniec">▬ Półka pod piek.</div>
-      <div class="slupek-strefa szuflady">Szuflady 720mm</div>
-      <div class="slupek-strefa wieniec">▬ Wieniec dolny + nóżki</div>
-    </div></div>
-    <div class="row" style="margin-top:10px">
-      <div class="field"><label>Zestaw szuflad</label><select id="sl_zestaw">${ZESTAWY.map(z=>`<option value="${z.id}">${z.nazwa}</option>`).join('')}</select></div>
-      <div class="field"><label>Uchwyt</label><select id="sl_uchwyt"><option value="tipon">Tipon</option><option value="krawędziowy">Krawędziowy</option><option value="brak">Brak</option></select></div>
-    </div>
-    <div style="font-size:11px;color:#888;margin-top:6px">Front górny: <b>${wysGora}mm</b> = ${wys} − 4 − 720 − 2 − 600 − 2</div>`;
+    const wg=wys-4-WYS_SZUFL_FRONT-2-WYS_PIEK-2;
+    html=`<div style="font-size:11px;color:#888">Drzwi góra: <b>${wg}mm</b> · Front dolny: 720mm szuflady · Piekarnik: 600mm</div>
+    <div class="row" style="margin-top:8px"><div class="field"><label>Zestaw szuflad</label><select id="sl_zestaw">${ZESTAWY.map(z=>`<option value="${z.id}">${z.nazwa}</option>`).join('')}</select></div><div class="field"><label>Uchwyt</label><select id="sl_uchwyt"><option value="tipon">Tipon</option><option value="krawędziowy">Krawędziowy</option><option value="brak">Brak</option></select></div></div>`;
   } else if(typ==='slupek_piek_mikro'){
-    const wysGora=wys-4-WYS_SZUFL_FRONT-2-WYS_PIEK-2-WYS_MIKRO-2;
-    html=`<div class="slupek-diagram"><div class="slupek-col">
-      <div class="slupek-strefa drzwi">Drzwi góra<br><small>${wysGora}×${szer-4} mm</small></div>
-      <div class="slupek-strefa wieniec">▬ Półka nad mikro</div>
-      <div class="slupek-strefa sprzet">Mikrofalówka ${WYS_MIKRO}mm</div>
-      <div class="slupek-strefa wieniec">▬ Półka nad piek.</div>
-      <div class="slupek-strefa sprzet">Piekarnik ${WYS_PIEK}mm</div>
-      <div class="slupek-strefa wieniec">▬ Półka pod piek.</div>
-      <div class="slupek-strefa szuflady">Szuflady 720mm</div>
-      <div class="slupek-strefa wieniec">▬ Wieniec dolny + nóżki</div>
-    </div></div>
-    <div class="row" style="margin-top:10px">
-      <div class="field"><label>Zestaw szuflad</label><select id="sl_zestaw">${ZESTAWY.map(z=>`<option value="${z.id}">${z.nazwa}</option>`).join('')}</select></div>
-      <div class="field"><label>Uchwyt</label><select id="sl_uchwyt"><option value="tipon">Tipon</option><option value="krawędziowy">Krawędziowy</option><option value="brak">Brak</option></select></div>
-    </div>
-    <div style="font-size:11px;color:#888;margin-top:6px">Front górny: <b>${wysGora}mm</b> = ${wys} − 4 − 720 − 2 − 600 − 2 − 390 − 2</div>`;
+    const wg=wys-4-WYS_SZUFL_FRONT-2-WYS_PIEK-2-WYS_MIKRO-2;
+    html=`<div style="font-size:11px;color:#888">Drzwi góra: <b>${wg}mm</b> · Szuflady 720mm · Piekarnik 600mm · Mikro 390mm</div>
+    <div class="row" style="margin-top:8px"><div class="field"><label>Zestaw szuflad</label><select id="sl_zestaw">${ZESTAWY.map(z=>`<option value="${z.id}">${z.nazwa}</option>`).join('')}</select></div><div class="field"><label>Uchwyt</label><select id="sl_uchwyt"><option value="tipon">Tipon</option><option value="krawędziowy">Krawędziowy</option><option value="brak">Brak</option></select></div></div>`;
   } else if(typ==='slupek_lodowka'){
-    const fDol=720,fGora=wys-4-fDol-SZCZ;
-    html=`<div class="slupek-diagram"><div class="slupek-col">
-      <div class="slupek-strefa drzwi">Front górny ${fGora}×${szer-4} mm</div>
-      <div class="slupek-strefa drzwi">Front dolny 720×${szer-4} mm</div>
-      <div class="slupek-strefa wieniec">▬ Wieniec dolny + nóżki</div>
-    </div></div>
-    <div style="font-size:11px;color:#888;margin-top:8px">Bez HDF. Zawiasy na obu frontach.</div>`;
+    const fG=wys-4-720-SZCZ;
+    html=`<div style="font-size:11px;color:#888">Front dolny: 720mm · Front górny: <b>${fG}mm</b> · Bez HDF</div>`;
+  } else if(typ==='slupek_cargo'){
+    html=`<div style="font-size:11px;color:#888">Słupek cargo – pełna zabudowa. Cargo 1500 zł.</div>
+    <div class="row" style="margin-top:8px"><div class="field"><label>Uchwyt</label><select id="sl_uchwyt"><option value="tipon">Tipon</option><option value="krawędziowy">Krawędziowy</option><option value="brak">Brak</option></select></div></div>`;
   }
   document.getElementById('slupek_content').innerHTML=html;
 }
-
 function onDimChange(){if(selZestaw)wybierzZestaw(selZestaw);const typ=document.getElementById('typ').value;if(isSlupek(typ))renderSlupekConfig(typ);}
 function toggleFront(){
   const t=document.getElementById('front_typ').value;
@@ -1090,38 +845,140 @@ function wybierzZestaw(id){
   const z=ZESTAWY.find(x=>x.id===id),wys=+document.getElementById('wys').value,szer=+document.getElementById('szer').value,gl=+document.getElementById('gl').value;
   const gln=gl-20,prow=dobProw(gln),fr=liczFronty(z.sz,wys,szer);
   const cols={S:'#e8f5e9|#2e7d32',M:'#fff3e0|#e65100',L:'#e3f2fd|#1565c0',XL:'#fce4ec|#880e4f'};
-  document.getElementById('sz_preview').innerHTML=`<table style="width:100%;border-collapse:collapse;font-size:12px"><thead><tr style="background:#f0f2f5"><th style="padding:4px 7px;text-align:left">Szuflada</th><th style="padding:4px 7px">Front wys.</th><th style="padding:4px 7px">Front szer.</th><th style="padding:4px 7px">Prowadnica</th></tr></thead><tbody>${z.sz.map((r,i)=>{const[bg,col]=cols[r].split('|');return`<tr style="border-bottom:1px solid #f0f2f5"><td style="padding:4px 7px"><span style="background:${bg};color:${col};padding:1px 6px;border-radius:4px;font-weight:700">${r}</span></td><td style="padding:4px 7px;text-align:center"><b>${fr[i]}</b></td><td style="padding:4px 7px;text-align:center"><b>${szer-4}</b></td><td style="padding:4px 7px;text-align:center">${prow?prow+'mm':'⚠️'}</td></tr>`;}).join('')}</tbody></table>`;
+  document.getElementById('sz_preview').innerHTML=`<table style="width:100%;border-collapse:collapse;font-size:12px"><thead><tr style="background:#f0f2f5"><th style="padding:4px 7px;text-align:left">Szuflada</th><th style="padding:4px 7px">Front wys.</th><th style="padding:4px 7px">Front szer.</th><th style="padding:4px 7px">Prowadnica</th></tr></thead><tbody>${z.sz.map((r,i)=>{const[bg,col]=cols[r].split('|');return`<tr><td style="padding:4px 7px"><span style="background:${bg};color:${col};padding:1px 6px;border-radius:4px;font-weight:700">${r}</span></td><td style="padding:4px 7px;text-align:center"><b>${fr[i]}</b></td><td style="padding:4px 7px;text-align:center"><b>${szer-4}</b></td><td style="padding:4px 7px;text-align:center">${prow?prow+'mm':'⚠️'}</td></tr>`;}).join('')}</tbody></table>`;
   const info=document.getElementById('prow_info');info.style.display='block';
-  info.textContent=prow?`✓ Prowadnica ${prow}mm (gł. netto ${gln}mm)`:`⚠️ Za mała głębokość`;
+  info.textContent=prow?`✓ Prowadnica ${prow}mm`:`⚠️ Za mała głębokość`;
   info.style.cssText+=prow?';background:#e8f5e9;color:#2e7d32':';background:#fff3e0;color:#e65100';
 }
 
 // ══ GENERUJ ELEMENTY ══
+function genEl(s){
+  const{wys,szer,gl,plecy,front_typ,front_ilosc,typ,zestaw_id,polki:iP,uchwyt,qa_cargo}=s;
+  const gln=gl-20,wi=szer-2*GRK;
+  let el=[],akc=[];
+  const isStoją=typ==='stojąca'||typ==='stojaca_cargo'||typ==='stojaca_zlew'||typ==='stojaca_piek';
+  const glWg=(plecy==='nut'||plecy==='felc'||plecy==='pelne')?gln-20:gln;
+
+  // Boki
+  el.push({n:'Bok',w1:wys,w2:gln,szt:2,mat:'korpus',kr:[false,false,true,true],gr:'Korpus'});
+  // Wieniec dolny
+  el.push({n:'Wieniec dolny',w1:wi,w2:gln,szt:1,mat:'korpus',kr:[false,false,false,true],gr:'Korpus'});
+
+  if(isStoją){
+    // Szprosy zamiast wieńca górnego
+    el.push({n:'Szpros górny',w1:wi,w2:100,szt:2,mat:'korpus',kr:[false,false,false,true],gr:'Korpus'});
+  } else {
+    // Wieniec górny (wiszące)
+    el.push({n:'Wieniec górny',w1:wi,w2:glWg,szt:1,mat:'korpus',kr:[false,false,false,true],gr:'Korpus'});
+  }
+
+  // Półki
+  if(iP>0&&front_typ!=='szuflady'&&typ!=='stojaca_piek'&&typ!=='stojaca_zlew'&&typ!=='stojaca_cargo'){
+    const glP=glPolki(plecy,gln);
+    el.push({n:'Półka',w1:wi,w2:glP,szt:iP,mat:'korpus',kr:[false,false,false,true],gr:'Korpus'});
+  }
+
+  // Plecy
+  const off=PLECY_OFF[plecy];
+  if(off!==null&&typ!=='stojaca_zlew'){
+    el.push({n:`Plecy HDF (${plecy})`,w1:wys-off,w2:szer-off,szt:1,mat:'hdf',kr:[false,false,false,false],gr:'Plecy'});
+  }
+
+  // SPECJALNE – stojąca na piekarnik
+  if(typ==='stojaca_piek'){
+    // Półka nad szufladą S (18mm)
+    el.push({n:'Półka nad szufladą (piekarnik)',w1:wi,w2:gln,szt:1,mat:'korpus',kr:[false,false,false,true],gr:'Korpus'});
+    // Szuflada S: front 120mm
+    const fhS=120,fwS=szer-4;
+    el.push({n:'Front szuflady S (piekarnik)',w1:fhS,w2:fwS,szt:1,mat:'front',kr:[true,true,true,true],gr:'Front piekarnik'});
+    const prow=dobProw(gln),gld=prow?prow-24:gln-34;
+    el.push({n:'Dno szuflady S',w1:wi-75,w2:gld,szt:1,mat:'szuflada',kr:[false,false,false,false],gr:'Elementy szuflad'});
+    el.push({n:'Tylna ścianka S',w1:wi-87,w2:84,szt:1,mat:'szuflada',kr:[false,false,false,true],gr:'Elementy szuflad'});
+    // HDF za szufladą – proste (nabijane)
+    el.push({n:'Plecy HDF strefa szuflady (proste)',w1:120-4,w2:szer-4,szt:1,mat:'hdf',kr:[false,false,false,false],gr:'Plecy'});
+    akc.push({n:'GTV Axis Pro S '+(prow||'?')+'mm',il:1,cena_szt:katalog.stawki.prowadnica,typ:'prowadnica'});
+    if(uchwyt==='tipon')akc.push({n:'Tipon',il:1,cena_szt:katalog.stawki.tipon,typ:'tipon'});
+    akc.push({n:'Nóżka',il:4,cena_szt:katalog.stawki.nozka,typ:'nozka'});
+    return{el,akc};
+  }
+
+  // SPECJALNE – stojąca cargo
+  if(typ==='stojaca_cargo'){
+    const fh=wys-4,fw=szer-4;
+    el.push({n:'Front cargo',w1:fh,w2:fw,szt:1,mat:'front',kr:[true,true,true,true],gr:'Front'});
+    const cargoRoz=qa_cargo||200;
+    akc.push({n:`Cargo ${cargoRoz}mm`,il:1,cena_szt:katalog.stawki[`cargo${cargoRoz}`]||cargoRoz===200?200:400,typ:'cargo'});
+    akc.push({n:'Nóżka',il:4,cena_szt:katalog.stawki.nozka,typ:'nozka'});
+    return{el,akc};
+  }
+
+  // FRONT – drzwi
+  if(front_typ==='drzwi'&&front_ilosc>0){
+    const fh=wys-4,fw=Math.floor((szer-4-(front_ilosc-1)*SZCZ)/front_ilosc);
+    el.push({n:'Drzwi',w1:fh,w2:fw,szt:front_ilosc,mat:'front',kr:[true,true,true,true],gr:'Fronty'});
+    akc.push({n:'Zawias',il:liczZaw(fh)*front_ilosc,cena_szt:katalog.stawki.zawias,typ:'zawias'});
+    if(uchwyt==='tipon')akc.push({n:'Tipon',il:front_ilosc,cena_szt:katalog.stawki.tipon,typ:'tipon'});
+  }
+  // FRONT – szuflady
+  if(front_typ==='szuflady'&&zestaw_id){
+    const z=ZESTAWY.find(x=>x.id===zestaw_id),prow=dobProw(gln),fr=liczFronty(z.sz,wys,szer);
+    const fw=szer-4,gld=prow?prow-24:gln-34;
+    const czTipon=uchwyt==='tipon';
+    z.sz.forEach((r,i)=>{
+      const rz=ROZ[r];
+      el.push({n:`Front szuflady ${r} (${i+1}/${z.sz.length})`,w1:fr[i],w2:fw,szt:1,mat:'front',kr:[true,true,true,true],gr:'Fronty szuflad'});
+      el.push({n:`Dno szuflady ${r}`,w1:wi-75,w2:gld,szt:1,mat:'szuflada',kr:[false,false,false,false],gr:'Elementy szuflad'});
+      el.push({n:`Tylna ścianka ${r}`,w1:wi-87,w2:rz.h,szt:1,mat:'szuflada',kr:[false,false,false,true],gr:'Elementy szuflad'});
+      if(czTipon){
+        // Szuflada z Tiponem – jedna pozycja zamiast prowadnicy + tipona
+        akc.push({n:`Szuflada z Tiponem ${r} ${prow||'?'}mm`,il:1,cena_szt:katalog.stawki.szuflada_tipon||150,typ:'szuflada_tipon'});
+      } else {
+        akc.push({n:`GTV Axis Pro ${r} ${prow||'?'}mm`,il:1,cena_szt:katalog.stawki.prowadnica,typ:'prowadnica'});
+      }
+    });
+  }
+
+  // Akcesoria auto
+  if(typ==='wisząca'||typ==='wiszaca_gl')akc.push({n:'Zawieszka',il:2,cena_szt:katalog.stawki.zawieszka,typ:'zawieszka'});
+  if(isStoją||typ==='stojaca_zlew')akc.push({n:'Nóżka',il:4,cena_szt:katalog.stawki.nozka,typ:'nozka'});
+  if(['krawędziowy','nabijany','velo'].includes(uchwyt)){
+    const z=ZESTAWY.find(x=>x.id===zestaw_id);
+    const il=front_typ==='drzwi'?front_ilosc:front_typ==='szuflady'&&z?z.sz.length:0;
+    if(il>0)akc.push({n:'Uchwyt '+uchwyt,il,cena_szt:katalog.stawki.uchwyt||0,typ:'uchwyt'});
+  }
+  return{el,akc};
+}
+
 function genElSlupek(s){
-  const{wys,szer,gl,typ}=s;
+  const{wys,szer,gl,typ,qa_cargo}=s;
   const gln=gl-20,wi=szer-2*GRK,glW=gln-20;
   let el=[],akc=[];
   const uchwyt=document.getElementById('sl_uchwyt')?.value||s.sl_uchwyt||'tipon';
   const zestaw_id=document.getElementById('sl_zestaw')?.value||s.sl_zestaw_id||'z2';
   const z=ZESTAWY.find(x=>x.id===zestaw_id)||ZESTAWY[1];
   const prow=dobProw(gln);
+
+  el.push({n:'Bok',w1:wys,w2:gln,szt:2,mat:'korpus',kr:[false,false,true,true],gr:'Korpus – boki'});
+
   if(typ==='slupek_piek'||typ==='slupek_piek_mikro'){
-    el.push({n:'Bok',w1:wys,w2:gln,szt:2,mat:'korpus',kr:[false,false,true,true],gr:'Korpus – boki'});
     el.push({n:'Wieniec dolny',w1:wi,w2:glW,szt:1,mat:'korpus',kr:[false,false,false,true],gr:'Korpus – wieńce/półki'});
     el.push({n:'Półka pod piekarnikiem',w1:wi,w2:glW,szt:1,mat:'korpus',kr:[false,false,false,true],gr:'Korpus – wieńce/półki'});
     if(typ==='slupek_piek_mikro')el.push({n:'Półka nad piek. / pod mikro',w1:wi,w2:glW,szt:1,mat:'korpus',kr:[false,false,false,true],gr:'Korpus – wieńce/półki'});
     el.push({n:'Półka nad '+(typ==='slupek_piek_mikro'?'mikrofalówką':'piekarnikiem'),w1:wi,w2:glW,szt:1,mat:'korpus',kr:[false,false,false,true],gr:'Korpus – wieńce/półki'});
     el.push({n:'Wieniec górny',w1:wi,w2:glW,szt:1,mat:'korpus',kr:[false,false,false,true],gr:'Korpus – wieńce/półki'});
     el.push({n:'Plecy HDF strefa szuflad (nut)',w1:WYS_SZUFL_FRONT+GRK-16,w2:szer-16,szt:1,mat:'hdf',kr:[false,false,false,false],gr:'Plecy HDF'});
-    const fr_sz=liczFronty(z.sz,WYS_SZUFL_FRONT,szer);
-    const gld=prow?prow-24:gln-34;
+    const fr_sz=liczFronty(z.sz,WYS_SZUFL_FRONT,szer),gld=prow?prow-24:gln-34;
+    const czTiponSl=uchwyt==='tipon';
     z.sz.forEach((r,i)=>{
       const rz=ROZ[r];
       el.push({n:`Front szuflady ${r} (${i+1}/${z.sz.length})`,w1:fr_sz[i],w2:szer-4,szt:1,mat:'front',kr:[true,true,true,true],gr:'Fronty szuflad'});
       el.push({n:`Dno szuflady ${r}`,w1:wi-75,w2:gld,szt:1,mat:'szuflada',kr:[false,false,false,false],gr:'Elementy szuflad'});
       el.push({n:`Tylna ścianka ${r}`,w1:wi-87,w2:rz.h,szt:1,mat:'szuflada',kr:[false,false,false,true],gr:'Elementy szuflad'});
-      akc.push({n:`GTV Axis Pro ${r} ${prow||'?'}mm`,il:1,cena_szt:katalog.stawki.prowadnica,typ:'prowadnica'});
-      if(uchwyt==='tipon')akc.push({n:'Tipon',il:1,cena_szt:katalog.stawki.tipon,typ:'tipon'});
+      if(czTiponSl){
+        akc.push({n:`Szuflada z Tiponem ${r} ${prow||'?'}mm`,il:1,cena_szt:katalog.stawki.szuflada_tipon||150,typ:'szuflada_tipon'});
+      } else {
+        akc.push({n:`GTV Axis Pro ${r} ${prow||'?'}mm`,il:1,cena_szt:katalog.stawki.prowadnica,typ:'prowadnica'});
+      }
     });
     const wysGora=typ==='slupek_piek'?wys-4-WYS_SZUFL_FRONT-2-WYS_PIEK-2:wys-4-WYS_SZUFL_FRONT-2-WYS_PIEK-2-WYS_MIKRO-2;
     el.push({n:'Drzwi górne',w1:wysGora,w2:szer-4,szt:1,mat:'front',kr:[true,true,true,true],gr:'Fronty drzwi'});
@@ -1129,7 +986,6 @@ function genElSlupek(s){
     if(uchwyt==='tipon')akc.push({n:'Tipon drzwi górne',il:1,cena_szt:katalog.stawki.tipon,typ:'tipon'});
     el.push({n:'Plecy HDF strefa górna (nut)',w1:wysGora-16,w2:szer-16,szt:1,mat:'hdf',kr:[false,false,false,false],gr:'Plecy HDF'});
   } else if(typ==='slupek_lodowka'){
-    el.push({n:'Bok',w1:wys,w2:gln,szt:2,mat:'korpus',kr:[false,false,true,true],gr:'Korpus'});
     el.push({n:'Wieniec dolny',w1:wi,w2:glW,szt:1,mat:'korpus',kr:[false,false,false,true],gr:'Korpus'});
     el.push({n:'Wieniec górny',w1:wi,w2:glW,szt:1,mat:'korpus',kr:[false,false,false,true],gr:'Korpus'});
     const fDol=720,fGora=wys-4-fDol-SZCZ,fw=szer-4;
@@ -1138,122 +994,206 @@ function genElSlupek(s){
     akc.push({n:'Zawias front dolny',il:liczZaw(fDol),cena_szt:katalog.stawki.zawias,typ:'zawias'});
     akc.push({n:'Zawias front górny',il:liczZaw(fGora),cena_szt:katalog.stawki.zawias,typ:'zawias'});
     if(uchwyt==='tipon')akc.push({n:'Tipon',il:2,cena_szt:katalog.stawki.tipon,typ:'tipon'});
+  } else if(typ==='slupek_cargo'){
+    el.push({n:'Wieniec dolny',w1:wi,w2:glW,szt:1,mat:'korpus',kr:[false,false,false,true],gr:'Korpus'});
+    el.push({n:'Wieniec górny',w1:wi,w2:glW,szt:1,mat:'korpus',kr:[false,false,false,true],gr:'Korpus'});
+    el.push({n:'Plecy HDF (nut)',w1:wys-16,w2:szer-16,szt:1,mat:'hdf',kr:[false,false,false,false],gr:'Plecy'});
+    const fh=wys-4,fw=szer-4;
+    el.push({n:'Front słupka cargo',w1:fh,w2:fw,szt:1,mat:'front',kr:[true,true,true,true],gr:'Front'});
+    akc.push({n:'Słupek cargo komplet',il:1,cena_szt:katalog.stawki.slupek_cargo||1500,typ:'slupek_cargo'});
+    if(uchwyt==='tipon')akc.push({n:'Tipon',il:1,cena_szt:katalog.stawki.tipon,typ:'tipon'});
   }
   akc.push({n:'Nóżka',il:4,cena_szt:katalog.stawki.nozka,typ:'nozka'});
   return{el,akc,sl_zestaw_id:zestaw_id,sl_uchwyt:uchwyt};
 }
 
-function genEl(s){
-  const{wys,szer,gl,plecy,front_typ,front_ilosc,typ,zestaw_id,polki:iP,uchwyt}=s;
-  const gln=gl-20,wi=szer-2*GRK;
-  let el=[],akc=[];
-  el.push({n:'Bok',w1:wys,w2:gln,szt:2,mat:'korpus',kr:[false,false,true,true],gr:'Korpus'});
-  const glWg=(plecy==='nut'||plecy==='felc'||plecy==='pelne')?gln-20:gln;
-  el.push({n:'Wieniec dolny',w1:wi,w2:gln,szt:1,mat:'korpus',kr:[false,false,false,true],gr:'Korpus'});
-  el.push({n:'Wieniec górny',w1:wi,w2:glWg,szt:1,mat:'korpus',kr:[false,false,false,true],gr:'Korpus'});
-  if(iP>0&&front_typ!=='szuflady'){const glP=glPolki(plecy,gln);el.push({n:'Półka',w1:wi,w2:glP,szt:iP,mat:'korpus',kr:[false,false,false,true],gr:'Korpus'});}
-  const off=PLECY_OFF[plecy];
-  if(off!==null)el.push({n:`Plecy HDF (${plecy})`,w1:wys-off,w2:szer-off,szt:1,mat:'hdf',kr:[false,false,false,false],gr:'Plecy'});
-  if(front_typ==='drzwi'&&front_ilosc>0){
-    const fh=wys-4,fw=Math.floor((szer-4-(front_ilosc-1)*SZCZ)/front_ilosc);
-    el.push({n:'Drzwi',w1:fh,w2:fw,szt:front_ilosc,mat:'front',kr:[true,true,true,true],gr:'Fronty'});
-    akc.push({n:'Zawias',il:liczZaw(fh)*front_ilosc,cena_szt:katalog.stawki.zawias,typ:'zawias'});
-    if(uchwyt==='tipon')akc.push({n:'Tipon',il:front_ilosc,cena_szt:katalog.stawki.tipon,typ:'tipon'});
-  }
-  if(front_typ==='szuflady'&&zestaw_id){
-    const z=ZESTAWY.find(x=>x.id===zestaw_id),prow=dobProw(gln),fr=liczFronty(z.sz,wys,szer);
-    const fw=szer-4,gld=prow?prow-24:gln-34;
-    z.sz.forEach((r,i)=>{
-      const rz=ROZ[r];
-      el.push({n:`Front szuflady ${r} (${i+1}/${z.sz.length})`,w1:fr[i],w2:fw,szt:1,mat:'front',kr:[true,true,true,true],gr:'Fronty szuflad'});
-      el.push({n:`Dno szuflady ${r}`,w1:wi-75,w2:gld,szt:1,mat:'szuflada',kr:[false,false,false,false],gr:'Elementy szuflad'});
-      el.push({n:`Tylna ścianka ${r}`,w1:wi-87,w2:rz.h,szt:1,mat:'szuflada',kr:[false,false,false,true],gr:'Elementy szuflad'});
-      akc.push({n:`GTV Axis Pro ${r} ${prow||'?'}mm`,il:1,cena_szt:katalog.stawki.prowadnica,typ:'prowadnica'});
-      if(uchwyt==='tipon')akc.push({n:'Tipon',il:1,cena_szt:katalog.stawki.tipon,typ:'tipon'});
-    });
-  }
-  if(typ==='wisząca')akc.push({n:'Zawieszka',il:2,cena_szt:katalog.stawki.zawieszka,typ:'zawieszka'});
-  if(typ==='stojąca')akc.push({n:'Nóżka',il:4,cena_szt:katalog.stawki.nozka,typ:'nozka'});
-  if(['krawędziowy','nabijany','velo'].includes(uchwyt)){
-    const z=ZESTAWY.find(x=>x.id===zestaw_id);
-    const il=front_typ==='drzwi'?front_ilosc:front_typ==='szuflady'&&z?z.sz.length:0;
-    if(il>0)akc.push({n:'Uchwyt '+uchwyt,il,cena_szt:0,typ:'uchwyt'});
-  }
-  return{el,akc};
+// ══ BLATY ══
+const BLAT_ARK_DL=4100; // mm – długość arkusza blatu
+const BLAT_INFO={
+  krono38: {nazwa:'Kronospan 38mm',gr:38,cena_ark:null,cena_m2:null,kluczArk:'blat_krono_ark'},
+  egger38: {nazwa:'Egger 38mm',   gr:38,cena_ark:null,cena_m2:null,kluczArk:'blat_egger_ark'},
+  krono_slim:{nazwa:'Kronospan Slim 12mm',gr:12,cena_ark:null,cena_m2:null,kluczM2:'blat_krono_slim_m2'},
+  egger_slim:{nazwa:'Egger Slim 12mm',    gr:12,cena_ark:null,cena_m2:null,kluczM2:'blat_egger_slim_m2'},
+};
+
+function liczBlatArk(dl,szer,rodzaj){
+  // Ile arkuszy 4100mm potrzeba dla danej długości
+  return Math.ceil(dl/BLAT_ARK_DL*2)/2;
 }
 
+function kosztBlatu(b){
+  const info=BLAT_INFO[b.rodzaj];
+  if(!info)return 0;
+  const m2=(b.dlugosc*b.szerokosc)/1e6;
+  if(info.kluczArk){
+    const cenaArk=katalog.stawki[info.kluczArk]||0;
+    const ark=liczBlatArk(b.dlugosc,b.szerokosc,b.rodzaj);
+    return ark*cenaArk;
+  } else if(info.kluczM2){
+    return m2*(katalog.stawki[info.kluczM2]||0);
+  }
+  return 0;
+}
+
+function dodajBlat(){
+  const dl=+document.getElementById('bl_dlugosc').value;
+  const szer=+document.getElementById('bl_szerokosc').value;
+  const rodzaj=document.getElementById('bl_rodzaj').value;
+  const uwagi=document.getElementById('bl_uwagi').value.trim();
+  if(!dl||dl<100){alert('Podaj długość blatu (mm)!');return;}
+  blaty.push({id:nextBlatId++,dlugosc:dl,szerokosc:szer,rodzaj,uwagi});
+  document.getElementById('bl_dlugosc').value='';
+  document.getElementById('bl_uwagi').value='';
+  save();renderBlaty();updatePodsumowanie();
+}
+
+function usunBlat(id){blaty=blaty.filter(b=>b.id!==id);save();renderBlaty();updatePodsumowanie();}
+
+function renderBlaty(){
+  const c=document.getElementById('blaty_lista');
+  if(!blaty.length){c.innerHTML='<div style="color:#aaa;font-size:12px">Brak blatów – dodaj powyżej</div>';return;}
+
+  // Grupuj dla pokazania info o arkuszach
+  const grupy={};
+  blaty.forEach(b=>{
+    const key=b.rodzaj+'_'+b.szerokosc;
+    if(!grupy[key])grupy[key]={rodzaj:b.rodzaj,szerokosc:b.szerokosc,dlLacznie:0,pozycje:[]};
+    grupy[key].dlLacznie+=b.dlugosc;
+    grupy[key].pozycje.push(b);
+  });
+
+  // Render
+  let html=`<table style="width:100%;border-collapse:collapse;font-size:12px;margin-top:4px">
+    <thead><tr style="background:#f0f2f5">
+      <th style="padding:6px 8px;text-align:left">Rodzaj</th>
+      <th style="padding:6px 8px">Dług.</th>
+      <th style="padding:6px 8px">Szer.</th>
+      <th style="padding:6px 8px">Uwagi</th>
+      <th style="padding:6px 8px"></th>
+    </tr></thead><tbody>`;
+
+  Object.values(grupy).forEach(g=>{
+    const info=BLAT_INFO[g.rodzaj]||{};
+    const ark=info.kluczArk?Math.ceil(g.dlLacznie/BLAT_ARK_DL*2)/2:null;
+    const m2=info.kluczM2?((g.dlLacznie*g.szerokosc)/1e6).toFixed(3):null;
+    const kosztG=_kosztGrupyBlatow(g.rodzaj,g.szerokosc,g.dlLacznie);
+
+    // Nagłówek grupy (jeśli >1 pozycja)
+    if(g.pozycje.length>1){
+      html+=`<tr style="background:#f0f4ff"><td colspan="4" style="padding:5px 8px;font-size:11px;font-weight:700;color:#3a5acc">
+        ${info.nazwa} ${g.szerokosc}mm – łącznie ${g.dlLacznie}mm
+        → ${ark?ark+' ark.':m2+' m²'}
+        = <b>${fmtPln(kosztG)}</b>
+        <span style="color:#2e7d32;font-size:10px">(${g.pozycje.length} kawałki mieszczą się na ${ark||m2} – razem taniej!)</span>
+      </td><td style="padding:5px 8px"></td></tr>`;
+    }
+
+    // Wiersze pozycji
+    g.pozycje.forEach(b=>{
+      html+=`<tr style="border-bottom:1px solid #f0f2f5">
+        <td style="padding:6px 8px;font-weight:600">${info.nazwa||b.rodzaj}
+          ${g.pozycje.length===1?`<span style="color:#e8601a;font-size:11px;margin-left:4px">${ark?ark+' ark.':m2+' m²'} = ${fmtPln(kosztG)}</span>`:''}
+        </td>
+        <td style="padding:6px 8px;text-align:center">${b.dlugosc} mm</td>
+        <td style="padding:6px 8px;text-align:center">${b.szerokosc} mm</td>
+        <td style="padding:6px 8px;color:#888;font-size:11px">${b.uwagi||''}</td>
+        <td style="padding:6px 8px"><button class="btn btn-danger btn-sm" onclick="usunBlat(${b.id})">✕</button></td>
+      </tr>`;
+    });
+  });
+
+  html+='</tbody></table>';
+  c.innerHTML=html;
+}
+
+function kosztBlatyLacznie(){
+  // Grupuj blaty wg rodzaju+szerokości i licz łącznie
+  const grupy={};
+  blaty.forEach(b=>{
+    const key=b.rodzaj+'_'+b.szerokosc;
+    if(!grupy[key])grupy[key]={rodzaj:b.rodzaj,szerokosc:b.szerokosc,dlLacznie:0};
+    grupy[key].dlLacznie+=b.dlugosc;
+  });
+  let suma=0;
+  Object.values(grupy).forEach(g=>{
+    const info=BLAT_INFO[g.rodzaj];if(!info)return;
+    if(info.kluczArk){
+      const ark=Math.ceil(g.dlLacznie/BLAT_ARK_DL*2)/2;
+      suma+=ark*(katalog.stawki[info.kluczArk]||0);
+    } else if(info.kluczM2){
+      const m2=(g.dlLacznie*g.szerokosc)/1e6;
+      suma+=m2*(katalog.stawki[info.kluczM2]||0);
+    }
+  });
+  return suma;
+}
+
+function kosztBlatu(b){
+  // Koszt proporcjonalny jednego kawałka (do wyświetlenia w wierszu)
+  // Używamy ceny grupowej podzielonej proporcjonalnie
+  const key=b.rodzaj+'_'+b.szerokosc;
+  const dlGrupy=blaty.filter(x=>x.rodzaj===b.rodzaj&&x.szerokosc===b.szerokosc).reduce((s,x)=>s+x.dlugosc,0);
+  const kosztGrupy=_kosztGrupyBlatow(b.rodzaj,b.szerokosc,dlGrupy);
+  return dlGrupy>0?kosztGrupy*(b.dlugosc/dlGrupy):0;
+}
+
+function _kosztGrupyBlatow(rodzaj,szerokosc,dlLacznie){
+  const info=BLAT_INFO[rodzaj];if(!info)return 0;
+  if(info.kluczArk){
+    const ark=Math.ceil(dlLacznie/BLAT_ARK_DL*2)/2;
+    return ark*(katalog.stawki[info.kluczArk]||0);
+  } else if(info.kluczM2){
+    const m2=(dlLacznie*szerokosc)/1e6;
+    return m2*(katalog.stawki[info.kluczM2]||0);
+  }
+  return 0;
+}
 function cenaPlyty(mat,m2){
   if(mat==='hdf')return(katalog.baza.hdf4.m2||0)*m2;
   if(mat==='szuflada')return(katalog.baza.plyta16.m2||0)*m2;
-  const p=katalog.plyty.find(x=>x.n===mat);
-  if(!p)return 0;
-  return(p.m2||0)*m2; // dla lakierowanych m2 = cena/m², ark=0
+  const p=katalog.plyty.find(x=>x.n===mat);return p?(p.m2||0)*m2:0;
 }
-
-// Liczy mb oklein ze wszystkich elementów szafki
 function liczMbAbs(s){
+  const KD=e=>[e.w2,e.w1,e.w2,e.w1];
   let mb=0;
-  const KR_DIMS=e=>[e.w2,e.w1,e.w2,e.w1]; // góra/dół=w2, lewo/prawo=w1
   [...(s.el||[]),...(s.el_dodatkowe||[])].forEach(e=>{
     if(!e.kr||!e.kr.some(Boolean))return;
-    const dims=KR_DIMS(e);
-    mb+=e.kr.reduce((sum,k,i)=>sum+(k?dims[i]*e.szt:0),0)/1000;
+    const dims=KD(e);mb+=e.kr.reduce((sum,k,i)=>sum+(k?dims[i]*e.szt:0),0)/1000;
   });
   return mb;
 }
-
-// Liczy ile arkuszy danego materiału potrzeba (zaokrąglenie w górę do 0.5)
-function liczArkusze(m2){
-  const arki=m2/ARK_M2;
-  return Math.ceil(arki*2)/2; // zaokrąglenie do 0.5
-}
-
-// Zbiera zużycie materiałów z całej wyceny
+function liczArkusze(m2){return Math.ceil(m2/ARK_M2*2)/2;}
 function zbierzMaterialy(){
-  const pow={}; // m2 per materiał
-  szafki.forEach(s=>{
-    const allEl=[...(s.el||[]),...(s.el_dodatkowe||[])];
-    allEl.forEach(e=>{
-      const key=e.mat==='front'?s.mat_front:e.mat==='hdf'?'HDF 4mm':e.mat==='szuflada'?'Płyta 16mm':s.mat_korpus;
-      pow[key]=(pow[key]||0)+(e.w1*e.w2*e.szt)/1e6;
-    });
-  });
+  const pow={};
+  szafki.forEach(s=>[...(s.el||[]),...(s.el_dodatkowe||[])].forEach(e=>{
+    const k=e.mat==='front'?s.mat_front:e.mat==='hdf'?'HDF 4mm':e.mat==='szuflada'?'Płyta 16mm':s.mat_korpus;
+    pow[k]=(pow[k]||0)+(e.w1*e.w2*e.szt)/1e6;
+  }));
   return pow;
 }
-
 function liczKosztSzafki(s){
   let k=0;
-  const allEl=[...(s.el||[]),...(s.el_dodatkowe||[])];
-  // Płyty
-  allEl.forEach(e=>{
+  [...(s.el||[]),...(s.el_dodatkowe||[])].forEach(e=>{
     const m2=(e.w1*e.w2*e.szt)/1e6;
     const mat=e.mat==='front'?s.mat_front:e.mat==='hdf'?'hdf':e.mat==='szuflada'?'szuflada':s.mat_korpus;
     k+=cenaPlyty(mat,m2);
   });
-  // Akcesoria
   [...(s.akc||[])].forEach(a=>k+=(a.cena_szt||katalog.stawki[a.typ]||0)*a.il);
   (s.akc_dodatkowe||[]).forEach(a=>k+=a.cena_szt*a.il);
-  // ABS
-  const mb=liczMbAbs(s);
-  k+=mb*(katalog.stawki.abs_mb||0);
-  // Nut/felc – mb oklein pleców (uproszczenie: 2x wys + 2x szer plecy)
-  const plecyEl=allEl.find(e=>e.n&&e.n.includes('Plecy'));
-  if(plecyEl){
-    const mbPlecy=(plecyEl.w1+plecyEl.w2)*2/1000;
-    if(s.plecy==='nut')k+=mbPlecy*(katalog.stawki.nut_mb||0);
-    if(s.plecy==='felc')k+=mbPlecy*(katalog.stawki.felc_mb||0);
-  }
+  k+=liczMbAbs(s)*(katalog.stawki.abs_mb||0);
+  const plecyEl=(s.el||[]).find(e=>e.n&&e.n.includes('Plecy'));
+  if(plecyEl){const mbP=(plecyEl.w1+plecyEl.w2)*2/1000;if(s.plecy==='nut')k+=mbP*(katalog.stawki.nut_mb||0);if(s.plecy==='felc')k+=mbP*(katalog.stawki.felc_mb||0);}
   return k;
 }
 
+// ══ CRUD SZAFKI ══
 function getCfg(){
   const wys=+document.getElementById('wys').value,szer=+document.getElementById('szer').value,gl=+document.getElementById('gl').value;
   const ft=document.getElementById('front_typ').value,typ=document.getElementById('typ').value;
   if(!wys||!gl||!szer){alert('Podaj wymiary!');return null;}
-  if(!isSlupek(typ)&&ft==='szuflady'&&!selZestaw){alert('Wybierz zestaw szuflad!');return null;}
+  if(!isSlupek(typ)&&!isSpecjalna(typ)&&ft==='szuflady'&&!selZestaw){alert('Wybierz zestaw szuflad!');return null;}
   return{sz_nazwa:document.getElementById('sz_nazwa').value.trim(),sz_uwagi:document.getElementById('sz_uwagi').value.trim(),mat_korpus:document.getElementById('mat_korpus').value,mat_front:document.getElementById('mat_front').value,wys,szer,gl,typ,plecy:document.getElementById('plecy').value,uchwyt:document.getElementById('uchwyt').value,polki:+document.getElementById('polki').value||0,front_typ:ft,front_ilosc:+document.getElementById('front_ilosc').value||0,zestaw_id:selZestaw};
 }
-
 function dodajSzafke(){
   const cfg=getCfg();if(!cfg)return;
   const sl=isSlupek(cfg.typ);
@@ -1261,14 +1201,10 @@ function dodajSzafke(){
     const idx=szafki.findIndex(s=>s.id===editId);
     if(idx>=0){const res=sl?genElSlupek({...cfg,id:editId}):genEl({...cfg,id:editId});szafki[idx]={...cfg,...res,id:editId,akc_dodatkowe:szafki[idx].akc_dodatkowe||[],el_dodatkowe:szafki[idx].el_dodatkowe||[],exp:szafki[idx].exp};}
     anulujEdycje();
-  }else{
-    const id=nextId++;const res=sl?genElSlupek({...cfg,id}):genEl({...cfg,id});
-    szafki.push({...cfg,...res,id,akc_dodatkowe:[],el_dodatkowe:[],exp:true});
-  }
+  }else{const id=nextId++;const res=sl?genElSlupek({...cfg,id}):genEl({...cfg,id});szafki.push({...cfg,...res,id,akc_dodatkowe:[],el_dodatkowe:[],exp:true});}
   save();renderLista();
 }
-
-function anulujEdycje(){editId=null;document.getElementById('ktitle').textContent='🔧 Dodaj mebel';document.getElementById('btn_dodaj').textContent='➕ Dodaj do wyceny';document.getElementById('btn_anuluj').style.display='none';}
+function anulujEdycje(){editId=null;document.getElementById('ktitle').textContent='🔧 Konfigurator szczegółowy';document.getElementById('btn_dodaj').textContent='➕ Dodaj do wyceny';document.getElementById('btn_anuluj').style.display='none';}
 function edytuj(id){
   const s=szafki.find(x=>x.id===id);if(!s)return;editId=id;
   document.getElementById('sz_nazwa').value=s.sz_nazwa||'';document.getElementById('sz_uwagi').value=s.sz_uwagi||'';
@@ -1279,7 +1215,7 @@ function edytuj(id){
   document.getElementById('front_typ').value=s.front_typ||'otwarta';toggleFront();
   if(s.front_ilosc)document.getElementById('front_ilosc').value=s.front_ilosc;
   if(s.zestaw_id){selZestaw=s.zestaw_id;initZestawy();wybierzZestaw(s.zestaw_id);}
-  document.getElementById('ktitle').textContent='✏️ Edytujesz #'+id+(s.sz_nazwa?' – '+s.sz_nazwa:'');
+  document.getElementById('ktitle').textContent='✏️ Edytujesz #'+id;
   document.getElementById('btn_dodaj').textContent='💾 Zapisz zmiany';document.getElementById('btn_anuluj').style.display='inline-block';
   document.getElementById('kcard').scrollIntoView({behavior:'smooth'});
 }
@@ -1287,7 +1223,6 @@ function usun(id){if(confirm('Usunąć #'+id+'?')){szafki=szafki.filter(s=>s.id!
 function toggleExp(id){const s=szafki.find(x=>x.id===id);if(s){s.exp=!s.exp;save();renderLista();}}
 function toggleKr(sid,ei,ki){const s=szafki.find(x=>x.id===sid);if(s){s.el[ei].kr[ki]=!s.el[ei].kr[ki];save();renderLista();}}
 function toggleKrDod(sid,ei,ki){const s=szafki.find(x=>x.id===sid);if(s&&s.el_dodatkowe[ei]){s.el_dodatkowe[ei].kr[ki]=!s.el_dodatkowe[ei].kr[ki];save();renderLista();}}
-
 function openAkcSzafka(id){activeSzafkaId=id;document.getElementById('ma_nazwa').value='';document.getElementById('ma_ilosc').value=1;document.getElementById('ma_cena').value=0;openModal('m_akc_szafka');}
 function zapiszAkcSzafka(){const s=szafki.find(x=>x.id===activeSzafkaId);if(!s)return;const n=document.getElementById('ma_nazwa').value.trim();if(!n)return;if(!s.akc_dodatkowe)s.akc_dodatkowe=[];s.akc_dodatkowe.push({n,il:+document.getElementById('ma_ilosc').value||1,cena_szt:+document.getElementById('ma_cena').value||0,typ:'dodatkowe'});closeModal('m_akc_szafka');save();renderLista();}
 function openFmtSzafka(id){activeSzafkaId=id;['mf_nazwa','mf_w1','mf_w2'].forEach(i=>document.getElementById(i).value='');document.getElementById('mf_szt').value=1;openModal('m_fmt_szafka');}
@@ -1313,22 +1248,18 @@ function renderLista(){
   const cont=document.getElementById('lista');
   const has=szafki.length>0;
   document.getElementById('panel_wyceny').style.display=has?'block':'none';
-  if(!has){cont.innerHTML='<div class="empty"><div class="ic">🗂️</div>Brak mebli – dodaj pierwszy powyżej</div>';return;}
-  let html='',totalKoszt=0;
+  if(!has){cont.innerHTML='<div class="empty"><div class="ic">🗂️</div>Brak mebli – dodaj powyżej</div>';return;}
+  let html='',totalKoszt=0,totalPow={};
   szafki.forEach(s=>{
     const allEl=[...(s.el||[]),...(s.el_dodatkowe||[])];
     allEl.forEach(e=>{const k=e.mat==='front'?s.mat_front:e.mat==='hdf'?'HDF 4mm':e.mat==='szuflada'?'Płyta 16mm':s.mat_korpus;totalPow[k]=(totalPow[k]||0)+(e.w1*e.w2*e.szt)/1e6;});
-    // Zużycie arkuszy per szafka
     const powSzafki={};
-    allEl.forEach(e=>{
-      const key=e.mat==='front'?s.mat_front:e.mat==='hdf'?'HDF 4mm':e.mat==='szuflada'?'Płyta 16mm':s.mat_korpus;
-      powSzafki[key]=(powSzafki[key]||0)+(e.w1*e.w2*e.szt)/1e6;
-    });
+    allEl.forEach(e=>{const k=e.mat==='front'?s.mat_front:e.mat==='hdf'?'HDF 4mm':e.mat==='szuflada'?'Płyta 16mm':s.mat_korpus;powSzafki[k]=(powSzafki[k]||0)+(e.w1*e.w2*e.szt)/1e6;});
     const arkInfo=Object.entries(powSzafki).map(([mat,m2])=>`${mat.split(' ')[0]} ${m2.toFixed(2)}m²/${liczArkusze(m2)}ark`).join(' · ');
     const mbAbs=liczMbAbs(s);
     const koszt=liczKosztSzafki(s);totalKoszt+=koszt;
-    const typLabel={wisząca:'wisząca',stojąca:'stojąca',slupek_piek:'słupek piekarnik',slupek_piek_mikro:'słupek piek+mikro',slupek_lodowka:'słupek lodówka'}[s.typ]||s.typ;
-    const tagCls=isSlupek(s.typ)?'slupek':s.typ==='wisząca'?'wisząca':'stojąca';
+    const typLabel={wisząca:'wisząca',wiszaca_gl:'wisząca głęboka',stojąca:'stojąca',stojaca_cargo:'stojąca cargo',stojaca_zlew:'stojąca zlew',stojaca_piek:'stojąca piekarnik',slupek_piek:'słupek piekarnik',slupek_piek_mikro:'słupek piek+mikro',slupek_lodowka:'słupek lodówka',slupek_cargo:'słupek cargo'}[s.typ]||s.typ;
+    const tagCls=isSlupek(s.typ)?'slupek':isSpecjalna(s.typ)?'special':(s.typ==='wisząca'||s.typ==='wiszaca_gl')?'wisząca':'stojąca';
     const totalM2=allEl.reduce((sum,e)=>sum+(e.w1*e.w2*e.szt)/1e6,0).toFixed(3);
     const grupy={};allEl.forEach((e,i)=>{if(!grupy[e.gr])grupy[e.gr]=[];grupy[e.gr].push({e,i,isDod:i>=(s.el||[]).length});});
     let rows='';
@@ -1364,54 +1295,43 @@ function renderLista(){
       </div>`:''}
     </div>`;
   });
-  // Podsumowanie materiałów z arkuszami i kosztami
-  const pow=zbierzMaterialy();
-  let totalKosztMat=0,totalRozkroj=0,totalAbs=0;
-  szafki.forEach(s=>{totalAbs+=liczMbAbs(s);});
 
+  // Podsumowanie
+  const pow=zbierzMaterialy();
+  let totalRozkroj=0,totalAbs=0;
+  szafki.forEach(s=>{totalAbs+=liczMbAbs(s);});
   const sumHtml=Object.entries(pow).map(([mat,m2])=>{
     const p=katalog.plyty.find(x=>x.n===mat);
-    const isUsluga=p&&p.typ==='usluga'; // lakierowane/ryflowane – bez arkuszy
-    const ark=isUsluga?null:liczArkusze(m2);
+    const isU=p&&p.typ==='usluga';
+    const ark=isU?null:liczArkusze(m2);
     let cenaM2=0;
     if(mat==='HDF 4mm')cenaM2=katalog.baza.hdf4.m2||0;
     else if(mat==='Płyta 16mm')cenaM2=katalog.baza.plyta16.m2||0;
     else if(p)cenaM2=p.m2||0;
     const kosztPow=cenaM2*m2;
-    const kosztRozkroj=(!isUsluga&&ark&&mat!=='HDF 4mm'&&mat!=='Płyta 16mm')?ark*(katalog.stawki.rozkroj_ark||0):0;
-    totalKosztMat+=kosztPow;
-    if(kosztRozkroj>0)totalRozkroj+=kosztRozkroj;
-    const arkTxt=isUsluga
-      ?`${m2.toFixed(3)} m²`
-      :`${m2.toFixed(3)} m² → <b style="color:#fff">${ark} ark.</b>`;
-    return`<div class="sumrow">
-      <span>${mat}</span>
-      <span style="color:#aaa;font-size:11px">${arkTxt}</span>
-      <span>${fmtPln(kosztPow)}${kosztRozkroj>0?` <span style="color:#aaa;font-size:11px">+${fmtPln(kosztRozkroj)} rozkrój</span>`:''}</span>
-    </div>`;
+    const kosztR=(!isU&&ark&&mat!=='HDF 4mm'&&mat!=='Płyta 16mm')?ark*(katalog.stawki.rozkroj_ark||0):0;
+    if(kosztR>0)totalRozkroj+=kosztR;
+    return`<div class="sumrow"><span>${mat}</span><span style="color:#aaa;font-size:11px">${isU?m2.toFixed(3)+' m²':m2.toFixed(3)+' m² → <b style="color:#fff">'+ark+' ark.</b>'}</span><span>${fmtPln(kosztPow)}${kosztR>0?` <span style="color:#aaa;font-size:11px">+${fmtPln(kosztR)} rozkrój</span>`:''}</span></div>`;
   }).join('');
-
   const kosztAbs=totalAbs*(katalog.stawki.abs_mb||0);
   const kosztTotal=szafki.reduce((s,sz)=>s+liczKosztSzafki(sz),0);
+  // Blaty w podsumowaniu
+  const blatySumHtml=blaty.length?`
+    <div style="border-top:1px solid #333;margin-top:8px;padding-top:8px">
+      <div style="font-size:10px;font-weight:700;color:#ffd4bb;text-transform:uppercase;margin-bottom:6px">Blaty</div>
+      ${blaty.map(b=>{const info=BLAT_INFO[b.rodzaj]||{};const ark=info.kluczArk?liczBlatArk(b.dlugosc,b.szerokosc,b.rodzaj)+' ark.':((b.dlugosc*b.szerokosc)/1e6).toFixed(3)+' m²';const koszt=kosztBlatu(b);return`<div class="sumrow"><span>${info.nazwa||b.rodzaj} ${b.dlugosc}×${b.szerokosc}mm</span><span style="color:#aaa;font-size:11px">${ark}</span><span>${fmtPln(koszt)}</span></div>`;}).join('')}
+      <div class="sumrow" style="font-weight:600"><span>Blaty łącznie</span><span></span><span>${fmtPln(kosztBlatyLacznie())}</span></div>
+    </div>`:'';
 
   html+=`<div class="sumbox"><h2>📊 Podsumowanie materiałów (dla mnie)</h2>
-    <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:4px;font-size:11px;font-weight:700;color:#888;text-transform:uppercase;margin-bottom:6px;padding-bottom:4px;border-bottom:1px solid #333">
-      <span>Materiał</span><span>Ilość</span><span>Koszt</span>
-    </div>
+    <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:4px;font-size:10px;font-weight:700;color:#555;text-transform:uppercase;margin-bottom:6px;padding-bottom:4px;border-bottom:1px solid #333"><span>Materiał</span><span>Ilość</span><span>Koszt</span></div>
     ${sumHtml}
-    <div class="sumrow" style="border-top:1px solid #333;margin-top:6px;padding-top:6px">
-      <span>Okleina ABS</span>
-      <span style="color:#aaa;font-size:11px"><b style="color:#fff">${totalAbs.toFixed(2)} mb</b></span>
-      <span>${fmtPln(kosztAbs)}</span>
-    </div>
-    <div class="sumrow">
-      <span>Rozkrój łączny</span>
-      <span></span>
-      <span>${fmtPln(totalRozkroj)}</span>
-    </div>
-    <div class="sumrow total"><span>Łączny koszt netto</span><span></span><span>${fmtPln(kosztTotal)}</span></div>
+    <div class="sumrow" style="border-top:1px solid #333;margin-top:6px;padding-top:6px"><span>Okleina ABS</span><span style="color:#aaa;font-size:11px"><b style="color:#fff">${totalAbs.toFixed(2)} mb</b></span><span>${fmtPln(kosztAbs)}</span></div>
+    <div class="sumrow"><span>Rozkrój łączny</span><span></span><span>${fmtPln(totalRozkroj)}</span></div>
+    ${blatySumHtml}
+    <div class="sumrow total"><span>Łączny koszt netto</span><span></span><span>${fmtPln(kosztTotal+kosztBlatyLacznie())}</span></div>
   </div>`;
-  cont.innerHTML=html;updatePodsumowanie();
+  cont.innerHTML=html;updatePodsumowanie();renderBlaty();
 }
 
 // ══ BAZA ══
@@ -1424,27 +1344,32 @@ function ladujBaza(i){const b=baza[i];document.getElementById('sz_nazwa').value=
 function pokazPodglad(){document.getElementById('preview_content').innerHTML=generujHTML();document.getElementById('preview_overlay').classList.add('open');}
 function zamknijPodglad(){document.getElementById('preview_overlay').classList.remove('open');}
 function drukujOferte(){document.getElementById('preview_content').innerHTML=generujHTML();document.getElementById('preview_overlay').classList.add('open');setTimeout(()=>window.print(),400);}
+function setMarza(v,btn){document.querySelectorAll('.marza-btn').forEach(b=>b.classList.remove('sel'));btn.classList.add('sel');if(v==='custom'){document.getElementById('marza_custom_field').style.display='flex';marzaMnoznik=+document.getElementById('marza_custom').value||2;}else{document.getElementById('marza_custom_field').style.display='none';marzaMnoznik=v;}updatePodsumowanie();}
+function updatePodsumowanie(){
+  if(document.getElementById('marza_custom_field').style.display!=='none')marzaMnoznik=+document.getElementById('marza_custom').value||2;
+  const koszt=szafki.reduce((s,sz)=>s+liczKosztSzafki(sz),0);
+  const kosztBlat=kosztBlatyLacznie();
+  const kosztTotal=koszt+kosztBlat;
+  const cena=kosztTotal*marzaMnoznik,marza=cena-kosztTotal;
+  document.getElementById('podsumowanie_wyceny').innerHTML=`<div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(130px,1fr));gap:8px">
+    <div class="stat-box"><div class="stat-val" style="font-size:14px">${fmtPln(koszt)}</div><div class="stat-lbl">Koszt mebli</div></div>
+    ${kosztBlat>0?`<div class="stat-box"><div class="stat-val" style="font-size:14px">${fmtPln(kosztBlat)}</div><div class="stat-lbl">Koszt blatów</div></div>`:''}
+    <div class="stat-box"><div class="stat-val" style="font-size:14px;color:#2e7d32">${fmtPln(marza)}</div><div class="stat-lbl">Marża ×${marzaMnoznik}</div></div>
+    <div class="stat-box" style="background:#fff3ee;border:2px solid #e8601a"><div class="stat-val" style="font-size:18px">${fmtPln(cena)}</div><div class="stat-lbl">CENA DLA KLIENTA</div></div>
+  </div>`;
+}
 function generujHTML(){
-  const koszt=szafki.reduce((s,sz)=>s+liczKosztSzafki(sz),0),cena=koszt*marzaMnoznik;
+  const koszt=szafki.reduce((s,sz)=>s+liczKosztSzafki(sz),0);
+  const kosztBlat=kosztBlatyLacznie();
+  const cena=(koszt+kosztBlat)*marzaMnoznik;
   const klient=klienci.find(x=>x.id===+document.getElementById('w_klient').value);
   const projekt=projekty.find(x=>x.id===+document.getElementById('w_projekt').value);
   const nr='OF/'+new Date().getFullYear()+'/'+String(nextHistId).padStart(3,'0');
-  const sumaAkc={};
-  szafki.forEach(s=>[...(s.akc||[]),...(s.akc_dodatkowe||[])].forEach(a=>{sumaAkc[a.n]=(sumaAkc[a.n]||0)+a.il;}));
+  const sumaAkc={};szafki.forEach(s=>[...(s.akc||[]),...(s.akc_dodatkowe||[])].forEach(a=>{sumaAkc[a.n]=(sumaAkc[a.n]||0)+a.il;}));
   const wierszeSzafek=szafki.map((s,i)=>{
     const cenaS=liczKosztSzafki(s)*marzaMnoznik;
-    const allAkc=[...(s.akc||[]),...(s.akc_dodatkowe||[])];
-    const akcSkrot=allAkc.map(a=>`${a.il}× ${a.n}`).join(', ');
-    return`<tr style="border-bottom:1px solid #f0f2f5;${i%2===1?'background:#fafafa':''}">
-      <td style="padding:8px 12px;color:#e8601a;font-weight:700">${i+1}</td>
-      <td style="padding:8px 12px">
-        <div style="font-weight:600">${s.sz_nazwa||'Mebel #'+(i+1)}</div>
-        <div style="font-size:11px;color:#888">${s.wys}×${s.szer}×${s.gl}mm · ${s.mat_front}</div>
-        ${akcSkrot?`<div style="font-size:11px;color:#aaa">${akcSkrot}</div>`:''}
-        ${s.sz_uwagi?`<div style="font-size:11px;color:#888;font-style:italic">${s.sz_uwagi}</div>`:''}
-      </td>
-      <td style="padding:8px 12px;text-align:right;font-weight:700;white-space:nowrap">${fmtPln(cenaS)}</td>
-    </tr>`;
+    const akcSkrot=[...(s.akc||[]),...(s.akc_dodatkowe||[])].map(a=>`${a.il}× ${a.n}`).join(', ');
+    return`<tr style="border-bottom:1px solid #f0f2f5;${i%2===1?'background:#fafafa':''}"><td style="padding:8px 12px;color:#e8601a;font-weight:700">${i+1}</td><td style="padding:8px 12px"><div style="font-weight:600">${s.sz_nazwa||'Mebel #'+(i+1)}</div><div style="font-size:11px;color:#888">${s.wys}×${s.szer}×${s.gl}mm · ${s.mat_front}</div>${akcSkrot?`<div style="font-size:11px;color:#aaa">${akcSkrot}</div>`:''}${s.sz_uwagi?`<div style="font-size:11px;color:#888;font-style:italic">${s.sz_uwagi}</div>`:''}</td><td style="padding:8px 12px;text-align:right;font-weight:700;white-space:nowrap">${fmtPln(cenaS)}</td></tr>`;
   }).join('');
   const sumaAkcHtml=Object.entries(sumaAkc).map(([n,il])=>`<span style="display:inline-block;background:#f0f2f5;border-radius:5px;padding:2px 8px;font-size:11px;margin:2px">${il}× ${n}</span>`).join('');
   return`<div style="font-family:'Segoe UI',Arial,sans-serif;color:#222;font-size:13px">
@@ -1456,34 +1381,42 @@ function generujHTML(){
       <div style="flex:1"><div style="font-size:10px;font-weight:700;color:#888;text-transform:uppercase;margin-bottom:4px">Dla klienta</div><div style="font-size:15px;font-weight:700">${klient?klient.imie:'–'}</div>${klient&&klient.tel?`<div style="font-size:11px;color:#666">tel. ${klient.tel}</div>`:''}${klient&&klient.email?`<div style="font-size:11px;color:#666">${klient.email}</div>`:''}</div>
       <div style="flex:1"><div style="font-size:10px;font-weight:700;color:#888;text-transform:uppercase;margin-bottom:4px">Projekt</div><div style="font-size:15px;font-weight:700">${projekt?projekt.nazwa:'–'}</div></div>
     </div>
-    <div style="padding:24px 36px 0">
-      <div style="font-size:13px;font-weight:700;color:#1a1a2e;margin-bottom:10px;padding-bottom:6px;border-bottom:2px solid #e8601a">ZESTAWIENIE MEBLI</div>
-      <table style="width:100%;border-collapse:collapse">
-        <thead><tr style="background:#1a1a2e;color:#fff"><th style="padding:8px 12px;text-align:left;width:28px">#</th><th style="padding:8px 12px;text-align:left">Nazwa / opis / wyposażenie</th><th style="padding:8px 12px;text-align:right">Cena</th></tr></thead>
-        <tbody>${wierszeSzafek}</tbody>
-      </table>
+    <div style="padding:24px 36px 0"><div style="font-size:13px;font-weight:700;color:#1a1a2e;margin-bottom:10px;padding-bottom:6px;border-bottom:2px solid #e8601a">ZESTAWIENIE MEBLI</div>
+      <table style="width:100%;border-collapse:collapse"><thead><tr style="background:#1a1a2e;color:#fff"><th style="padding:8px 12px;text-align:left;width:28px">#</th><th style="padding:8px 12px;text-align:left">Nazwa / opis / wyposażenie</th><th style="padding:8px 12px;text-align:right">Cena</th></tr></thead><tbody>${wierszeSzafek}</tbody></table>
     </div>
-    <div style="padding:12px 36px;border-top:1px solid #f0f2f5">
-      <div style="font-size:10px;font-weight:700;color:#888;text-transform:uppercase;margin-bottom:6px">Łączne wyposażenie</div>
-      <div>${sumaAkcHtml}</div>
-    </div>
-    <div style="padding:16px 36px 24px">
-      <div style="background:#f8f9ff;border:2px solid #e8601a;border-radius:8px;padding:16px 20px;display:flex;justify-content:space-between;align-items:center">
-        <div><div style="font-size:13px;font-weight:700;color:#1a1a2e">CENA ŁĄCZNA</div><div style="font-size:11px;color:#aaa">Cena nie zawiera VAT · ${szafki.length} pozycji</div></div>
-        <div style="font-size:24px;font-weight:900;color:#e8601a">${fmtPln(cena)}</div>
-      </div>
-    </div>
-    <div style="background:#1a1a2e;color:#aaa;padding:14px 36px;font-size:11px;display:flex;justify-content:space-between;align-items:center">
-      <div>${firma.nazwa} · NIP: ${firma.nip}</div>
-      <div style="color:#e8601a;font-weight:700">${firma.www}</div>
-      <div>${firma.stopka}</div>
-    </div>
+    <div style="padding:12px 36px;border-top:1px solid #f0f2f5"><div style="font-size:10px;font-weight:700;color:#888;text-transform:uppercase;margin-bottom:6px">Łączne wyposażenie</div><div>${sumaAkcHtml}</div></div>
+    ${blaty.length?`<div style="padding:0 36px 16px"><div style="font-size:13px;font-weight:700;color:#1a1a2e;margin-bottom:8px;padding-bottom:6px;border-bottom:1px solid #e8601a">BLATY KUCHENNE</div>
+      <table style="width:100%;border-collapse:collapse;font-size:13px"><thead><tr style="background:#1a1a2e;color:#fff"><th style="padding:8px 12px;text-align:left">Rodzaj</th><th style="padding:8px 12px;text-align:center">Wymiary</th><th style="padding:8px 12px;text-align:right">Cena</th></tr></thead>
+      <tbody>${blaty.map((b,i)=>{const info=BLAT_INFO[b.rodzaj]||{};const cenaB=kosztBlatu(b)*marzaMnoznik;return`<tr style="border-bottom:1px solid #f0f2f5;${i%2===1?'background:#fafafa':''}"><td style="padding:8px 12px;font-weight:600">${info.nazwa||b.rodzaj}${b.uwagi?`<div style="font-size:11px;color:#888">${b.uwagi}</div>`:''}</td><td style="padding:8px 12px;text-align:center">${b.dlugosc}×${b.szerokosc} mm</td><td style="padding:8px 12px;text-align:right;font-weight:700">${fmtPln(cenaB)}</td></tr>`;}).join('')}</tbody></table></div>`:''}
+    <div style="padding:16px 36px 24px"><div style="background:#f8f9ff;border:2px solid #e8601a;border-radius:8px;padding:16px 20px;display:flex;justify-content:space-between;align-items:center">
+      <div><div style="font-size:13px;font-weight:700;color:#1a1a2e">CENA ŁĄCZNA</div><div style="font-size:11px;color:#aaa">Cena nie zawiera VAT · ${szafki.length} pozycji</div></div>
+      <div style="font-size:24px;font-weight:900;color:#e8601a">${fmtPln(cena)}</div>
+    </div></div>
+    <div style="background:#1a1a2e;color:#aaa;padding:14px 36px;font-size:11px;display:flex;justify-content:space-between;align-items:center"><div>${firma.nazwa} · NIP: ${firma.nip}</div><div style="color:#e8601a;font-weight:700">${firma.www}</div><div>${firma.stopka}</div></div>
   </div>`;
 }
+function zatwierdzWycene(){
+  if(!szafki.length){alert('Brak szafek!');return;}
+  const koszt=szafki.reduce((s,sz)=>s+liczKosztSzafki(sz),0),cena=koszt*marzaMnoznik;
+  const klient=klienci.find(x=>x.id===+document.getElementById('w_klient').value);
+  const projekt=projekty.find(x=>x.id===+document.getElementById('w_projekt').value);
+  const nr='OF/'+new Date().getFullYear()+'/'+String(nextHistId).padStart(3,'0');
+  historia.unshift({id:nextHistId++,nr,data:new Date().toLocaleDateString('pl-PL'),klient:klient?klient.imie:'–',projekt:projekt?projekt.nazwa:'–',koszt,cena,mnoznik:marzaMnoznik,szafki:JSON.parse(JSON.stringify(szafki)),zatwierdzona:true});
+  save();if(confirm(`✅ Wycena ${nr} zatwierdzona!\nCena: ${fmtPln(cena)}\n\nCzyścić bieżącą wycenę?`)){szafki=[];nextId=1;renderLista();}renderHistoria();
+}
+function renderHistoria(){
+  const c=document.getElementById('historia_lista');if(!historia.length){c.innerHTML='<div class="empty"><div class="ic">📜</div>Brak zatwierdzonych wycen</div>';return;}
+  c.innerHTML=historia.map((h,i)=>`<div class="list-card"><div class="list-hdr" onclick="this.nextElementSibling.style.display=this.nextElementSibling.style.display==='none'?'block':'none'">
+    <div style="flex:1"><div style="display:flex;align-items:center;gap:8px"><span style="font-weight:700;color:#e8601a">${h.nr}</span><span style="font-size:12px;color:#888">${h.data}</span><span class="badge badge-green">zatwierdzona</span></div><div style="font-size:12px;color:#444;margin-top:3px">👤 ${h.klient} · 📁 ${h.projekt}</div></div>
+    <div style="text-align:right"><div style="font-weight:700;color:#2e7d32;font-size:14px">${fmtPln(h.cena)}</div><div style="font-size:11px;color:#aaa">koszt: ${fmtPln(h.koszt)} · ×${h.mnoznik}</div></div>
+    <div style="display:flex;gap:4px;margin-left:8px" onclick="event.stopPropagation()"><button class="btn btn-secondary btn-sm" onclick="wczytajZHistorii(${i})">📥 Wczytaj</button><button class="btn btn-danger btn-sm" onclick="if(confirm('Usunąć?')){historia.splice(${i},1);save();renderHistoria()}">✕</button></div>
+    </div><div class="list-body"><table style="width:100%;border-collapse:collapse;font-size:12px;margin-top:8px"><thead><tr style="background:#f0f2f5"><th style="padding:6px;text-align:left">Mebel</th><th style="padding:6px">Wymiary</th><th style="padding:6px">Typ</th></tr></thead><tbody>${h.szafki.map(s=>`<tr style="border-bottom:1px solid #f5f5f5"><td style="padding:5px 6px">${s.sz_nazwa||'Mebel'}</td><td style="padding:5px 6px;text-align:center">${s.wys}×${s.szer}×${s.gl}</td><td style="padding:5px 6px;text-align:center">${s.typ}</td></tr>`).join('')}</tbody></table></div></div>`).join('');
+}
+function wczytajZHistorii(i){if(!confirm('Zastąpić bieżące szafki?'))return;szafki=JSON.parse(JSON.stringify(historia[i].szafki));nextId=Math.max(...szafki.map(s=>s.id))+1;save();renderLista();showTab('wycena');}
 
 // ══ KLIENCI ══
 function zapiszKlienta(){const imie=document.getElementById('mk_imie').value.trim();if(!imie){alert('Podaj imię!');return;}const obj={id:editKlientId||nextKlientId++,imie,tel:document.getElementById('mk_tel').value,email:document.getElementById('mk_email').value,adres:document.getElementById('mk_adres').value,uwagi:document.getElementById('mk_uwagi').value};if(editKlientId){const i=klienci.findIndex(x=>x.id===editKlientId);if(i>=0)klienci[i]=obj;}else klienci.push(obj);editKlientId=null;closeModal('m_klient');save();renderKlienci();refreshKlientSelects();}
-function renderKlienci(){const c=document.getElementById('klienci_lista');if(!klienci.length){c.innerHTML='<div class="empty"><div class="ic">👥</div>Brak klientów</div>';return;}c.innerHTML=klienci.map(k=>{const proj=projekty.filter(p=>p.klient_id===k.id);return`<div class="list-card"><div class="list-hdr" onclick="this.nextElementSibling.style.display=this.nextElementSibling.style.display==='none'?'block':'none'"><span style="font-weight:700;font-size:14px">👤 ${k.imie}</span><span class="chip">${proj.length} proj.</span>${k.tel?`<span class="chip">📞 ${k.tel}</span>`:''}<div style="margin-left:auto;display:flex;gap:4px"><button class="btn btn-secondary btn-sm" onclick="event.stopPropagation();editKlient(${k.id})">✏️</button><button class="btn btn-danger btn-sm" onclick="event.stopPropagation();if(confirm('Usunąć?')){klienci=klienci.filter(x=>x.id!==${k.id});save();renderKlienci()}">✕</button></div></div><div class="list-body">${k.email?`<div style="font-size:12px;margin-bottom:3px">✉️ ${k.email}</div>`:''}${k.adres?`<div style="font-size:12px;margin-bottom:3px">📍 ${k.adres}</div>`:''}${k.uwagi?`<div style="font-size:12px;color:#888;margin-bottom:8px">💬 ${k.uwagi}</div>`:''}${proj.length?proj.map(p=>`<span class="chip">${p.nazwa}</span>`).join(''):'<span style="font-size:12px;color:#aaa">Brak projektów</span>'}<br><button class="btn btn-primary btn-sm" style="margin-top:8px" onclick="nowyProjektDlaKlienta(${k.id})">+ Nowy projekt</button></div></div>`;}).join('');}
+function renderKlienci(){const c=document.getElementById('klienci_lista');if(!klienci.length){c.innerHTML='<div class="empty"><div class="ic">👥</div>Brak klientów</div>';return;}c.innerHTML=klienci.map(k=>{const proj=projekty.filter(p=>p.klient_id===k.id);return`<div class="list-card"><div class="list-hdr" onclick="this.nextElementSibling.style.display=this.nextElementSibling.style.display==='none'?'block':'none'"><span style="font-weight:700;font-size:14px">👤 ${k.imie}</span><span class="chip">${proj.length} proj.</span>${k.tel?`<span class="chip">📞 ${k.tel}</span>`:''}<div style="margin-left:auto;display:flex;gap:4px"><button class="btn btn-secondary btn-sm" onclick="event.stopPropagation();editKlient(${k.id})">✏️</button><button class="btn btn-danger btn-sm" onclick="event.stopPropagation();if(confirm('Usunąć?')){klienci=klienci.filter(x=>x.id!==${k.id});save();renderKlienci()}">✕</button></div></div><div class="list-body">${k.email?`<div style="font-size:12px;margin-bottom:3px">✉️ ${k.email}</div>`:''} ${k.adres?`<div style="font-size:12px;margin-bottom:3px">📍 ${k.adres}</div>`:''}${k.uwagi?`<div style="font-size:12px;color:#888;margin-bottom:8px">💬 ${k.uwagi}</div>`:''}${proj.length?proj.map(p=>`<span class="chip">${p.nazwa}</span>`).join(''):'<span style="font-size:12px;color:#aaa">Brak projektów</span>'}<br><button class="btn btn-primary btn-sm" style="margin-top:8px" onclick="nowyProjektDlaKlienta(${k.id})">+ Nowy projekt</button></div></div>`;}).join('');}
 function editKlient(id){const k=klienci.find(x=>x.id===id);if(!k)return;editKlientId=id;document.getElementById('mk_imie').value=k.imie;document.getElementById('mk_tel').value=k.tel||'';document.getElementById('mk_email').value=k.email||'';document.getElementById('mk_adres').value=k.adres||'';document.getElementById('mk_uwagi').value=k.uwagi||'';document.getElementById('mk_title').textContent='Edytuj klienta';openModal('m_klient');}
 function refreshKlientSelects(){const opts='<option value="">– wybierz –</option>'+klienci.map(k=>`<option value="${k.id}">${k.imie}</option>`).join('');['w_klient','mp_klient'].forEach(id=>{const s=document.getElementById(id);if(s){const v=s.value;s.innerHTML=opts;s.value=v;}});}
 function onKlientChange(){const kid=+document.getElementById('w_klient').value;const proj=projekty.filter(p=>p.klient_id===kid);const sel=document.getElementById('w_projekt');sel.innerHTML='<option value="">– wybierz projekt –</option>'+proj.map(p=>`<option value="${p.id}">${p.nazwa}</option>`).join('');}
@@ -1501,33 +1434,17 @@ function renderProjekty(){
     const zysk=p.wartosc-(kosztP+wypl),procZal=p.wartosc>0?Math.min(100,(p.zaliczka/p.wartosc*100)):0;
     const bc=p.status==='zakończony'?'badge-green':p.status==='realizacja'?'badge-blue':p.status==='umowa'?'badge-orange':'badge-red';
     return`<div class="list-card"><div class="list-hdr" onclick="this.nextElementSibling.style.display=this.nextElementSibling.style.display==='none'?'block':'none'">
-      <span style="font-weight:700;font-size:14px">📁 ${p.nazwa}</span><span class="badge ${bc}">${p.status}</span>
-      ${k?`<span class="chip">👤 ${k.imie}</span>`:''}
-      <span class="chip" style="background:#e8f5e9;color:#2e7d32">${fmtPln(p.wartosc)}</span>
-      <span class="chip" style="background:#e8f0fe;color:#1565c0">VAT ${p.vat||8}%</span>
+      <span style="font-weight:700;font-size:14px">📁 ${p.nazwa}</span><span class="badge ${bc}">${p.status}</span>${k?`<span class="chip">👤 ${k.imie}</span>`:''}<span class="chip" style="background:#e8f5e9;color:#2e7d32">${fmtPln(p.wartosc)}</span><span class="chip" style="background:#e8f0fe;color:#1565c0">VAT ${p.vat||8}%</span>
       <div style="margin-left:auto;display:flex;gap:4px"><button class="btn btn-secondary btn-sm" onclick="event.stopPropagation();editProjekt(${p.id})">✏️</button><button class="btn btn-danger btn-sm" onclick="event.stopPropagation();if(confirm('Usunąć?')){projekty=projekty.filter(x=>x.id!==${p.id});save();renderProjekty()}">✕</button></div>
     </div><div class="list-body">
-      <div class="stat-grid">
-        <div class="stat-box"><div class="stat-val">${fmtPln(p.wartosc)}</div><div class="stat-lbl">Wartość umowy</div></div>
-        <div class="stat-box"><div class="stat-val">${fmtPln(p.zaliczka)}</div><div class="stat-lbl">Zaliczka</div></div>
-        <div class="stat-box"><div class="stat-val">${fmtPln(kosztP+wypl)}</div><div class="stat-lbl">Koszty łączne</div></div>
-        <div class="stat-box"><div class="stat-val" style="color:${zysk>=0?'#2e7d32':'#c00'}">${fmtPln(zysk)}</div><div class="stat-lbl">Zysk szac.</div></div>
-        <div class="stat-box"><div class="stat-val">${gt}h</div><div class="stat-lbl">Godziny</div></div>
-        <div class="stat-box"><div class="stat-val">${fmtPln(wypl)}</div><div class="stat-lbl">Wynagrodzenia</div></div>
-      </div>
-      <div style="font-size:11px;color:#888">Zaliczka: ${procZal.toFixed(0)}%</div>
-      <div class="prog-bar"><div class="prog-fill" style="width:${procZal}%"></div></div>
-      ${p.data_start||p.data_end?`<div style="font-size:11px;color:#888;margin-top:6px">📅 ${p.data_start||'?'} → ${p.data_end||'?'}</div>`:''}
-
-      <!-- SZYBKI FORMULARZ KOSZTÓW -->
+      <div class="stat-grid"><div class="stat-box"><div class="stat-val">${fmtPln(p.wartosc)}</div><div class="stat-lbl">Wartość umowy</div></div><div class="stat-box"><div class="stat-val">${fmtPln(p.zaliczka)}</div><div class="stat-lbl">Zaliczka</div></div><div class="stat-box"><div class="stat-val">${fmtPln(kosztP+wypl)}</div><div class="stat-lbl">Koszty łączne</div></div><div class="stat-box"><div class="stat-val" style="color:${zysk>=0?'#2e7d32':'#c00'}">${fmtPln(zysk)}</div><div class="stat-lbl">Zysk szac.</div></div><div class="stat-box"><div class="stat-val">${gt}h</div><div class="stat-lbl">Godziny</div></div><div class="stat-box"><div class="stat-val">${fmtPln(wypl)}</div><div class="stat-lbl">Wynagrodzenia</div></div></div>
+      <div style="font-size:11px;color:#888">Zaliczka: ${procZal.toFixed(0)}%</div><div class="prog-bar"><div class="prog-fill" style="width:${procZal}%"></div></div>
       <div style="margin-top:10px;background:#f8f9ff;border-radius:8px;padding:10px">
         <div style="font-size:11px;font-weight:700;color:#aaa;text-transform:uppercase;margin-bottom:6px">Dodaj koszt / przychód</div>
         <div style="display:flex;gap:6px;flex-wrap:wrap;align-items:center">
           <input type="text" id="kp_opis_${p.id}" placeholder="Opis..." style="border:1.5px solid #e0e0e0;border-radius:5px;padding:5px 8px;font-size:12px;flex:1;min-width:120px">
           <input type="number" id="kp_kwota_${p.id}" placeholder="Kwota" step="0.01" style="border:1.5px solid #e0e0e0;border-radius:5px;padding:5px 8px;font-size:12px;width:90px">
-          <select id="kp_typ_${p.id}" style="border:1.5px solid #e0e0e0;border-radius:5px;padding:5px 8px;font-size:12px">
-            <option value="koszt">Koszt</option><option value="przychod">Przychód</option>
-          </select>
+          <select id="kp_typ_${p.id}" style="border:1.5px solid #e0e0e0;border-radius:5px;padding:5px 8px;font-size:12px"><option value="koszt">Koszt</option><option value="przychod">Przychód</option></select>
           <button class="btn btn-primary btn-sm" onclick="szybkiKoszt(${p.id})">Dodaj</button>
         </div>
       </div>
@@ -1539,19 +1456,10 @@ function renderProjekty(){
     </div></div>`;
   }).join('');
 }
-function szybkiKoszt(pid){
-  const opis=document.getElementById(`kp_opis_${pid}`).value.trim();
-  const kwota=+document.getElementById(`kp_kwota_${pid}`).value;
-  const typ=document.getElementById(`kp_typ_${pid}`).value;
-  if(!opis||!kwota){alert('Podaj opis i kwotę!');return;}
-  koszty.push({proj_id:pid,opis,kwota,kat:typ==='przychod'?'przychód':'inne',typ});
-  document.getElementById(`kp_opis_${pid}`).value='';
-  document.getElementById(`kp_kwota_${pid}`).value='';
-  save();renderProjekty();
-}
+function szybkiKoszt(pid){const opis=document.getElementById(`kp_opis_${pid}`).value.trim(),kwota=+document.getElementById(`kp_kwota_${pid}`).value,typ=document.getElementById(`kp_typ_${pid}`).value;if(!opis||!kwota){alert('Podaj opis i kwotę!');return;}koszty.push({proj_id:pid,opis,kwota,kat:typ==='przychod'?'przychód':'inne',typ});document.getElementById(`kp_opis_${pid}`).value='';document.getElementById(`kp_kwota_${pid}`).value='';save();renderProjekty();}
 function editProjekt(id){const p=projekty.find(x=>x.id===id);if(!p)return;editProjektId=id;document.getElementById('mp_nazwa').value=p.nazwa;document.getElementById('mp_klient').value=p.klient_id||'';document.getElementById('mp_status').value=p.status;document.getElementById('mp_vat').value=p.vat||8;document.getElementById('mp_data_start').value=p.data_start||'';document.getElementById('mp_data_end').value=p.data_end||'';document.getElementById('mp_wartosc').value=p.wartosc||'';document.getElementById('mp_zaliczka').value=p.zaliczka||'';document.getElementById('mp_uwagi').value=p.uwagi||'';document.getElementById('mp_title').textContent='Edytuj projekt';openModal('m_projekt');}
-function renderKosztyP(pid){const ks=koszty.filter(x=>x.proj_id===pid);if(!ks.length)return'';return`<div style="margin-top:10px"><div style="font-size:11px;font-weight:700;color:#aaa;text-transform:uppercase;margin-bottom:5px">Koszty / Przychody projektu</div>${ks.map((k,i)=>`<div style="display:flex;justify-content:space-between;font-size:12px;padding:3px 0;border-bottom:1px solid #f5f5f5"><span>${k.opis} <span style="color:#aaa">(${k.kat||k.typ||''})</span></span><div style="display:flex;gap:6px;align-items:center"><span style="font-weight:600;color:${k.typ==='przychod'?'#2e7d32':'#c00'}">${k.typ==='przychod'?'+':'-'}${fmtPln(k.kwota)}</span><button class="btn btn-danger btn-sm" onclick="koszty.splice(koszty.indexOf(koszty.filter(x=>x.proj_id===${pid})[${i}]),1);save();renderProjekty()">✕</button></div></div>`).join('')}</div>`;}
-function renderGodzinyP(pid){const gs=godziny.filter(x=>x.proj_id===pid);if(!gs.length)return'';return`<div style="margin-top:10px"><div style="font-size:11px;font-weight:700;color:#aaa;text-transform:uppercase;margin-bottom:5px">Godziny pracy</div>${gs.map(g=>{const pr=pracownicy.find(x=>x.id===g.prac_id);return`<div style="display:flex;justify-content:space-between;font-size:12px;padding:3px 0;border-bottom:1px solid #f5f5f5"><span>${pr?pr.imie:'?'} · ${g.godz}h · ${g.data||''} ${g.opis?'· '+g.opis:''}</span><span style="font-weight:600">${fmtPln((pr?pr.stawka:0)*g.godz)}</span></div>`;}).join('')}</div>`;}
+function renderKosztyP(pid){const ks=koszty.filter(x=>x.proj_id===pid);if(!ks.length)return'';return`<div style="margin-top:10px"><div style="font-size:11px;font-weight:700;color:#aaa;text-transform:uppercase;margin-bottom:5px">Koszty / Przychody</div>${ks.map((k,i)=>`<div style="display:flex;justify-content:space-between;font-size:12px;padding:3px 0;border-bottom:1px solid #f5f5f5"><span>${k.opis}</span><div style="display:flex;gap:6px;align-items:center"><span style="font-weight:600;color:${k.typ==='przychod'?'#2e7d32':'#c00'}">${k.typ==='przychod'?'+':'-'}${fmtPln(k.kwota)}</span><button class="btn btn-danger btn-sm" onclick="koszty.splice(koszty.indexOf(koszty.filter(x=>x.proj_id===${pid})[${i}]),1);save();renderProjekty()">✕</button></div></div>`).join('')}</div>`;}
+function renderGodzinyP(pid){const gs=godziny.filter(x=>x.proj_id===pid);if(!gs.length)return'';return`<div style="margin-top:10px"><div style="font-size:11px;font-weight:700;color:#aaa;text-transform:uppercase;margin-bottom:5px">Godziny pracy</div>${gs.map(g=>{const pr=pracownicy.find(x=>x.id===g.prac_id);return`<div style="display:flex;justify-content:space-between;font-size:12px;padding:3px 0;border-bottom:1px solid #f5f5f5"><span>${pr?pr.imie:'?'} · ${g.godz}h · ${g.data||''}</span><span>${fmtPln((pr?pr.stawka:0)*g.godz)}</span></div>`;}).join('')}</div>`;}
 function openDodajKoszt(pid){document.getElementById('mk2_proj_id').value=pid;document.getElementById('mk2_opis').value='';document.getElementById('mk2_kwota').value='';openModal('m_koszt');}
 function zapiszKoszt(){const pid=+document.getElementById('mk2_proj_id').value;const opis=document.getElementById('mk2_opis').value.trim();if(!opis){alert('Podaj opis!');return;}koszty.push({proj_id:pid,opis,kwota:+document.getElementById('mk2_kwota').value||0,kat:document.getElementById('mk2_kat').value});closeModal('m_koszt');save();renderProjekty();}
 function openDodajGodziny(pid){document.getElementById('mg_proj').innerHTML='<option value="">– brak –</option>'+projekty.map(p=>`<option value="${p.id}"${p.id===pid?' selected':''}>${p.nazwa}</option>`).join('');document.getElementById('mg_prac').innerHTML=pracownicy.map(p=>`<option value="${p.id}">${p.imie}</option>`).join('');document.getElementById('mg_data').valueAsDate=new Date();document.getElementById('mg_godz').value=8;document.getElementById('mg_opis').value='';openModal('m_godziny');}
@@ -1566,28 +1474,18 @@ function renderPracownicy(){
     const now=new Date(),ym=now.getFullYear()+'-'+(now.getMonth()+1).toString().padStart(2,'0');
     const gtM=godziny.filter(x=>x.prac_id===p.id&&(x.data||'').startsWith(ym)).reduce((s,x)=>s+x.godz,0);
     return`<div class="list-card"><div class="list-hdr" onclick="this.nextElementSibling.style.display=this.nextElementSibling.style.display==='none'?'block':'none'">
-      <span style="font-weight:700;font-size:14px">👷 ${p.imie}</span>
-      <span class="chip">${p.stawka} zł/h</span><span class="badge badge-blue">${p.umowa}</span>
-      <span class="chip" style="background:#e8f5e9;color:#2e7d32">${gtM}h ten miesiąc</span>
+      <span style="font-weight:700;font-size:14px">👷 ${p.imie}</span><span class="chip">${p.stawka} zł/h</span><span class="badge badge-blue">${p.umowa}</span><span class="chip" style="background:#e8f5e9;color:#2e7d32">${gtM}h ten miesiąc</span>
       <div style="margin-left:auto;display:flex;gap:4px"><button class="btn btn-secondary btn-sm" onclick="event.stopPropagation();editPrac(${p.id})">✏️</button><button class="btn btn-danger btn-sm" onclick="event.stopPropagation();if(confirm('Usunąć?')){pracownicy=pracownicy.filter(x=>x.id!==${p.id});save();renderPracownicy()}">✕</button></div>
     </div><div class="list-body">
-      <div class="stat-grid">
-        <div class="stat-box"><div class="stat-val">${gt}h</div><div class="stat-lbl">Łącznie wszystkie</div></div>
-        <div class="stat-box"><div class="stat-val">${gtM}h</div><div class="stat-lbl">Ten miesiąc</div></div>
-        <div class="stat-box"><div class="stat-val">${fmtPln(gt*p.stawka)}</div><div class="stat-lbl">Łączne zarobki</div></div>
-        <div class="stat-box"><div class="stat-val">${fmtPln(gtM*p.stawka)}</div><div class="stat-lbl">Ten miesiąc zł</div></div>
-      </div>
-      ${p.tel?`<div style="font-size:12px;margin-bottom:3px">📞 ${p.tel}</div>`:''}
-      ${p.email?`<div style="font-size:12px">✉️ ${p.email}</div>`:''}
-      <div style="margin-top:10px"><div style="font-size:11px;font-weight:700;color:#aaa;text-transform:uppercase;margin-bottom:5px">Ostatnie wpisy</div>
-        ${godziny.filter(x=>x.prac_id===p.id).slice(-5).reverse().map(g=>{const pr2=projekty.find(x=>x.id===g.proj_id);return`<div style="display:flex;justify-content:space-between;font-size:12px;padding:3px 0;border-bottom:1px solid #f5f5f5"><span>${g.data||'–'} · ${g.godz}h ${g.opis?'· '+g.opis:''}</span><span style="color:#aaa;font-size:11px">${pr2?pr2.nazwa:''}</span></div>`;}).join('')||'<div style="font-size:12px;color:#aaa">Brak wpisów</div>'}
-      </div>
+      <div class="stat-grid"><div class="stat-box"><div class="stat-val">${gt}h</div><div class="stat-lbl">Łącznie</div></div><div class="stat-box"><div class="stat-val">${gtM}h</div><div class="stat-lbl">Ten miesiąc</div></div><div class="stat-box"><div class="stat-val">${fmtPln(gt*p.stawka)}</div><div class="stat-lbl">Łączne zarobki</div></div><div class="stat-box"><div class="stat-val">${fmtPln(gtM*p.stawka)}</div><div class="stat-lbl">Ten miesiąc zł</div></div></div>
+      ${p.tel?`<div style="font-size:12px;margin-bottom:3px">📞 ${p.tel}</div>`:''}${p.email?`<div style="font-size:12px">✉️ ${p.email}</div>`:''}
+      <div style="margin-top:10px"><div style="font-size:11px;font-weight:700;color:#aaa;text-transform:uppercase;margin-bottom:5px">Ostatnie wpisy</div>${godziny.filter(x=>x.prac_id===p.id).slice(-5).reverse().map(g=>{const pr2=projekty.find(x=>x.id===g.proj_id);return`<div style="display:flex;justify-content:space-between;font-size:12px;padding:3px 0;border-bottom:1px solid #f5f5f5"><span>${g.data||'–'} · ${g.godz}h ${g.opis?'· '+g.opis:''}</span><span style="color:#aaa;font-size:11px">${pr2?pr2.nazwa:''}</span></div>`;}).join('')||'<div style="font-size:12px;color:#aaa">Brak wpisów</div>'}</div>
       <button class="btn btn-secondary btn-sm" style="margin-top:8px" onclick="openDodajGodzinyPrac(${p.id})">⏱️ Dodaj godziny</button>
     </div></div>`;
   }).join('');
 }
 function editPrac(id){const p=pracownicy.find(x=>x.id===id);if(!p)return;editPracId=id;document.getElementById('mpr_imie').value=p.imie;document.getElementById('mpr_tel').value=p.tel||'';document.getElementById('mpr_email').value=p.email||'';document.getElementById('mpr_stawka').value=p.stawka||'';document.getElementById('mpr_umowa').value=p.umowa||'zlecenie';document.getElementById('mpr_uwagi').value=p.uwagi||'';document.getElementById('mpr_title').textContent='Edytuj pracownika';openModal('m_pracownik');}
-function openDodajGodzinyPrac(pid){if(!projekty.length&&!confirm('Brak projektów. Dodać godziny bez projektu?'))return;document.getElementById('mg_proj').innerHTML='<option value="">– brak –</option>'+projekty.map(p=>`<option value="${p.id}">${p.nazwa}</option>`).join('');document.getElementById('mg_prac').innerHTML=pracownicy.map(p=>`<option value="${p.id}"${p.id===pid?' selected':''}>${p.imie}</option>`).join('');document.getElementById('mg_data').valueAsDate=new Date();document.getElementById('mg_godz').value=8;document.getElementById('mg_opis').value='';openModal('m_godziny');}
+function openDodajGodzinyPrac(pid){if(!projekty.length&&!confirm('Brak projektów. Dodać bez projektu?'))return;document.getElementById('mg_proj').innerHTML='<option value="">– brak –</option>'+projekty.map(p=>`<option value="${p.id}">${p.nazwa}</option>`).join('');document.getElementById('mg_prac').innerHTML=pracownicy.map(p=>`<option value="${p.id}"${p.id===pid?' selected':''}>${p.imie}</option>`).join('');document.getElementById('mg_data').valueAsDate=new Date();document.getElementById('mg_godz').value=8;document.getElementById('mg_opis').value='';openModal('m_godziny');}
 function refreshPracSelects(){const sel=document.getElementById('kal_prac_filter');if(!sel)return;const v=sel.value;sel.innerHTML='<option value="">Wszyscy</option>'+pracownicy.map(p=>`<option value="${p.id}">${p.imie}</option>`).join('');sel.value=v;}
 
 // ══ KALENDARZ ══
@@ -1596,43 +1494,63 @@ function kalNext(){kalDate=new Date(kalDate.getFullYear(),kalDate.getMonth()+1,1
 function renderKalendarz(){
   document.getElementById('kal_title').textContent=MIESIAC_PL[kalDate.getMonth()]+' '+kalDate.getFullYear();
   const filtPrac=document.getElementById('kal_prac_filter')?.value||'';
-  const rok=kalDate.getFullYear(),mies=kalDate.getMonth();
-  const pierwszy=new Date(rok,mies,1);
-  let dzienTyg=(pierwszy.getDay()+6)%7;
-  const ostatni=new Date(rok,mies+1,0).getDate();
-  const today=new Date();
-  const todayStr=today.getFullYear()+'-'+(today.getMonth()+1).toString().padStart(2,'0')+'-'+today.getDate().toString().padStart(2,'0');
+  const rok=kalDate.getFullYear(),mies=kalDate.getMonth(),pierwszy=new Date(rok,mies,1);
+  let dzienTyg=(pierwszy.getDay()+6)%7,ostatni=new Date(rok,mies+1,0).getDate();
+  const today=new Date(),todayStr=today.getFullYear()+'-'+(today.getMonth()+1).toString().padStart(2,'0')+'-'+today.getDate().toString().padStart(2,'0');
   let html=DNI.map(d=>`<div class="kal-hdr">${d}</div>`).join('');
   for(let i=0;i<dzienTyg;i++)html+=`<div class="kal-day other-month"><div class="kal-num"></div></div>`;
   for(let d=1;d<=ostatni;d++){
     const dateStr=rok+'-'+(mies+1).toString().padStart(2,'0')+'-'+d.toString().padStart(2,'0');
     const dGs=godziny.filter(g=>(g.data||'')==dateStr&&(!filtPrac||g.prac_id==filtPrac));
     const totalH=dGs.reduce((s,x)=>s+x.godz,0);
-    const isToday=dateStr===todayStr;
     const pracNames=[...new Set(dGs.map(g=>{const p=pracownicy.find(x=>x.id===g.prac_id);return p?p.imie.split(' ')[0]:'';}))].join(',');
-    html+=`<div class="kal-day${isToday?' today':''}${totalH>0?' has-work':''}" onclick="showDzien('${dateStr}')">
-      <div class="kal-num">${d}</div>
-      ${totalH>0?`<div class="kal-godz">${totalH}h</div><div class="kal-proj">${pracNames}</div>`:''}
-    </div>`;
+    html+=`<div class="kal-day${dateStr===todayStr?' today':''}${totalH>0?' has-work':''}" onclick="showDzien('${dateStr}')"><div class="kal-num">${d}</div>${totalH>0?`<div class="kal-godz">${totalH}h</div><div style="color:#888;font-size:9px">${pracNames}</div>`:''}</div>`;
   }
   document.getElementById('kal_grid').innerHTML=html;
 }
 function showDzien(dateStr){
   const gs=godziny.filter(g=>(g.data||'')==dateStr);
   document.getElementById('m_dzien_title').textContent='Godziny – '+dateStr;
-  if(!gs.length){document.getElementById('m_dzien_lista').innerHTML='<div style="color:#aaa;font-size:13px">Brak wpisów</div>';openModal('m_dzien');return;}
-  document.getElementById('m_dzien_lista').innerHTML=gs.map((g,i)=>{
-    const pr=pracownicy.find(x=>x.id===g.prac_id);
-    const proj=projekty.find(x=>x.id===g.proj_id);
-    return`<div style="display:flex;justify-content:space-between;align-items:center;padding:7px 0;border-bottom:1px solid #f5f5f5">
-      <div><div style="font-weight:700;font-size:13px">${pr?pr.imie:'?'} – ${g.godz}h</div>
-      <div style="font-size:11px;color:#888">${proj?proj.nazwa:''} ${g.opis?'· '+g.opis:''}</div></div>
-      <button class="btn btn-danger btn-sm" onclick="usunGodziny(${i},'${dateStr}')">✕</button>
-    </div>`;
-  }).join('');
+  document.getElementById('m_dzien_lista').innerHTML=gs.length?gs.map((g,i)=>{const pr=pracownicy.find(x=>x.id===g.prac_id),proj=projekty.find(x=>x.id===g.proj_id);return`<div style="display:flex;justify-content:space-between;align-items:center;padding:7px 0;border-bottom:1px solid #f5f5f5"><div><div style="font-weight:700">${pr?pr.imie:'?'} – ${g.godz}h</div><div style="font-size:11px;color:#888">${proj?proj.nazwa:''} ${g.opis?'· '+g.opis:''}</div></div><button class="btn btn-danger btn-sm" onclick="usunGodziny(${i},'${dateStr}')">✕</button></div>`;}).join(''):'<div style="color:#aaa;font-size:13px">Brak wpisów</div>';
   openModal('m_dzien');
 }
-function usunGodziny(localIdx,dateStr){const gs=godziny.filter(g=>(g.data||'')==dateStr);const toRemove=gs[localIdx];if(!toRemove)return;const globalIdx=godziny.indexOf(toRemove);if(globalIdx>=0)godziny.splice(globalIdx,1);save();renderKalendarz();renderPracownicy();showDzien(dateStr);}
+function usunGodziny(localIdx,dateStr){const gs=godziny.filter(g=>(g.data||'')==dateStr),toRemove=gs[localIdx];if(!toRemove)return;const gi=godziny.indexOf(toRemove);if(gi>=0)godziny.splice(gi,1);save();renderKalendarz();renderPracownicy();showDzien(dateStr);}
+
+// ══ FINANSE ══
+function renderFinanse(){
+  const miesiac=document.getElementById('fin_miesiac').value,typFilter=document.getElementById('fin_typ_filter').value;
+  document.getElementById('fin_stan_pocz').value=finanse.stan_poczatkowy||'';
+  let trxAll=transakcje;if(miesiac)trxAll=trxAll.filter(t=>(t.data||'').startsWith(miesiac));
+  const przychody=trxAll.filter(t=>t.typ==='przychod').reduce((s,t)=>s+t.kwota,0);
+  const kosztySuma=trxAll.filter(t=>t.typ==='koszt').reduce((s,t)=>s+t.kwota,0);
+  const zysk=przychody-kosztySuma,saldo=(finanse.stan_poczatkowy||0)+przychody-kosztySuma;
+  const vatNalezny=trxAll.filter(t=>t.typ==='przychod'&&t.vat>0).reduce((s,t)=>s+t.kwota*(t.vat/(100+t.vat)),0);
+  const vatNaliczony=trxAll.filter(t=>t.typ==='koszt'&&t.vat>0).reduce((s,t)=>s+t.kwota*(t.vat/(100+t.vat)),0);
+  const vatDoZaplaty=vatNalezny-vatNaliczony;
+  const przychodNetto=trxAll.filter(t=>t.typ==='przychod').reduce((s,t)=>s+t.kwota*(1-t.vat/(100+t.vat)),0);
+  document.getElementById('fin_stats').innerHTML=`
+    <div class="fin-stat saldo"><div class="val">${fmtPln(saldo)}</div><div class="lbl">Stan konta</div></div>
+    <div class="fin-stat przychody"><div class="val">${fmtPln(przychody)}</div><div class="lbl">Przychody brutto</div></div>
+    <div class="fin-stat koszty"><div class="val">${fmtPln(kosztySuma)}</div><div class="lbl">Koszty brutto</div></div>
+    <div class="fin-stat zysk"><div class="val">${fmtPln(zysk)}</div><div class="lbl">Zysk brutto</div></div>
+    <div class="fin-stat vat" style="background:${vatDoZaplaty>=0?'linear-gradient(135deg,#c62828,#e53935)':'linear-gradient(135deg,#2e7d32,#43a047)'}"><div class="val">${fmtPln(Math.abs(vatDoZaplaty))}</div><div class="lbl">VAT ${vatDoZaplaty>=0?'do zapłaty':'nadwyżka'}</div></div>
+    <div class="fin-stat" style="background:linear-gradient(135deg,#555,#777)"><div class="val">${fmtPln(przychodNetto)}</div><div class="lbl">Przychody netto</div></div>`;
+  let trx=transakcje;if(miesiac)trx=trx.filter(t=>(t.data||'').startsWith(miesiac));if(typFilter)trx=trx.filter(t=>t.typ===typFilter);
+  const lista=document.getElementById('trx_lista');
+  lista.innerHTML=trx.sort((a,b)=>(b.data||'').localeCompare(a.data||'')).map(t=>{const proj=projekty.find(p=>p.id===t.proj_id);return`<div class="trx-row"><span style="color:#888">${t.data||'–'}</span><span>${t.opis||'–'}</span><span style="font-weight:700;color:${t.typ==='przychod'?'#2e7d32':'#c00'}">${t.typ==='przychod'?'+':'−'}${fmtPln(t.kwota)}</span><span style="font-size:11px;color:#888">${t.vat}%</span><span style="font-size:11px;color:#aaa">${proj?proj.nazwa:''}</span><button class="btn btn-danger btn-sm" onclick="transakcje=transakcje.filter(x=>x.id!==${t.id});save();renderFinanse()">✕</button></div>`;}).join('')||'<div style="color:#aaa;font-size:12px;padding:10px 0">Brak transakcji</div>';
+  renderKosztyStale();
+}
+function dodajTransakcje(){const opis=document.getElementById('trx_opis').value.trim(),kwota=+document.getElementById('trx_kwota').value;if(!opis||!kwota){alert('Podaj opis i kwotę!');return;}transakcje.push({id:nextTrxId++,data:document.getElementById('trx_data').value,opis,kwota,vat:+document.getElementById('trx_vat').value,typ:document.getElementById('trx_typ').value,proj_id:+document.getElementById('trx_proj').value||null});document.getElementById('trx_opis').value='';document.getElementById('trx_kwota').value='';save();renderFinanse();}
+function zapiszKosztStaly(){const nazwa=document.getElementById('ks_nazwa').value.trim();if(!nazwa){alert('Podaj nazwę!');return;}kosztyStale.push({id:nextKsId++,nazwa,kwota:+document.getElementById('ks_kwota').value||0,dzien:+document.getElementById('ks_dzien').value||1,vat:+document.getElementById('ks_vat').value,uwagi:document.getElementById('ks_uwagi').value});closeModal('m_koszt_staly');save();renderKosztyStale();sprawdzAlerty();}
+function renderKosztyStale(){const el=document.getElementById('koszty_stale_lista');if(!kosztyStale.length){el.innerHTML='<div style="color:#aaa;font-size:12px">Brak kosztów stałych</div>';return;}const dzis=new Date().getDate();el.innerHTML=kosztyStale.map((k,i)=>{const dni=k.dzien-dzis,alert=dni>=0&&dni<=5;return`<div class="koszt-staly${alert?' alert':''}"><div style="flex:1"><div style="font-weight:600">${k.nazwa}${alert?` <span style="color:#e65100">⏰ ${dni===0?'DZIŚ!':'za '+dni+' dni'}</span>`:''}</div><div style="font-size:11px;color:#888">${fmtPln(k.kwota)} · VAT ${k.vat}% · ${k.dzien}. każdego miesiąca</div></div><button class="btn btn-danger btn-sm" onclick="kosztyStale.splice(${i},1);save();renderKosztyStale()">✕</button></div>`;}).join('');}
+function sprawdzAlerty(){const dzis=new Date().getDate(),alerty=kosztyStale.filter(k=>k.dzien-dzis>=0&&k.dzien-dzis<=5);const el=document.getElementById('alerty_koszty');if(!alerty.length){el.innerHTML='';return;}el.innerHTML=alerty.map(k=>{const dni=k.dzien-dzis;return`<div class="alert-box"><div style="font-weight:700">⏰ Zbliża się płatność${dni===0?' – DZIŚ!':' – za '+dni+(dni===1?' dzień':' dni')}</div><div>${k.nazwa} · ${fmtPln(k.kwota)} · ${k.dzien}. dnia miesiąca</div></div>`;}).join('');}
+function importCSV(inp){const f=inp.files[0];if(!f)return;const r=new FileReader();r.onload=e=>{const lines=e.target.result.split('\n').filter(l=>l.trim());let imported=0;lines.forEach((line,idx)=>{if(idx===0)return;const cols=line.split(/[,;]/).map(c=>c.trim().replace(/"/g,''));if(cols.length<3)return;const data=cols[0]||'',opis=cols[1]||cols[2]||'import',kwotaRaw=(cols[3]||cols[2]||'0').replace(',','.');const kwota=Math.abs(parseFloat(kwotaRaw)||0);const typ=parseFloat(kwotaRaw)<0?'koszt':'przychod';if(!kwota)return;transakcje.push({id:nextTrxId++,data:data.slice(0,10),opis,kwota,vat:23,typ,proj_id:null});imported++;});save();renderFinanse();alert(`✓ Zaimportowano ${imported} transakcji.`);};r.readAsText(f,'windows-1250');}
+
+// ══ USTAWIENIA ══
+function loadUstawienia(){['nazwa','slogan','adres','tel','email','www','nip','krs','regon','stopka'].forEach(k=>{const el=document.getElementById('firma_'+k);if(el)el.value=firma[k]||'';});}
+function zapiszUstawienia(){['nazwa','slogan','adres','tel','email','www','nip','krs','regon','stopka'].forEach(k=>{const el=document.getElementById('firma_'+k);if(el)firma[k]=el.value;});save();alert('✓ Zapisano!');}
+function eksportDanych(){const d=JSON.stringify({szafki,baza,historia,klienci,projekty,pracownicy,godziny,koszty,transakcje,kosztyStale,finanse,katalog,firma},null,2);const a=document.createElement('a');a.href='data:application/json;charset=utf-8,'+encodeURIComponent(d);a.download='meblopro_backup_'+new Date().toISOString().slice(0,10)+'.json';a.click();}
+function importDanych(inp){const f=inp.files[0];if(!f)return;const r=new FileReader();r.onload=e=>{try{const d=JSON.parse(e.target.result);if(d.szafki)szafki=d.szafki;if(d.baza)baza=d.baza;if(d.historia)historia=d.historia;if(d.klienci)klienci=d.klienci;if(d.projekty)projekty=d.projekty;if(d.pracownicy)pracownicy=d.pracownicy;if(d.godziny)godziny=d.godziny;if(d.koszty)koszty=d.koszty;if(d.transakcje)transakcje=d.transakcje;if(d.kosztyStale)kosztyStale=d.kosztyStale;if(d.finanse)finanse=d.finanse;if(d.katalog)katalog=d.katalog;if(d.firma)firma={...firma,...d.firma};save();renderLista();alert('✓ Import zakończony!');}catch(ex){alert('Błąd: '+ex.message);}};r.readAsText(f);}
 
 // ══ INIT ══
 load();
@@ -1640,7 +1558,9 @@ document.getElementById('data').valueAsDate=new Date();
 document.getElementById('trx_data').valueAsDate=new Date();
 document.getElementById('fin_miesiac').value=new Date().toISOString().slice(0,7);
 refreshMatSelects();refreshKlientSelects();refreshPracSelects();
-renderLista();renderKalendarz();sprawdzAlerty();
+initQuickAdd();renderLista();renderKalendarz();sprawdzAlerty();
+// Ustawienia firmy defaults
+if(!firma.nazwa)firma={...firma,nazwa:'MSS WOOD DESIGN Sp. z o.o.',adres:'Wersalska 47/75, 90-212 Łódź',tel:'605 386 847',email:'kontakt@wnetrzazpasja.pl',www:'wnetrzazpasja.pl',nip:'9472007600',stopka:'Oferta ważna 30 dni od daty wystawienia.'};
 </script>
 </body>
 </html>
